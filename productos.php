@@ -8,6 +8,18 @@
 	<?php
 		include("conexion.inc");
 		$boton=$_POST['botonProducto'];
+		if($boton=="bebida")
+		{
+			header ("Location: bebida.php");			
+		}
+		else if($boton=="comida")
+		{
+			header ("Location: comida.html");			
+		}
+		else if($boton=="limpieza")
+		{
+			header ("Location: comida.html");			
+		}/*
 		$consulta="select * from categorias inner join productos on categorias.id_categoria=productos.id_categoria where nombre_categoria like '%".$boton."%'";
 		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
 		$c =mysqli_num_rows($resp);
@@ -18,15 +30,15 @@
 		}
 		else 
 		{
-			/*echo "<center><strong>RESULTADOS DE BUSQUEDA</strong></center><br>";
+			echo "<center><strong>RESULTADOS DE BUSQUEDA</strong></center><br>";
 			while($cat = mysqli_fetch_array($resp)) 
 			{
      			echo ($cat['nombre_producto']); 
 				echo "<br>";
 			} 		
-			echo "<a href='productos.html'>Vover al buscador</a>";*/
-			header ("Location: index.html"); /* ABRE LA PAGINA HTML DSD PHP*/
-		}
+			echo "<a href='productos.html'>Vover al buscador</a>";
+			header ("Location: index.html"); 
+		}*/
 	?>
 	</body>
 </html>

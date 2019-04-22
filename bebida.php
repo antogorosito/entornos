@@ -37,7 +37,18 @@
 		  </form>
 		</nav>
 		<div class="cuerpo">
-LIMPIEZA
+		<?php
+		include("conexion.inc");
+		$consulta="select * from categorias inner join productos on categorias.id_categoria=productos.id_categoria where categorias.id_categoria =2";
+		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
+		$c =mysqli_num_rows($resp);
+		while($cat = mysqli_fetch_array($resp)) 
+		{
+     	?><label><?php	$cat['nombre_producto'] ?></label>
+		<?php
+		} 		
+
+		?>
 		</div>
 		<div class="footer"> 
 			<div class="col33">Supermercado SAV </div>
