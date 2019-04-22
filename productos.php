@@ -7,24 +7,25 @@
 	<body>
 	<?php
 		include("conexion.inc");
-		$palabra=$_POST['lupa'];
-		$consulta="select * from productos where nombre_producto like '%".$palabra."%'";
+		$boton=$_POST['botonProducto'];
+		$consulta="select * from categorias inner join productos on categorias.id_categoria=productos.id_categoria where nombre_categoria like '%".$boton."%'";
 		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
 		$c =mysqli_num_rows($resp);
 		if( $c == 0) 
 		{
 			echo "No hay resultados respecto a la palabra que busca.";	
-			echo "<a href='index.html'>Volver al inicio</a>";
+			echo "<a href='productos.html'>Volver al inicio</a>";
 		}
 		else 
 		{
-			echo "<center><strong>RESULTADOS DE BUSQUEDA</strong></center><br>";
+			/*echo "<center><strong>RESULTADOS DE BUSQUEDA</strong></center><br>";
 			while($cat = mysqli_fetch_array($resp)) 
 			{
      			echo ($cat['nombre_producto']); 
-     			echo "<br>";
-     			echo "<a href='index.html'>Vover al buscador</a>";
+				echo "<br>";
 			} 		
+			echo "<a href='productos.html'>Vover al buscador</a>";*/
+			header ("Location: index.html"); /* ABRE LA PAGINA HTML DSD PHP*/
 		}
 	?>
 	</body>
