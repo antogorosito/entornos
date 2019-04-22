@@ -38,17 +38,47 @@
 		</nav>
 		<div class="cuerpo">
 			<h2 class="titInicio">Iniciar sesion </h2>
-			<div class="formulario">
-				<form action="iniciarSesion.php" method="post" name="formIniciarSesion">
-					<label>Usuario</label>
-					<input type="text" name="usuario" />
-					<label>Clave</label>
-					<input type="text" name="clave" />
+		
+			
+			<form action="iniciarSesion.php" class="needs-validation" id="formIniciarSesion" name="formIniciarSesion" method="post" novalidate>
+				<div class="form-group" id="in">
+					<label for="uname">Usuario:</label>
+					<input type="text" class="form-control" placeholder="Ingrese su usuario" name="usuario" required>
+					<div class="invalid-feedback">Completar este campo.</div>
+				</div>
+				<div class="form-group">
+					<label for="pwd">Clave:</label>
+					<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" required>
+					<div class="invalid-feedback">Completar este campo.</div>
+				</div>
+				<div class="form-group">
 					<a href="#" id="olvido">Olvide la clave</a>
-					<input type="submit" value="Iniciar sesion" name="iniciarSesion" />
-					<a href="registrar.html" id="registrarme">Registracion </a> <!-- que sea onda un boton -->
-				</form>
-			</div>
+				</div>
+				<button type="submit" class="btn btn-primary" id="registrarme">Registracion</button>
+			</form>
+			
+			
+			<!--ANALIZAR EL SCRIPT PORQUE NO SE QUE HACE-->
+			<script> 
+// Disable form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
 		</div>
 		<div class="footer">
 			<div class="col33">Supermercado SAV </div>
