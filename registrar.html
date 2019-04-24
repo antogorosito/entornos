@@ -41,7 +41,7 @@
 			<h3 class="titInicio"> Datos personales</h3>
 			<div id="formulario">
 				<form action="registracion.php" method="post" name="formRegistracion">
-					<table width="300" id="tabla" >
+				<!--	<table width="300" id="tabla" >
 						<tr>
 							<td><label>Nombre</label></td>
 							<td><input type="text" name="nombre" c /></td>
@@ -92,10 +92,96 @@
 							<td>&nbsp;</td>
 							<td>&nbsp;</td>
 						</tr>
-					</table>
-					</br>
-					<input type="submit" value="Registrar" name="registrar" />
-					</br>
+					</table>-->
+					<div id="reg" class="col50">
+						<div class="row">
+							<div class="form-group col40">
+								<label for="n">Nombre:</label>
+								<input type="text" class="form-control" placeholder="Ingrese su nombre" name="nombre" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="esp"></div>
+							<div class="form-group col40">
+								<label for="a">Apellido:</label>
+								<input type="text" class="form-control" placeholder="Ingrese su apellido" name="apellido" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col40">
+								<label for="u">Usuario:</label>
+								<input type="text" class="form-control" placeholder="Ingrese su usuario" name="usuario" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="esp"></div>
+							<div class="form-group col40">
+								<label for="c">Clave:</label>
+								<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col40">
+								<label for="e">Email:</label>
+								<input type="email" class="form-control" placeholder="Ingrese su email" name="email" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="esp"></div>
+							<div class="form-group col40">
+								<label for="d">Dni:</label>
+								<input type="text" class="form-control" placeholder="Ingrese su dni" name="dni" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="form-group col40"> <!-- VER TEMA DIRECCION, CUANDO SE GUARDA UNO LAS 4 -->
+								<label for="di">Direccion:</label>
+								<input type="text" class="form-control" placeholder="Ingrese calle" name="calle" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="espacio2"></div>
+							<div class="form-group col15">
+								<label class="textoblanco">l</label>
+								<input type="number" class="form-control" placeholder="Numero" name="num" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="espacio2"></div>
+							<div class="form-group col15"> 
+								<label class="textoblanco">l</label>
+								<input type="text" class="form-control" placeholder="Piso" name="piso"> 
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="espacio2"></div>
+							<div class="form-group col15"> 
+								<label class="textoblanco">l</label> <!-- sino ver usar un margin o algo sino se levanta-->
+								<input type="text" class="form-control" placeholder="Dpto" name="dpto" >
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col15"> <!-- VER TEMA FECHAS, PARA QUE QUEDE BIEN, CUANDO SE GUARDA UNO CODIGO Y TELEFONO-->
+								<label for="t">Telefono:</label>
+								<input type="number" class="form-control" placeholder="Codigo" name="codigo" id="tel1" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="espacio2"></div>
+							<div class="form-group col40"> 
+							<label class="textoblanco">l </label>
+								<input type="number" class="form-control" placeholder="Ingrese su telefono" name="telefono" id="tel2" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+												<div class="row">
+							<div class="form-group col40">
+								<label for="fn">Fecha de nacimiento:</label>
+								<input type="date" class="form-control" placeholder="Ingrese su cumpleaños" name="cumpleanios" required>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<button type="submit" class="btn btn-success" name="botonReg">Registrar</button> <!-- centrar o costado derecho-->
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>

@@ -37,18 +37,27 @@
 		  </form>
 		</nav>
 		<div class="cuerpo">
-		<?php
-		include("conexion.inc");
-		$consulta="select * from categorias inner join productos on categorias.id_categoria=productos.id_categoria where categorias.id_categoria =2";
-		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
-		$c =mysqli_num_rows($resp);
-		while($cat = mysqli_fetch_array($resp)) 
-		{
-     	?><label><?php	$cat['nombre_producto'] ?></label>
-		<?php
-		} 		
-
-		?>
+			<form action="invento.php" id="formProductos" name="formProductos" method="post" >
+				<?php
+				include("conexion.inc");
+				$consulta="select * from categorias inner join productos on categorias.id_categoria=productos.id_categoria where categorias.id_categoria =2";
+				$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));
+				while($cat = mysqli_fetch_array($resp)) 
+				{?>
+					<div class="card colu33" >
+						<img src="#" class="card-img-top imgPr"/> <!-- VER TEMA FOTOS, PORQUE 
+						NO SE HACE CON BLOOB QUIZAS PQ NO LO MUESTRA-->
+						<div class="card-body titInicio">
+							<h1><?php echo $cat['nombre_producto'];?></h1>
+							<h3 class="precio">$ <?php echo $cat['precio'];?></h3>
+							<h6>Stock: <?php echo $cat['stock'];?></h6>
+							<button type="submit" name="botonBebida" class="btn btn-primary" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
+						</div>
+					</div>
+				
+				<?php }
+				?>
+			</form>
 		</div>
 		<div class="footer"> 
 			<div class="col33">Supermercado SAV </div>

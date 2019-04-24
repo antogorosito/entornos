@@ -8,6 +8,22 @@
 	padding-top:5px;
 	padding-bottom:10px;
 }
+.colu33
+{
+	width:33.3%;
+	float:left;
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:10px;	
+}
+.espacio2
+{
+	margin-right:12px;
+}
+.esp
+{
+	margin-right:5vw;
+}
 #formIniciarSesion
 { 
 	margin-left:30vw;
@@ -18,15 +34,33 @@
 	margin-left:30vw;
 	margin-right:30vw;
 }
-.form-group /* lo use en login*/
+.textoblanco
+{
+	color:white;
+}
+#reg
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+.top /* lo use en login*/
 {
 	margin-top:5vh;
+}
+.col40
+{
+	width:40%;
+	float:left;
 }
 .col50
 {
 	width:50%;
 }
-
+.col15
+{
+	width:15%;
+	float:left;
+}
 .col20
 {
 	width:20%;
@@ -65,6 +99,15 @@
 .titInicio
 {
 	text-align:center;
+}
+.precio
+{
+	color:red;
+}
+.imgPr
+{
+	width:20vh;
+	height:25vh;	
 }
 .imgP
 {
@@ -109,7 +152,6 @@
 }
 .footer
 {
-	border-top:solid 1px black;
 	bottom: 0;
 	width: 100%;
 }

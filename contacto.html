@@ -39,48 +39,29 @@
 		<div class="cuerpo">
 			<h2 class="titInicio">Formulario de contacto </h2>
 			<div class="formulario">
-				<form action="contacto.php" method="post" class="needs-validation" id="formContacto" name="formContacto">
+				<form action="contacto.php" method="post" class="needs-validation" id="formContacto" name="formContacto"> <!-- la validacion la haria con javscript -->
 					<div class="form-group" >
 						<label for="nomape">Nombre y apellido:</label>
-						<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nomApe" required>
+						<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nomApe" >
 						<div class="invalid-feedback">Completar este campo.</div>
 					</div>
 					<div class="form-group">
 						<label for="em">Email:</label>
-						<input type="text" class="form-control" placeholder="Ingrese su email" name="emailC" required>
+						<input type="text" class="form-control" placeholder="Ingrese su email" name="emailC" >
 						<div class="invalid-feedback">Completar este campo.</div>
 					</div>
 					<div class="form-group" >
 						<label for="te">Telefono:</label> <!--Arreglar el telefono-->
-						<input type="number" class="form-control" placeholder="Ingrese su telefono" name="telC" required>
+						<input type="number" class="form-control" placeholder="Ingrese su telefono" name="telC" >
 						<div class="invalid-feedback">Completar este campo.</div>
 					</div>
 					<div class="form-group">
 						<label for="ar">Mensaje</label>
-						<textarea class="form-control" name="texto" placeholder="Ingrese su mensaje" required></textarea>
+						<textarea class="form-control" name="texto" placeholder="Ingrese su mensaje" ></textarea>
 					</div>
-			        <button type="submit"  name="Submit">Enviar mensaje</button>
+			        <button type="submit" class="btn btn-success" name="Submit">Enviar mensaje</button>
 				</form>
-				<script> 
-// Disable form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Get the forms we want to add validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
+			
 			</div>
 		</div>
 		<div class="footer"> 

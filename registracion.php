@@ -15,8 +15,8 @@
 	$vClave=$_POST['clave'];
 	$vEmail=$_POST['email'];
 	$vDni=$_POST['dni'];
-	$vDireccion=$_POST['direccion'];
-	$vTelefono=$_POST['telefono'];
+	$vDireccion=$_POST['direccion']; //falta concatenar calle,nro, piso, dpto
+	$vTelefono=$_POST['telefono']; //falta concatenar codigo,tel 
 	$vFecha=$_POST['cumpleanios'];
 	// armo sql y ejecuto
 	$vSql="select count(dni) from usuarios where dni='$vDni'";
@@ -24,8 +24,7 @@
 	$cantidad = mysqli_fetch_assoc($vResultado);
 	if($cantidad['count(dni)'] > 0)
 	{
-		echo("El usuario ya existe <br>");
-		echo("<a href='index.html'>Volver al inicio </a>");
+		header ("Location: registrar.html");
 	}
 	else
 	{
@@ -33,8 +32,7 @@
 		mysqli_query($link,$vSql) or die(mysqli_error($link));
 		$vSql="insert into usuarios(usuario,clave,dni) values('$vUsuario','$vClave','$vDni')";
 		mysqli_query($link,$vSql) or die(mysqli_error($link));						
-		echo("El usuario fue registrado con exito <br>");
-		echo("<a href='index.html'>Volver al inicio</a>");
+		header ("Location: index.html");
 		
 	}
 	//libero resultados 
