@@ -166,11 +166,17 @@ footer
 	border-top:solid 1px black;
   	width: 100%;
 	background-color:#343A40;
+	position:absolute;
+	bottom: 0;
+	left:0;
+	
 }
 .footer-container
 {
 	width: 100%;
 	background-color:#343A40;
+	
+	
 }
 .footer-main
 {
@@ -179,7 +185,8 @@ footer
 	display:flex;
 	flex-wrap: wrap;
 	justify-content:space-between;
-	padding:20px 0;
+	padding:10px 0;
+	
 }
 .footer-main .footer-columna
 {
@@ -195,4 +202,8 @@ footer
 .footer-main .footer-columna:nth-child(2)
 {
 	padding: 0 20px;
+}
+html {
+  min-height: 100%;
+  position: relative;
 }
