@@ -143,7 +143,8 @@
 
 .cuerpo
 {
-	padding:30px;
+	padding-bottom: 15vh;
+	padding-top: 5vh;
 }
 ul,li
 { 
@@ -206,4 +207,9 @@ footer
 html {
   min-height: 100%;
   position: relative;
+}
+body
+{
+	margin: 0;
+	margin-bottom: 20px;
 }
