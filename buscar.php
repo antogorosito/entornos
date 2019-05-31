@@ -44,8 +44,9 @@
 		$c =mysqli_num_rows($resp);
 		if( $c == 0) 
 		{
-			echo "No hay resultados respecto a la palabra que busca.";	
-			echo "<a href='index.html'>Volver al inicio</a>";
+			?>
+			<h3>No se encontraron coincidencias con <?php echo $palabra?></h3>
+			<?php
 		}
 		else 
 		{?>
