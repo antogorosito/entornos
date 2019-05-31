@@ -15,8 +15,8 @@
 	$vClave=$_POST['clave'];
 	$vEmail=$_POST['email'];
 	$vDni=$_POST['dni'];
-	$vDireccion=$_POST['direccion']; //falta concatenar calle,nro, piso, dpto
-	$vTelefono=$_POST['telefono']; //falta concatenar codigo,tel 
+	$vDireccion=$_POST['calle'] .' '. $_POST['num'] .' '. $_POST['piso'] .' '. $_POST['dpto']; 
+	$vTelefono=$_POST['codigo'] .' '. $_POST['telefono'];
 	$vFecha=$_POST['cumpleanios'];
 	// armo sql y ejecuto
 	$vSql="select count(dni) from usuarios where dni='$vDni'";
@@ -28,7 +28,7 @@
 	}
 	else
 	{
-		$vSql="insert into personas(dni, nombre, apellido, mail,direccion, telefono, fechaNac) values('$vDni','$vNombre','$vApellido','$vEmail','$vDireccion','$vTelefono','$vFecha')"; 		//falta incorporar la fecha de nacimiento
+		$vSql="insert into personas(dni, nombre, apellido, mail,direccion, telefono, fechaNac) values('$vDni','$vNombre','$vApellido','$vEmail','$vDireccion','$vTelefono','$vFecha')"; 
 		mysqli_query($link,$vSql) or die(mysqli_error($link));
 		$vSql="insert into usuarios(usuario,clave,dni) values('$vUsuario','$vClave','$vDni')";
 		mysqli_query($link,$vSql) or die(mysqli_error($link));						
