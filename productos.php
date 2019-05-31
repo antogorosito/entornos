@@ -37,7 +37,7 @@
 		  </form>
 		</nav>
 		<div id="cuerpo">
-		
+			
 			<form action="invento.php" id="formProductos" name="formProductos" method="post" >
 			<?php
 			
@@ -45,6 +45,9 @@
 				$boton=$_POST['botonProducto'];
 				$consulta="select id_producto ,precio,stock,nombre_producto from categorias inner join productos on categorias.id_categoria=productos.id_categoria where categorias.nombre_categoria = '$boton'";
 				$resp = mysqli_query($link,$consulta);
+				?>
+				<h3> Resultados de <?php echo $boton?></h3>
+				<?php
 				while($cat = mysqli_fetch_array($resp)) 
 				{?>
 					<div class="card col33" >
