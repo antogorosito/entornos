@@ -1,4 +1,4 @@
-.colu33
+.col33
 {
 	width:33.3%;
 	float:left;
@@ -37,6 +37,7 @@
 {
 	margin-top:5vh;
 }
+
 .col40
 {
 	width:40%;
@@ -45,6 +46,19 @@
 .col50
 {
 	width:50%;
+}
+.col50in
+{
+	width:30%;
+	margin-left: 17vw;
+	margin-right:0vw;
+	margin-top:5vh;
+}
+#col50d
+{
+	margin-left: 3vw;
+	margin-right:15vw;
+	
 }
 .col15
 {
@@ -76,6 +90,10 @@
 	font-size:20px;
 	margin-left:50%;
 }
+.titP
+{
+	font-size: 14px;
+}
 #titulo
 {
 	width:35%;
@@ -106,9 +124,10 @@
 }
 .imgI
 {
-	width:25vw;
-	height:30vh;
-	margin-left:15vw;
+	width:20vw;
+	height:20vh;
+	margin-left:5vw;
+	margin-right:5vw;
 }
 #somos
 {
@@ -213,3 +232,4 @@ body
 	margin: 0;
 	margin-bottom: 20px;
 }
+
