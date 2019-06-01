@@ -35,6 +35,8 @@
 			<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 		  </form>
 		</nav>
+		<div class="cuerpo">
+		
 		<form action="invento.php" id="formProductos" name="formProductos" method="post" >
 	<?php
 		include("conexion.inc");
@@ -50,15 +52,15 @@
 		}
 		else 
 		{?>
-			<h2>Resultados de la busqueda</h2>
+			<h2 class="titPro" >Resultados de la busqueda</h2>
 	<?php
 			while($cat = mysqli_fetch_array($resp)) 
 			{?>
 				<div class="card col33" >
 					<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
 					<div class="card-body titInicio">
-						<h1><?php echo $cat['nombre_producto'];?></h1>
-						<h3 class="precio">$ <?php echo $cat['precio'];?></h3>
+						<h3><?php echo $cat['nombre_producto'];?></h3>
+						<h4 class="precio">$ <?php echo $cat['precio'];?></h4>
 						<h6>Stock: <?php echo $cat['stock'];?></h6>
 						<button type="submit" name="botonBebida" class="btn btn-primary" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
 					</div>
@@ -68,6 +70,7 @@
 		}
 	?>
 		</form>
+		</div>
 	<footer>
 		<div class="footer-container">
 		  <div class="footer-main">
@@ -79,3 +82,4 @@
 		</footer>
 	</body>
 </html>
+
