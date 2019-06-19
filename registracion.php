@@ -24,7 +24,13 @@
 	$cantidad = mysqli_fetch_assoc($vResultado);
 	if($cantidad['count(dni)'] > 0)
 	{
-		header ("Location: registrar.php"); 
+		//header ("Location: registrar.php"); 
+	?>	<script> 
+					
+					alert('El usuario que desea usar ya existe en nuestra base de datos!!');
+					window.location= 'registrar.php'
+			 </script>
+			 <?php
 	}
 	else
 	{
