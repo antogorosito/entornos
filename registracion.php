@@ -6,9 +6,7 @@
 </head>
 	<body>
 	<?php
-	//incluyo bd
-		include("conexion.inc"); 
-	//	datos del formulario
+	include("conexion.inc"); 
 	$vNombre=$_POST['nombre'];
 	$vApellido=$_POST['apellido'];
 	$vUsuario=$_POST['usuario'];
@@ -18,19 +16,18 @@
 	$vDireccion=$_POST['calle'] .' '. $_POST['num'] .' '. $_POST['piso'] .' '. $_POST['dpto']; 
 	$vTelefono=$_POST['codigo'] .' '. $_POST['telefono'];
 	$vFecha=$_POST['cumpleanios'];
-	// armo sql y ejecuto
 	$vSql="select count(dni) from usuarios where dni='$vDni'";
 	$vResultado=mysqli_query($link,$vSql) or die(mysqli_error($link));
 	$cantidad = mysqli_fetch_assoc($vResultado);
 	if($cantidad['count(dni)'] > 0)
 	{
-		//header ("Location: registrar.php"); 
-	?>	<script> 
-					
-					alert('El usuario que desea usar ya existe en nuestra base de datos!!');
-					window.location= 'registrar.php'
-			 </script>
-			 <?php
+	//header ("Location: registrar.php"); 
+		?>	
+		<script> 
+			alert('El usuario que desea usar ya existe en nuestra base de datos!!');
+			window.location= 'registrar.php'
+		</script>
+		<?php
 	}
 	else
 	{

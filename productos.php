@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -33,41 +36,42 @@
 			}
 			else
 			{
-				echo " <a class='btn btn-outline-success' href='#'>Cerrar sesion</a>";
+				echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
 			}?>		
 			</li>
 		  </ul>
 		  <form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
-			<input class="form-control mr-sm-2" type="text" name="lupa" placeholder="Ingrese el producto" />
+			<input class="form-control mr-sm-2" type="text" name="lupa"  />
 			<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 		  </form>
 		</nav>
 		<div class="cuerpo">
-			<h2 class="titInicio">Productos </h2> 
+			<h2 class="titInicio verde">Productos </h2> 
 			<form action="productosSecundario.php" id="formProductos" name="formProductos" method="post" >
 					<div class="row">
-						<div class="card col33" >
+						<div class="cardProducto col20Prod izq" >
 							<img src="bebidas.jpg" class="card-img-top imgP"/>
 							<div class="card-body titInicio">
-								<button type="submit" name="botonProducto" class="btn btn-primary" value="bebidas">Bebida</button>
+								<button type="submit" name="botonProducto" class="btn btn-success" value="bebidas">Bebida</button>
 							</div>
 						</div>
-						<div class="card col33">
+						<div class="cardProducto col20Prod">
 							<img src="comida.jpg" class="card-img-top imgP"/>
 							<div class="card-body titInicio">
-								<button type="submit" name="botonProducto" class="btn btn-primary" value="alimentos">Comida</button>
+								<button type="submit" name="botonProducto" class="btn btn-success" value="alimentos">Comida</button>
 							</div>
 						</div>
-						<div class="card col33" >
+
+						<div class="cardProducto col20Prod" >
 							<img src="limpieza.jpg" class="card-img-top imgP"/>
 							<div class="card-body titInicio">
-								<button type="submit"  name="botonProducto" class="btn btn-primary" value="limpieza">Limpieza</button>
+								<button type="submit"  name="botonProducto" class="btn btn-success" value="limpieza">Limpieza</button>
 							</div>
 						</div>	
-						<div class="card col33" >
+						<div class="cardProducto col20Prod" >
 							<img src="perfumeria.jpg" class="card-img-top imgP"/>
 							<div class="card-body titInicio">
-								<button type="submit"  name="botonProducto" class="btn btn-primary" value="perfumeria">Perfumeria</button>
+								<button type="submit"  name="botonProducto" class="btn btn-success" value="perfumeria">Perfumeria</button>
 							</div>
 						</div>		
 					</div>

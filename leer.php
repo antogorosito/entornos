@@ -11,4 +11,8 @@ $contenido=$imagen['foto'];
 
 header("Content-type:image/jpg");
 echo $contenido;
+	//libero resultados 
+	mysqli_free_result($resp);
+	//cierro conexion
+	mysqli_close($link);
 ?>

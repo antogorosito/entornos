@@ -10,6 +10,21 @@
 	padding-top:5px;
 	padding-bottom:10px;	
 }
+.col20Prod
+{
+	width:20%;
+	float:left;
+	text-align:center;
+	margin-right:1vw;
+	margin-top:2vh;
+	margin-bottom:2vh;
+	padding-top:5px;
+	padding-bottom:10px;	
+}
+.izq
+{
+	margin-left:3vw;
+}
 .espacio2
 {
 	margin-right:12px;
@@ -41,10 +56,10 @@
 {
 	margin-top:5vh;
 }
-.card
+.cardProducto
 {
 	margin-bottom:3vh;
-	width: 25vw;
+	width: 23vw;
 	height: 65vh;
 }
 .col40
@@ -116,6 +131,7 @@
 #titulo2
 {
 	text-align:center;
+	margin-bottom:2vh;
 }
 .titInicio
 {
@@ -151,6 +167,13 @@
 {
 	padding-left:200px;
 	padding-right:200px;
+	margin-bottom:5vh;
+}
+#textoIndex
+{
+	text-align:justify;
+	padding-left:10vw;
+	padding-right:10vw;
 }
 .marketing
 {
@@ -184,11 +207,19 @@
 	padding-top: 5vh;
 	overflow:scroll;
 }
+#cartas
+{
+	margin-bottom:10vh;
+}
+#gps
+{
+	text-align:center;
+
+}
 ul,li
 { 
 	display:inline; 
 }
-
 li 
 {
 	margin-left:25px;
@@ -264,6 +295,8 @@ body
 {
 	margin-top:5vh;
 }
-
-
+.verde
+{
+	color:green;
+}
 

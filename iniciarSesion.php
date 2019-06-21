@@ -1,6 +1,5 @@
 <?php 
 	session_start();
-	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,12 +11,9 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<!-- Brand/logo -->
 			<a class="navbar-brand" href="index.html">
 				<img src="titulo.jpg" alt="Logo" style="width:15vw;" />		  
 			</a>
-			
-  <!-- Links -->
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a class="nav-link" href="index.php">Home</a>			
@@ -38,12 +34,12 @@
 				}
 				else
 				{
-					echo " <a class='btn btn-outline-success' href='#'>Cerrar sesion</a>";
+					echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
 				}?>
 				</li>
 			</ul>
 			<form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
-				<input class="form-control mr-sm-2" type="text" name="lupa" placeholder="buscar" />
+				<input class="form-control mr-sm-2" type="text" name="lupa"  />
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
 		</nav>
@@ -89,6 +85,7 @@
 					$_SESSION['fecha'] = $fecha;
 					$_SESSION['dni'] = $dni;
 					header ("Location: index.php");
+					
 				}
 				else
 				{
