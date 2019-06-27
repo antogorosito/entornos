@@ -84,7 +84,14 @@
 					$_SESSION['direccion'] = $direccion;
 					$_SESSION['fecha'] = $fecha;
 					$_SESSION['dni'] = $dni;
-					header ("Location: index.php");
+					if($persona['tipo_usuario']==1)
+					{
+						header ("Location: index.php");
+					}
+					else
+					{
+						header ("Location: homeAdmin.php");
+					}
 					
 				}
 				else
@@ -107,7 +114,22 @@
 		{
 			header ("Location: registrar.php");
 		}
-		else{
+		else
+		{ //olvido contraseña.
+	$vUsuario=$_POST['usuario'];
+			$consulta="select * from usuarios inner join personas on personas.dni=usuarios.dni where usuario='$vUsuario'";
+			$resp = mysqli_query($link,$consulta);
+			$user = mysqli_fetch_assoc($resp);
+			$fecha=date("d-m-Y");
+			$hora= date("H :i:s");
+			$destino="antonellabj21@gmail.com";
+			$asunto="Comentario";
+			$desde=$user['mail'];
+			$comentario= $_POST['text'];
+			mail($destino,$asunto,$comentario,$desde);
+			echo ("Su consulta ha sido enviada, en breve recibira nuestra respuesta.");
+			echo ("<a href='index.php'>Volver al inicio</a>");
+			
 			header ("Location: index.php");
 		}
 	?>

@@ -57,10 +57,10 @@
 					<div class="invalid-feedback">Completar este campo.</div>
 			<!--	</div>
 				<div class="form-group ">-->
-					<a id="btnO" class="btn " name="botonInicio" value="olvido">Olvide la contraseña</a>	
+					<button id="btnO" class="btn " name="botonInicio" value="olvido">Olvide la contraseña</button>	
 				</div> 
-				<button type="submit" id="btnI" class="btn btn-success" name="botonInicio" value="inicio">Iniciar sesion</button>
-				<button type="submit" id="btnR" class="btn btn-outline-success" name="botonInicio" value="registro">Registracion</button>
+				<button id="btnI" class="btn btn-success" name="botonInicio" value="inicio">Iniciar sesion</button>
+				<button id="btnR" class="btn btn-outline-success" name="botonInicio" value="registro">Registracion</button>
 			</form>
 		</div>
 		<footer>

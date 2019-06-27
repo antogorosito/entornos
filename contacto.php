@@ -44,7 +44,7 @@
 		  </form>
 		</nav>
 		<div class="cuerpo">
-			<h2 class="titInicio">Formulario de contacto </h2>
+			<h2 class="titInicio verde">Formulario de contacto </h2>
 			<div class="formulario">
 				<form action="contactoSecundario.php" method="post" class="needs-validation" id="formContacto" name="formContacto"> <!-- la validacion la haria con javscript -->
 					<div class="form-group" >

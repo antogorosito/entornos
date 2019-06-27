@@ -48,7 +48,7 @@
 		<?php
 		include("conexion.inc");
 		$palabra=$_POST['lupa'];
-		$consulta="select * from productos where nombre_producto like '".$palabra."%'";
+		$consulta="select * from productos where nombre_producto like '".$palabra."%' order by nombre_producto";
 		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
 		$c =mysqli_num_rows($resp);
 		if( $c == 0) 
@@ -63,15 +63,20 @@
 		<?php
 			while($cat = mysqli_fetch_array($resp)) 
 			{?>
-				<div class="cardProducto col33" >
-					<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
-					<div class="card-body titInicio">
-						<h3><?php echo $cat['nombre_producto'];?></h3>
-						<h4 class="precio">$ <?php echo $cat['precio'];?></h4>
-						<h6>Stock: <?php echo $cat['stock'];?></h6>
-						<button type="submit" name="botonBebida" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
+				<div class=" card cardProducto col33" >
+						<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
+						<div class="card-body ">
+							<div class="primeroCard">
+								<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
+								<h5 class="verde">$ <?php echo $cat['precio'];?></h5>
+								<h6>Stock: <?php echo $cat['stock'];?></h6>
+							</div>
+							<div class="segundoCard">
+								<button type="submit" name="botonBebida" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
+							</div>
+						</div>
 					</div>
-				</div>
+				
      		<?php
 			} 		
 		}

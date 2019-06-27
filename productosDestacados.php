@@ -29,13 +29,13 @@
 			</li>
 			<li class="nav-item">		
 		<?php	if(!isset($_SESSION["usuario"]))
-	{ 
-		echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
-	}
-	else
-	{
-		echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
-	}?>
+		{ 
+			echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
+		}
+		else
+		{
+			echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
+		}?>
 			</li>
 		  </ul>
 		  <form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
@@ -44,7 +44,7 @@
 		  </form>
 		</nav>		
 		<div class="cuerpo">
-productos destacados
+			<h2 class="titInicio verde">Productos destacados </h2>
 		</div>
 		<footer>
 		<div class="footer-container">
