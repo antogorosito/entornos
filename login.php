@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -44,7 +44,7 @@
 			</form>
 		</nav>
 		<div class="cuerpo">
-			<h2 class="titInicio">Iniciar sesion </h2>
+			<h2 class="titInicio verde">Iniciar sesion </h2>
 			<form action="iniciarSesion.php" class="needs-validation" id="formIniciarSesion" name="formIniciarSesion" method="post" >
 				<div class="form-group top">
 					<label for="uname">Usuario:</label>
@@ -55,9 +55,9 @@
 					<label for="pwd">Clave:</label>
 					<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" >
 					<div class="invalid-feedback">Completar este campo.</div>
-				</div>
-				<div class="form-group top">
-					<button type="submit" id="btnO" class="btn btn-light" name="botonInicio" value="olvido">Olvide la contraseña</button>	
+			<!--	</div>
+				<div class="form-group ">-->
+					<a id="btnO" class="btn " name="botonInicio" value="olvido">Olvide la contraseña</a>	
 				</div> 
 				<button type="submit" id="btnI" class="btn btn-success" name="botonInicio" value="inicio">Iniciar sesion</button>
 				<button type="submit" id="btnR" class="btn btn-outline-success" name="botonInicio" value="registro">Registracion</button>

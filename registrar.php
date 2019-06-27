@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
-		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -44,8 +44,8 @@
 		  </form>
 		</nav>
 		<div class="cuerpo">
-			<h2 class="titInicio">Registracion de usuario </h2>
-			<h3 class="titInicio"> Datos personales</h3>
+			<h2 class="titInicio verde">Registracion de usuario </h2>
+			<!--<h3 class="titInicio"> Datos personales</h3> -->
 			<div id="formulario">
 				<form action="registracion.php" method="post" name="formRegistracion">
 					<div id="reg" class="col50">
@@ -134,7 +134,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<button type="submit" class="btn btn-success" name="botonReg">Registrar</button>
+							<button type="submit" class="btn btn-success" id="botonReg" name="botonReg">Registrar</button>
 						</div>
 					</div>
 				</form>

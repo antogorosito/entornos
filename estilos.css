@@ -1,3 +1,13 @@
+.leerMas
+{
+	width:50%;
+	margin-left:auto;
+	margin-right:auto;
+}
+#btnO
+{
+	color:green;
+}
 .col33
 {
 	width:30%;
@@ -55,6 +65,11 @@
 .top /* lo use en login*/
 {
 	margin-top:5vh;
+}
+#botonReg
+{
+	margin-left:auto;
+	margin-right:5vw;
 }
 .cardProducto
 {
