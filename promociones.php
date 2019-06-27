@@ -45,24 +45,24 @@
 		</nav>		
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Descuentos </h2>
-			<div class="row">
-				<div class="card col50" >
+			<div class="row top">
+				<div class="card cardProm cardIzq" >
 					<img class="img-circle imgI" src="promo1.jpg"  />				
 				</div>
-				<div class="card col50" >
+				<div class="card cardProm cardDer" >
 					<img class="img-circle imgI" src="promo2.jpg"  />				
 				</div>
 			</div>
 			<div class="row">
-				<div class="card col50in" >
+				<div class="card  cardProm cardIzq" >
 					<img class="img-circle imgI" src="promo3.jpg" />				
 				</div>
-				<div class="card col50in" >
+				<div class="card cardProm cardDer" >
 					<img class="img-circle imgI" src="promo4.jpg"  />				
 				</div>
 			</div>
 			<div class="row">
-				<div class="card col50in" >
+				<div class="card  cardProm cardIzq" >
 					<img class="img-circle imgI" src="promo5.jpg" />				
 				</div>
 			</div>

@@ -3,6 +3,7 @@
 	width:50%;
 	margin-left:auto;
 	margin-right:auto;
+	margin-bottom:1vw;
 }
 #btnO
 {
@@ -76,7 +77,9 @@
 	margin-bottom:3vh;
 	width: 23vw;
 	height: 65vh;
+	
 }
+
 .col40
 {
 	width:40%;
@@ -84,7 +87,20 @@
 }
 .col50
 {
-	width:50%;
+	width:50%
+}
+.cardProm
+{
+	width:30vw;
+	margin-bottom:1vw;
+}
+.cardIzq
+{
+	margin-left:15vw;
+}
+.cardDer
+{
+	margin-left:10vw;
 }
 .col50in
 {
@@ -152,6 +168,7 @@
 {
 	text-align:center;
 }
+
 .precio
 {
 	color:red;
@@ -288,6 +305,7 @@ footer
 {
 	padding: 0 20px;
 }
+/*
 html {
   min-height: 100%;
 }
@@ -295,7 +313,7 @@ body
 {
 	margin: 0;
 	margin-bottom: 20px;
-}
+}*/
 #btnR
 {
 	margin-left:8vw;

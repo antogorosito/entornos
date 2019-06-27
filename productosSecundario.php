@@ -61,7 +61,7 @@
 						<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
 						<div class="card-body titInicio">
 							<h3><?php echo $cat['nombre_producto'];?></h3>
-							<h4 class="precio">$ <?php echo $cat['precio'];?></h4>
+							<h4 class="verde">$ <?php echo $cat['precio'];?></h4>
 							<h6>Stock: <?php echo $cat['stock'];?></h6>
 							<button type="submit" name="botonBebida" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
 						</div>
