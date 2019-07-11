@@ -7,7 +7,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
-		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -29,13 +32,16 @@
 			</li>
 			<li class="nav-item">		
 			<?php	if(!isset($_SESSION["usuario"]))
-	{ 
-		echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
-	}
-	else
-	{
-		echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
-	}?>
+			{ 
+				echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
+			}
+			else
+			{
+				echo "<div class='btn-group'>
+				<button type='button' class='btn btn-outline-success dropdown-toggle' data-toggle='dropdown'>
+				".$_SESSION['nombre']."
+				</button><div class='dropdown-menu'><a class='dropdown-item' href='cerrarSesion.php'>Cerrar sesion</a></div></div> ";
+			}?>
 			</li>
 		  </ul>
 		  <form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
@@ -45,31 +51,23 @@
 		</nav>
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Formulario de contacto </h2>
-			<div class="formulario">
-				<form action="contactoSecundario.php" method="post" class="needs-validation" id="formContacto" name="formContacto"> <!-- la validacion la haria con javscript -->
-					<div class="form-group" >
-						<label for="nomape">Nombre y apellido:</label>
-						<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nomApe" >
-						<div class="invalid-feedback">Completar este campo.</div>
-					</div>
-					<div class="form-group">
-						<label for="em">Email:</label>
-						<input type="text" class="form-control" placeholder="Ingrese su email" name="emailC" >
-						<div class="invalid-feedback">Completar este campo.</div>
-					</div>
-					<div class="form-group" >
-						<label for="te">Telefono:</label> <!--Arreglar el telefono-->
-						<input type="number" class="form-control" placeholder="Ingrese su telefono" name="telC" >
-						<div class="invalid-feedback">Completar este campo.</div>
-					</div>
-					<div class="form-group">
-						<label for="ar">Mensaje</label>
-						<textarea class="form-control" name="texto" placeholder="Ingrese su mensaje" ></textarea>
-					</div>
-			        <button type="submit" class="btn btn-success" name="Submit">Enviar mensaje</button>
-				</form>
-			
-			</div>
+			<form action="contactoSecundario.php" method="post" class="needs-validation formulario"  name="formContacto"> <!-- la validacion la haria con javscript -->
+				<div class="form-group" >
+					<label for="nomape">Nombre y apellido:</label>
+					<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nomApe" >
+					<div class="invalid-feedback">Completar este campo.</div>
+				</div>
+				<div class="form-group">
+					<label for="em">Email:</label>
+					<input type="text" class="form-control" placeholder="Ingrese su email" name="emailC" >
+				<div class="invalid-feedback">Completar este campo.</div>
+				</div>				
+				<div class="form-group">
+					<label for="ar">Mensaje</label>
+					<textarea class="form-control" name="msjmail" id="msjmail" placeholder="Ingrese su mensaje" ></textarea>
+				</div>
+			       <button type="submit" class="btn btn-success" name="Submit">Enviar mensaje</button>
+			</form>
 		</div>
 		<footer>
 		<div class="footer-container">

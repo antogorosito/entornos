@@ -7,6 +7,9 @@
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -28,14 +31,17 @@
 			  <a class="nav-link" href="carrito.html">Carrito</a>
 			</li>
 			<li class="nav-item">		
-		<?php	if(!isset($_SESSION["usuario"]))
-	{ 
-		echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
-	}
-	else
-	{
-		echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
-	}?>
+			<?php	if(!isset($_SESSION["usuario"]))
+			{ 
+				echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
+			}
+			else
+			{
+				echo "<div class='btn-group'>
+				<button type='button' class='btn btn-outline-success dropdown-toggle' data-toggle='dropdown'>
+				".$_SESSION['nombre']."
+				</button><div class='dropdown-menu'><a class='dropdown-item' href='cerrarSesion.php'>Cerrar sesion</a></div></div> ";
+			}?>
 			</li>
 		  </ul>
 		  <form class="form-inline" action="buscar.php" method="post" name="FormBuscador">

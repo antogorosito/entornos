@@ -8,6 +8,9 @@
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -43,14 +46,13 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
 		</nav>
-	<?php
+<?php
 		include("conexion.inc");
 		$boton=$_POST['botonInicio'];
 		if($boton=="inicio")
 		{
 			$vUsuario=$_POST['usuario'];
 			$vClave=$_POST['clave'];
-			// armo sql y ejecuto
 			$vSql="select count(usuario) from usuarios where usuario='$vUsuario'";
 			$vResultado=mysqli_query($link,$vSql) or die(mysqli_error($link));
 			$cantidad = mysqli_fetch_assoc($vResultado);
@@ -64,7 +66,7 @@
 				$cantClave = mysqli_fetch_assoc($vResultado);
 				if($cantClave['count(usuario)'] > 0)
 				{
-					$vSql="select nombre, apellido, personas.dni,mail,direccion,telefono,fechaNac
+					$vSql="select nombre, apellido, personas.dni,mail,direccion,telefono,fechaNac,tipo_usuario
 						  from personas inner join usuarios on usuarios.dni=personas.dni
 						  where usuario='$vUsuario' and clave='$vClave'";
 					$vResultado=mysqli_query($link,$vSql) or die(mysqli_error($link));
@@ -77,6 +79,7 @@
 					$telefono=$persona['telefono'];
 					$fecha=$persona['fechaNac'];
 					$nomPersona=$nombre.' '.$apellido;
+					$tipo=$persona['tipo_usuario'];
 					$_SESSION['nombre'] = $nomPersona;
 					$_SESSION['mail'] = $mail;
 					$_SESSION['usuario'] = $vUsuario;
@@ -84,15 +87,14 @@
 					$_SESSION['direccion'] = $direccion;
 					$_SESSION['fecha'] = $fecha;
 					$_SESSION['dni'] = $dni;
-					if($persona['tipo_usuario']==1)
+					if($tipo==1)
 					{
-						header ("Location: index.php");
+						 echo "<script> window.location='index.php'; </script>";
 					}
 					else
 					{
-						header ("Location: homeAdmin.php");
-					}
-					
+						 echo "<script> window.location='homeAdmin.php'; </script>";
+					}		
 				}
 				else
 				{
@@ -105,34 +107,18 @@
 				echo("El usuario ingresado es incorrecto<br/>");	
 				echo("<a href='login.php' class='btn btn-success'>Volver al login</a>");
 			}
-			//libero resultados 
 			mysqli_free_result($vResultado);
-			//cierro conexion
 			mysqli_close($link);
 		}
 		else if($boton=="registro")
 		{
-			header ("Location: registrar.php");
+			 echo "<script> window.location='registrar.php'; </script>";
 		}
 		else
-		{ //olvido contraseña.
-	$vUsuario=$_POST['usuario'];
-			$consulta="select * from usuarios inner join personas on personas.dni=usuarios.dni where usuario='$vUsuario'";
-			$resp = mysqli_query($link,$consulta);
-			$user = mysqli_fetch_assoc($resp);
-			$fecha=date("d-m-Y");
-			$hora= date("H :i:s");
-			$destino="antonellabj21@gmail.com";
-			$asunto="Comentario";
-			$desde=$user['mail'];
-			$comentario= $_POST['text'];
-			mail($destino,$asunto,$comentario,$desde);
-			echo ("Su consulta ha sido enviada, en breve recibira nuestra respuesta.");
-			echo ("<a href='index.php'>Volver al inicio</a>");
-			
-			header ("Location: index.php");
+		{ 
+			 echo "<script> window.location='olvidoClave.php'; </script>";
 		}
-	?>
+?>
 		<footer>
 		<div class="footer-container">
 		  <div class="footer-main">

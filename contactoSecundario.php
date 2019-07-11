@@ -7,14 +7,28 @@
 	<body>
 		<?php
 			$fecha=date("d-m-Y");
-			$hora= date("H :i:s");
-			$destino=$_POST['email'];
+			$destino="entornosGraficos1@gmail.com";
 			$asunto="Comentario";
-			$desde= "entornos@hotmail.com";
-			$comentario= $_POST['text'];
-			mail($destino,$asunto,$comentario,$desde);
-			echo ("Su consulta ha sido enviada, en breve recibira nuestra respuesta.");
-			echo ("<a href='index.php'>Volver al inicio</a>");
+			$comentario= " <html>
+			<head>
+			<title>Mail de contacto</title>
+			</head>
+			<body>
+				<p>".$_POST['msjmail']."</p>
+				</br>
+				</br>
+				<p>Enviado el dia ".$fecha." por ".$_POST['nomApe'].", ".$_POST['emailC']."</p>
+			</body>
+			</html>";
+			$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+			mail($destino,$asunto,$comentario,$cabeceras);
 		?>
+		<script> 
+			alert('Su consulta ha sido enviada, en breve recibira nuestra respuesta.');
+			window.location= 'contacto.php'
+		</script>
+
 	</body>
 </html>

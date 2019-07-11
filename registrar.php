@@ -7,7 +7,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
-		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -28,14 +31,17 @@
 			  <a class="nav-link" href="carrito.html">Carrito</a>
 			</li>
 			<li class="nav-item">		
-		<?php	if(!isset($_SESSION["usuario"]))
-	{ 
-		echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
-	}
-	else
-	{
-		echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
-	}?>		
+			<?php	if(!isset($_SESSION["usuario"]))
+			{ 
+				echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
+			}
+			else
+			{
+				echo "<div class='btn-group'>
+				<button type='button' class='btn btn-outline-success dropdown-toggle' data-toggle='dropdown'>
+				".$_SESSION['nombre']."
+				</button><div class='dropdown-menu'><a class='dropdown-item' href='cerrarSesion.php'>Cerrar sesion</a></div></div> ";
+			}?>		
 			</li>
 		  </ul>
 		  <form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
@@ -45,102 +51,99 @@
 		</nav>
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Registracion de usuario </h2>
-			<!--<h3 class="titInicio"> Datos personales</h3> -->
-			<div id="formulario">
-				<form action="registracion.php" method="post" name="formRegistracion">
-					<div id="reg" class="col50">
-						<div class="row">
-							<div class="form-group col40">
-								<label for="n">Nombre:</label>
-								<input type="text" class="form-control" placeholder="Ingrese su nombre" name="nombre" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-							<div class="esp"></div>
-							<div class="form-group col40">
-								<label for="a">Apellido:</label>
-								<input type="text" class="form-control" placeholder="Ingrese su apellido" name="apellido" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
+			<form action="registracion.php" method="post" name="formRegistracion">
+				<div id="reg" class="col50">
+					<div class="row">
+						<div class="form-group col40">
+							<label for="n">Nombre:</label>
+							<input type="text" class="form-control" placeholder="Ingrese su nombre" name="nombre" required>
+							<div class="invalid-feedback">Completar este campo.</div>
 						</div>
-						<div class="row">
-							<div class="form-group col40">
-								<label for="u">Usuario:</label>
-								<input type="text" class="form-control" placeholder="Ingrese su usuario" name="usuario" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-							<div class="esp"></div>
-							<div class="form-group col40">
-								<label for="c">Clave:</label>
-								<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col40">
-								<label for="e">Email:</label>
-								<input type="email" class="form-control" placeholder="Ingrese su email" name="email" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-							<div class="esp"></div>
-							<div class="form-group col40">
-								<label for="d">Dni:</label>
-								<input type="text" class="form-control" placeholder="Ingrese su dni" name="dni" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>	
-						</div>
-						<div class="row">
-							<div class="form-group col40">
-								<label for="di">Direccion:</label>
-								<input type="text" class="form-control" placeholder="Ingrese calle" name="calle" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-							<div class="espacio2"></div>
-							<div class="form-group col15">
-								<label class="textoblanco">l</label>
-								<input type="number" class="form-control" placeholder="Numero" name="num" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-							<div class="espacio2"></div>
-							<div class="form-group col15"> 
-								<label class="textoblanco">l</label>
-								<input type="text" class="form-control" placeholder="Piso" name="piso"> 
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-							<div class="espacio2"></div>
-							<div class="form-group col15"> 
-								<label class="textoblanco">l</label> 
-								<input type="text" class="form-control" placeholder="Dpto" name="dpto" >
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col15"> 
-								<label for="t">Telefono:</label>
-								<input type="number" class="form-control" placeholder="Codigo" name="codigo" id="tel1" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-							<div class="espacio2"></div>
-							<div class="form-group col40"> 
-							<label class="textoblanco">l </label>
-								<input type="number" class="form-control" placeholder="Ingrese su telefono" name="telefono" id="tel2" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col40">
-								<label for="fn">Fecha de nacimiento:</label>
-								<input type="date" class="form-control" placeholder="Ingrese su cumpleaÃ±os" name="cumpleanios" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-						</div>
-						<div class="row">
-							<button type="submit" class="btn btn-success" id="botonReg" name="botonReg">Registrar</button>
+						<div class="esp"></div>
+						<div class="form-group col40">
+							<label for="a">Apellido:</label>
+							<input type="text" class="form-control" placeholder="Ingrese su apellido" name="apellido" required>
+							<div class="invalid-feedback">Completar este campo.</div>
 						</div>
 					</div>
-				</form>
-			</div>
+					<div class="row">
+						<div class="form-group col40">
+							<label for="u">Usuario:</label>
+							<input type="text" class="form-control" placeholder="Ingrese su usuario" name="usuario" required>
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+						<div class="esp"></div>
+						<div class="form-group col40">
+							<label for="c">Clave:</label>
+							<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" required>
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col40">
+							<label for="e">Email:</label>
+							<input type="email" class="form-control" placeholder="Ingrese su email" name="email" required>
+						<div class="invalid-feedback">Completar este campo.</div>
+					</div>
+					<div class="esp"></div>
+					<div class="form-group col40">
+						<label for="d">Dni:</label>
+						<input type="text" class="form-control" placeholder="Ingrese su dni" name="dni" required>
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>	
+					</div>
+					<div class="row">
+						<div class="form-group col40">
+							<label for="di">Direccion:</label>
+							<input type="text" class="form-control" placeholder="Ingrese calle" name="calle" required>
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+						<div class="espacio2"></div>
+						<div class="form-group col15">
+							<label class="textoblanco">l</label>
+							<input type="number" class="form-control" placeholder="Numero" name="num" required>
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+						<div class="espacio2"></div>
+						<div class="form-group col15"> 
+							<label class="textoblanco">l</label>
+							<input type="text" class="form-control" placeholder="Piso" name="piso"> 
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+						<div class="espacio2"></div>
+						<div class="form-group col15"> 
+							<label class="textoblanco">l</label> 
+							<input type="text" class="form-control" placeholder="Dpto" name="dpto" >
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col15"> 
+							<label for="t">Telefono:</label>
+							<input type="number" class="form-control" placeholder="Codigo" name="codigo" id="tel1" required>
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+						<div class="espacio2"></div>
+						<div class="form-group col40"> 
+						<label class="textoblanco">l </label>
+							<input type="number" class="form-control" placeholder="Ingrese su telefono" name="telefono" id="tel2" required>
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col40">
+							<label for="fn">Fecha de nacimiento:</label>
+							<input type="date" class="form-control" placeholder="Ingrese su cumpleaÃ±os" name="cumpleanios" required>
+							<div class="invalid-feedback">Completar este campo.</div>
+						</div>
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-success" id="botonReg" name="botonReg">Registrar</button>
+					</div>
+				</div>
+			</form>
 		</div>
-		</br>
+
 		<footer>
 		<div class="footer-container">
 		  <div class="footer-main">

@@ -21,7 +21,6 @@
 	$cantidad = mysqli_fetch_assoc($vResultado);
 	if($cantidad['count(dni)'] > 0)
 	{
-	//header ("Location: registrar.php"); 
 		?>	
 		<script> 
 			alert('El usuario que desea usar ya existe en nuestra base de datos!!');
@@ -35,12 +34,9 @@
 		mysqli_query($link,$vSql) or die(mysqli_error($link));
 		$vSql="insert into usuarios(usuario,clave,dni) values('$vUsuario','$vClave','$vDni')";
 		mysqli_query($link,$vSql) or die(mysqli_error($link));						
-		header ("Location: index.php");
-		
+		echo "<script> window.location='index.php'; </script>";
 	}
-	//libero resultados 
 	mysqli_free_result($vResultado);
-	//cierro conexion
 	mysqli_close($link);
 	?>
 	</body>

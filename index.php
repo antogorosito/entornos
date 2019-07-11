@@ -8,6 +8,10 @@
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+				<!-- para que funcione dropdown-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -35,7 +39,10 @@
 				}
 				else
 				{
-					echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
+					echo "<div class='btn-group'>
+					<button type='button' class='btn btn-outline-success dropdown-toggle' data-toggle='dropdown'>
+					".$_SESSION['nombre']."
+					</button><div class='dropdown-menu'><a class='dropdown-item' href='cerrarSesion.php'>Cerrar sesion</a></div></div> ";
 				}?>		
 				</li>
 			  </ul>
@@ -74,6 +81,28 @@
 				</div>
 				<div id="gps">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.8272418577344!2d-60.682677002010855!3d-32.92916232837447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b653540f2c8441%3A0x7e3321f885266ca7!2sDon+Bosco%2C+Rosario%2C+Santa+Fe!5e0!3m2!1ses-419!2sar!4v1561072918075!5m2!1ses-419!2sar" width="400" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+				<div id="contador">
+					<?php 
+					// Archivo para acumular el numero de visitas
+					$archivo = "contador.dat";
+					// Abrir el archivo para lectura
+					$abrir = fopen($archivo, "r");
+					// Leer el contenido del archivo
+					$cont = fread($abrir, filesize($archivo));
+					// Cerrar el archivo
+					fclose($abrir);
+					// Abrir nuevamente el archivo para escritura
+					$abrir = fopen($archivo, "w");
+					// Agregar 1 visita
+					$cont = $cont + 1;
+					// Guardar la modificación
+					$guardar = fwrite($abrir, $cont);
+					// Cerrar el archivo
+					fclose($abrir);
+					// Mostrar el total de visitas
+					echo "<font face='arial' size='3'>Cantidad de visitas:".$cont."</font>";
+					?>
 				</div>
 			</div>
 		<footer>
