@@ -2,6 +2,10 @@
 {
 	height:20vh;
 }
+.centrar
+{
+	margin-left:5vw;
+}
 .leerMas
 {
 	width:50%;
@@ -135,6 +139,13 @@
 	width:20%;
 	float:left;
 	padding-left:50px;
+}
+#agregarProd
+{
+	float:right;
+
+
+	margin-bottom:2vh;
 }
 .collog
 {
@@ -328,6 +339,12 @@ body
 	margin-top:5vh; 
 	margin-left:30vw;
 	margin-right:30vw;
+}
+#formAbmProductos
+{
+	margin-top:5vh; 
+	margin-left:20vw;
+	margin-right:20vw;
 }
 .verde
 {

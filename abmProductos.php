@@ -51,7 +51,37 @@
 			  </form>
 		 </nav>	
 		<div class="cuerpo">
-		ASD		
+			<h2 class="titInicio verde">Panel de productos </h2>
+			<form action="abmProductosSecundario.php"  method="post" id="formAbmProductos">
+				<button class="btn btn-success" id="agregarProd" name="agregarProd" type="submit">Agregar nuevo producto</button>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Producto</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>			
+					<?php include('conexion.inc');
+						$consulta="select * from productos order by nombre_producto";
+						$resp = mysqli_query($link,$consulta);
+						while($cat = mysqli_fetch_array($resp)) 
+						{?>
+						<tr>
+							<td><?php echo $cat['nombre_producto'];?></td>
+							<td><button class="btn btn-success" name="ver" type="submit">Ver</button> </td>
+							<td><button class="btn btn-success" name="editar" type="submit">Editar</button></td>
+							<td> <button class="btn btn-success" name="eliminar" type="submit">Eliminar</button></td>
+						</tr>
+					<?php 
+						}
+						mysqli_free_result($resp);
+						mysqli_close($link);?>
+					</tbody>
+				</table>
+			</form>
 		</div>
 		<footer>
 		<div class="footer-container">

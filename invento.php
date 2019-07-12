@@ -10,8 +10,15 @@
 	<body>
 	<?php
 		include("conexion.inc");
-		$boton=$_POST['botonBebida'];
+
+		if(!isset($_SESSION["usuario"]))
+		{
+			echo "iniciar sesion";
+		}
+		else{
+					$boton=$_POST['botonBebida'];
 		echo $boton;
+		}
 		/*
 		$consulta="select * from categorias inner join productos on categorias.id_categoria=productos.id_categoria where nombre_categoria like '%".$boton."%'";
 		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
