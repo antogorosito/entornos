@@ -2,6 +2,7 @@
 {
 	height:20vh;
 }
+
 .centrar
 {
 	margin-left:5vw;
@@ -93,6 +94,7 @@
 	padding-left:3vw;
 	padding-right:3vw;	
 }
+
 .col40
 {
 	width:40%;
@@ -143,8 +145,6 @@
 #agregarProd
 {
 	float:right;
-
-
 	margin-bottom:2vh;
 }
 .collog

@@ -32,9 +32,14 @@
 	{
 		$vSql="insert into personas(dni, nombre, apellido, mail,direccion, telefono, fechaNac) values('$vDni','$vNombre','$vApellido','$vEmail','$vDireccion','$vTelefono','$vFecha')"; 
 		mysqli_query($link,$vSql) or die(mysqli_error($link));
-		$vSql="insert into usuarios(usuario,clave,dni) values('$vUsuario','$vClave','$vDni')";
+		$vSql="insert into usuarios(usuario,clave,dni,tipo_usuario) values('$vUsuario','$vClave','$vDni',1)";
 		mysqli_query($link,$vSql) or die(mysqli_error($link));						
-		echo "<script> window.location='index.php'; </script>";
+		?>
+		<script> 
+			alert('Se ha registrado el usuario con exito');
+			window.location= 'login.php'
+		</script>
+		<?php
 	}
 	mysqli_free_result($vResultado);
 	mysqli_close($link);

@@ -53,7 +53,7 @@
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Panel de productos </h2>
 			<form action="abmProductosSecundario.php"  method="post" id="formAbmProductos">
-				<button class="btn btn-success" id="agregarProd" name="agregarProd" type="submit">Agregar nuevo producto</button>
+				<button class="btn btn-success" id="agregarProd" name="botonAbmProducto" type="submit" value="agregar">Agregar nuevo producto</button>
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -65,20 +65,39 @@
 					</thead>
 					<tbody>			
 					<?php include('conexion.inc');
-						$consulta="select * from productos order by nombre_producto";
-						$resp = mysqli_query($link,$consulta);
-						while($cat = mysqli_fetch_array($resp)) 
-						{?>
-						<tr>
-							<td><?php echo $cat['nombre_producto'];?></td>
-							<td><button class="btn btn-success" name="ver" type="submit">Ver</button> </td>
-							<td><button class="btn btn-success" name="editar" type="submit">Editar</button></td>
-							<td> <button class="btn btn-success" name="eliminar" type="submit">Eliminar</button></td>
-						</tr>
-					<?php 
+						$conscat="select count(*) from categorias ";
+						$rta=mysqli_query($link,$conscat) or die(mysqli_error($link));
+						$cat = mysqli_fetch_assoc($rta);
+						$cantidad=$cat['count(*)'];
+						for($i=1;$i<=$cantidad;$i++)
+						{
+							$consulta="select nombre_categoria,nombre_producto,id_producto from categorias inner join productos on categorias.id_categoria=productos.id_categoria where categorias.id_categoria = '$i' ";
+							$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));
+							$persona = mysqli_fetch_assoc($resp);
+							?>
+							<tr>
+								<td><strong class="centrar"><?php echo $persona['nombre_categoria'];?></strong></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<?php
+							while($cat = mysqli_fetch_array($resp)) 
+							{?>
+							<tr>
+								<td><?php echo $cat['nombre_producto'];?></td>
+								<td><button class="btn btn-success" name="botonAbmProducto" type="submit" value="ver<?php echo $cat['id_producto'];?>">Ver</button> </td>
+								<td><button class="btn btn-success" name="botonAbmProducto" type="submit" value="edi<?php echo $cat['id_producto'];?>">Editar</button></td>
+								<td> <button class="btn btn-success" name="botonAbmProducto" type="submit" value="eli<?php echo $cat['id_producto'];?>">Eliminar</button></td>
+							</tr>
+						<?php 
+							}
+						
 						}
-						mysqli_free_result($resp);
-						mysqli_close($link);?>
+							mysqli_free_result($resp);
+							mysqli_close($link);
+											
+						?>
 					</tbody>
 				</table>
 			</form>
