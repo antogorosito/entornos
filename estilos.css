@@ -2,7 +2,14 @@
 {
 	height:20vh;
 }
-
+.error
+{
+	color:red;	
+}
+.espacioArriba
+{
+	margin-top:20vh;
+}
 .centrar
 {
 	margin-left:5vw;
@@ -142,7 +149,7 @@
 	float:left;
 	padding-left:50px;
 }
-#agregarProd
+#agregarProd, #agregarUsu
 {
 	float:right;
 	margin-bottom:2vh;
@@ -189,8 +196,6 @@
 {
 	text-align:center;
 }
-
-
 .imgP
 {
 	width:20%;
@@ -286,9 +291,7 @@ footer
 .footer-container
 {
 	width: 100%;
-	background-color:#343A40;
-	
-	
+	background-color:#343A40;	
 }
 .footer-main
 {
@@ -298,7 +301,6 @@ footer
 	flex-wrap: wrap;
 	justify-content:space-between;
 	padding:10px 0;
-	
 }
 .footer-main .footer-columna
 {
@@ -346,8 +348,13 @@ body
 	margin-left:20vw;
 	margin-right:20vw;
 }
+#formAbmUsuarios
+{
+	margin-top:5vh; 
+	margin-left:20vw;
+	margin-right:20vw;
+}
 .verde
 {
 	color:green;
 }
-

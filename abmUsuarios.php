@@ -44,7 +44,7 @@
 				}
 				else
 				{
-					echo "<div class='btn-group'>
+						echo "<div class='btn-group'>
 					<button type='button' class='btn btn-outline-success dropdown-toggle' data-toggle='dropdown'>
 					".$_SESSION['nombre']."
 					</button><div class='dropdown-menu'><a class='dropdown-item' href='cerrarSesion.php'>Cerrar sesion</a></div></div> ";
@@ -57,42 +57,51 @@
 			  </form>
 		 </nav>	
 		<div class="cuerpo">
-			<h2 class="titInicio verde">Panel de pedidos </h2>
-			<form action="abmProductosSecundario.php"  method="post" id="formAbmProductos">
+		<h2 class="titInicio verde">Panel de usuarios </h2>
+			<form action="abmUsuariosSecundario.php"  method="post" id="formAbmUsuarios">
+				<button class="btn btn-success" id="agregarUsu" name="botonAbmUsuario" type="submit" value="agregar">Agregar nuevo usuario</button>
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>Id</th>
-							<th>Fecha y hora pedido</th>
-							<th>Importe</th>
-							<th>Usuario</th>
-							<th>Direccion entrega</th>
-							<th>Fecha y hora entrega</th>
+							<th>Usuarios</th>
+							<th></th>
+							<th></th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>			
 					<?php include('conexion.inc');
-						$hoy=date('Y-m-d'); 
-						$conscat="select * from pedidos inner join entregas on entregas.id_entrega=pedidos.id_entrega where fecha_pedido>='$hoy'";
-						$rta=mysqli_query($link,$conscat) or die(mysqli_error($link));
-						while($ped = mysqli_fetch_array($rta)) 
-							{?>
-							<tr>
-								<td><?php echo $ped['id_pedido'];?></td>
-								<td><?php echo $ped['fecha_pedido'].' '.$ped['hora_pedido'];?></td>
-								<td><?php echo $ped['importe_total'];?></td>						
-								<td><?php echo $ped['usuario'];?></td>
-								<td><?php echo $ped['direccion_entrega'];?></td>
-								<td><?php echo $ped['dia_entrega'].' '.$ped['hora_entrega'];?></td>
-							</tr>
-						<?php 
-							}
-						mysqli_free_result($rta);
-						mysqli_close($link);
+					for($i=0;$i<=1;$i++)
+					{
+						
+						$consulta="select * from usuarios where tipo_usuario='$i'";
+						$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));
 						?>
+						<tr>
+							<td><strong class="centrar"> <?php if ($i==0){ echo "Administradores";}else {echo "Usuarios";}?></strong></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<?php
+						while($per = mysqli_fetch_array($resp)) 
+						{?>
+						<tr>
+							<td><?php echo $per['usuario'];?></td>
+							<td><button class="btn btn-success" name="botonAbmUsuario" type="submit" value="ver<?php echo $per['usuario'];?>">Ver</button> </td>
+							<td><button class="btn btn-success" name="botonAbmUsuario" type="submit" value="edi<?php echo $per['usuario'];?>">Editar</button></td>
+							<td> <button class="btn btn-success" name="botonAbmUsuario" type="submit" value="eli<?php echo $per['usuario'];?>">Eliminar</button></td>
+						</tr>
+					<?php 
+						}	
+					}
+					mysqli_free_result($resp);
+					mysqli_close($link);
+					?>
 					</tbody>
 				</table>
 			</form>
+		
 		</div>
 		<footer>
 		<div class="footer-container">

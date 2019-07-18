@@ -1,22 +1,22 @@
 <?php 
 	session_start();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		  <a class="navbar-brand" href="index.html">
 		    <img src="titulo.jpg" alt="Logo" style="width:15vw;" />
 		  </a>
+
 		  <ul class="navbar-nav">
 			<li class="nav-item">
 			  <a class="nav-link" href="index.php">Home</a>
@@ -48,35 +48,18 @@
 			<input class="form-control mr-sm-2" type="text" name="lupa" />
 			<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 		  </form>
-		</nav>
+		</nav>		
 		<div class="cuerpo">
-			<h2 class="titInicio verde">Formulario de contacto </h2>
-			<form action="contactoSecundario.php" method="post" class="needs-validation formulario"  name="formContacto"> <!-- la validacion la haria con javscript -->
-				<div class="form-group" >
-					<label for="nomape">Nombre y apellido:</label>
-					<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nomApe" >
-					<div class="invalid-feedback">Completar este campo.</div>
-				</div>
-				<div class="form-group">
-					<label for="em">Email:</label>
-					<input type="text" class="form-control" placeholder="Ingrese su email" name="emailC" >
-				<div class="invalid-feedback">Completar este campo.</div>
-				</div>				
-				<div class="form-group">
-					<label for="ar">Mensaje</label>
-					<textarea class="form-control" name="msjmail" id="msjmail" placeholder="Ingrese su mensaje" ></textarea>
-				</div>
-			       <button type="submit" class="btn btn-success" name="Submit">Enviar mensaje</button>
-			</form>
+Carrito
 		</div>
 		<footer>
-		<div class="footer-container">
-		  <div class="footer-main">
-			<div class="footer-columna">Supermercado SAV </div>
-			<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
-			<div class="footer-columna">Tel: (0341)-4322245</div>
+			<div class="footer-container">
+				<div class="footer-main">
+					<div class="footer-columna">Supermercado SAV </div>
+					<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
+					<div class="footer-columna">Tel: (0341)-4322245</div>
+				</div>
 			</div>
-		  </div>
 		</footer>
 	</body>
 </html>

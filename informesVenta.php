@@ -57,39 +57,95 @@
 			  </form>
 		 </nav>	
 		<div class="cuerpo">
-			<h2 class="titInicio verde">Panel de pedidos </h2>
+			<h2 class="titInicio verde">Ventas </h2>
 			<form action="abmProductosSecundario.php"  method="post" id="formAbmProductos">
 				<table class="table table-hover">
 					<thead>
+					<?php include('conexion.inc');
+						$semana=date('W'); 
+						$cantSemanal=0;
+						$pedidos="select * from pedidos ";
+						/*ventas semanales*/
+						$rta=mysqli_query($link,$pedidos) or die(mysqli_error($link));
+						while($ped = mysqli_fetch_array($rta)) 
+						{
+							if(date('W', strtotime($ped['fecha_pedido']))==$semana)
+							{
+								$cantSemanal=$cantSemanal+1;
+							}
+						}
+					?>
 						<tr>
-							<th>Id</th>
-							<th>Fecha y hora pedido</th>
-							<th>Importe</th>
-							<th>Usuario</th>
-							<th>Direccion entrega</th>
-							<th>Fecha y hora entrega</th>
+							<th>Cantidad total de ventas semanales</th>
+							<th><?php echo $cantSemanal;?></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<th>Id pedido</th>
+							<th>Subtotal</th>
+							<th>Producto</th>
+							<th>Cantidad</th>
 						</tr>
 					</thead>
 					<tbody>			
-					<?php include('conexion.inc');
-						$hoy=date('Y-m-d'); 
-						$conscat="select * from pedidos inner join entregas on entregas.id_entrega=pedidos.id_entrega where fecha_pedido>='$hoy'";
-						$rta=mysqli_query($link,$conscat) or die(mysqli_error($link));
-						while($ped = mysqli_fetch_array($rta)) 
-							{?>
-							<tr>
-								<td><?php echo $ped['id_pedido'];?></td>
-								<td><?php echo $ped['fecha_pedido'].' '.$ped['hora_pedido'];?></td>
-								<td><?php echo $ped['importe_total'];?></td>						
-								<td><?php echo $ped['usuario'];?></td>
-								<td><?php echo $ped['direccion_entrega'];?></td>
-								<td><?php echo $ped['dia_entrega'].' '.$ped['hora_entrega'];?></td>
-							</tr>
-						<?php 
+
+					<?php	
+						$mesactual=date("m"); 
+						$anioactual=date("Y"); 
+						$consulta="select * from pedidos where month(fecha_pedido)='$mesactual' and year(fecha_pedido)='$anioactual' group by fecha_pedido order by fecha_pedido";
+						$rta2=mysqli_query($link,$consulta) or die(mysqli_error($link));
+						while($pedidos = mysqli_fetch_array($rta2)) 
+						{
+							if(date('W', strtotime($pedidos['fecha_pedido']))==$semana)
+							{ 
+								$fecha=$pedidos['fecha_pedido'];
+							
+						?>
+								<tr>
+									<td><strong class="centrar"><?php echo $pedidos['fecha_pedido'];?></strong></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<?php
+								$consulta2="select * from pedidos inner join lineadepedido on lineadepedido.id_pedido=pedidos.id_pedido inner join productos on productos.id_producto=lineadepedido.id_producto where fecha_pedido='$fecha' ";
+								$rta3=mysqli_query($link,$consulta2) or die(mysqli_error($link));
+								while($pedidos2 = mysqli_fetch_array($rta3)) 
+								{ 
+									$id=$pedidos2['id_pedido'];
+								?>
+								<tr>
+									<td><?php echo $pedidos2['id_pedido'];?></td>
+									<td><?php echo $pedidos2['subtotal'];?></td>						
+									<td><?php echo $pedidos2['nombre_producto'];?></td>
+									<td><?php echo $pedidos2['cantidad'];?></td>				
+								</tr>
+						<?php
+								}
+								$con="select * from pedidos inner join entregas on entregas.id_entrega=pedidos.id_entrega where pedidos.id_pedido='$id'";
+								$rta4=mysqli_query($link,$con) or die(mysqli_error($link));
+								$pedi = mysqli_fetch_assoc($rta4);
+								?>
+								<tr>
+									<td>Costo de entrega</td>
+									<td><?php echo $pedi['costo_envio'];?></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><strong>Total</strong></td>
+									<td><?php echo $pedi['importe_total'];?></td>
+									<td></td>
+									<td></td>
+								</tr>
+							<?php
 							}
+						}
 						mysqli_free_result($rta);
 						mysqli_close($link);
-						?>
+						?> 
 					</tbody>
 				</table>
 			</form>

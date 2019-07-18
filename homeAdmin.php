@@ -22,10 +22,16 @@
 				  <a class="nav-link" href="homeAdmin.php">Home</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="usuarios.php">Usuarios</a>
+				  <a class="nav-link" href="abmUsuarios.php">Usuarios</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="pedidos.php">Pedidos</a>
+					<div class='btn-group'>
+						<a  class='nav-link dropdown-toggle' data-toggle='dropdown'>Pedidos</a>
+						<div class='dropdown-menu'>
+							<a class='dropdown-item' href='pedidos.php'>Panel de pedidos</a>
+							<a class='dropdown-item' href='informesVenta.php'>Informes de venta</a>
+						</div>
+					</div>
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="abmProductos.php">Productos</a>

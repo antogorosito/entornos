@@ -22,10 +22,16 @@
 				  <a class="nav-link" href="homeAdmin.php">Home</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="usuarios.php">Usuarios</a>
+				  <a class="nav-link" href="abmUsuarios.php">Usuarios</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="pedidos.php">Pedidos</a>
+					<div class='btn-group'>
+						<a  class='nav-link dropdown-toggle' data-toggle='dropdown'>Pedidos</a>
+						<div class='dropdown-menu'>
+							<a class='dropdown-item' href='pedidos.php'>Panel de pedidos</a>
+							<a class='dropdown-item' href='informesVenta.php'>Informes de venta</a>
+						</div>
+					</div>
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="abmProductos.php">Productos</a>
@@ -65,7 +71,7 @@
 					</thead>
 					<tbody>			
 					<?php include('conexion.inc');
-						$conscat="select count(*) from categorias ";
+						$conscat="select count(*) from categorias";
 						$rta=mysqli_query($link,$conscat) or die(mysqli_error($link));
 						$cat = mysqli_fetch_assoc($rta);
 						$cantidad=$cat['count(*)'];
@@ -73,10 +79,10 @@
 						{
 							$consulta="select nombre_categoria,nombre_producto,id_producto from categorias inner join productos on categorias.id_categoria=productos.id_categoria where categorias.id_categoria = '$i' ";
 							$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));
-							$persona = mysqli_fetch_assoc($resp);
+							$nombre = mysqli_fetch_assoc($resp);
 							?>
 							<tr>
-								<td><strong class="centrar"><?php echo $persona['nombre_categoria'];?></strong></td>
+								<td><strong class="centrar"><?php echo $nombre['nombre_categoria'];?></strong></td>
 								<td></td>
 								<td></td>
 								<td></td>

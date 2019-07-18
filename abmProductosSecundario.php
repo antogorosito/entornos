@@ -22,10 +22,16 @@
 				  <a class="nav-link" href="homeAdmin.php">Home</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="usuarios.php">Usuarios</a>
+				  <a class="nav-link" href="abmUsuarios.php">Usuarios</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="pedidos.php">Pedidos</a>
+					<div class='btn-group'>
+						<a  class='nav-link dropdown-toggle' data-toggle='dropdown'>Pedidos</a>
+						<div class='dropdown-menu'>
+							<a class='dropdown-item' href='pedidos.php'>Panel de pedidos</a>
+							<a class='dropdown-item' href='informesVenta.php'>Informes de venta</a>
+						</div>
+					</div>
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="abmProductos.php">Productos</a>
@@ -63,7 +69,7 @@
 					elseif($botonInicio=="edi"){?>
 					<h2 class="titInicio verde ">Modificar producto </h2>
 					<?php }?>
-					<form action="abmprod.php" class="formulario" name="abmprod" method="post">
+					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
 						<div class="row top">
 							<div class="form-group col40 ">
 								<label>Producto:</label>
@@ -94,13 +100,14 @@
 						<div class="row">
 							<div class="form-group ">
 								<label >Foto:</label>
-								<img src="mostrarImagen.php?id=<?php echo $prod['id_producto'];?>" class="imgPr"/> 
+						<!--		<img src="mostrarImagen.php?id=<?php echo $prod['id_producto'];?>" class="imgPr"/> -->
+								<input type='file' name='imagen' id="imagen">
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group ">
 								<label >Categoria:</label>
-								<select name="nombre_categoria">
+								<select name="nombre_categoria" class="form-control">
 								
 								<?php 
 									$consulta="select * from categorias";
@@ -145,7 +152,7 @@
 				if($boton=="agregar"){
 					?>
 					<h2 class="titInicio verde ">Nuevo producto </h2>
-					<form action="abmprod.php" class="formulario" name="abmprod" method="post">
+					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
 						<div class="row top">
 							<div class="form-group col40 ">
 								<label>Producto:</label>

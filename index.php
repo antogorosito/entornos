@@ -29,7 +29,7 @@
 				  <a class="nav-link" href="contacto.php">Contacto</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="carrito.html">Carrito</a>
+				  <a class="nav-link" href="carrito.php">Carrito</a>
 				</li>
 				<li class="nav-item">		
 				<?php	

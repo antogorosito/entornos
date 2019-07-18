@@ -55,33 +55,40 @@
 		<div id="cuerdo">
 			<?php
 				include("conexion.inc");
-				$boton=$_POST['botonAbmProd'];
-				$stock=$_POST['stock'];
-				$producto=$_POST['nombre_producto'];
-				$precio=$_POST['precio'];
-				$categoria=$_POST['nombre_categoria'];
-				$imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
-				
+				$boton=$_POST['botonAbmusuario'];
+				$usuario=$_POST['usuario'];
+				$clave=$_POST['clave'];
+				$tipo=$_POST['nombre_categoria'];
+				$dni=$_POST['dni'];
+				$nombre=$_POST['nombre'];
+				$apellido=$_POST['apellido'];
+				$email=$_POST['email'];
+				$fecha=$_POST['fechaNac'];
+				$direccion=$_POST['calle'].' '.$_POST['numero'].' '.$_POST['piso'].' '.$_POST['dpto'];
+				$tel=$_POST['codigo'].' '.$_POST['tel_usuario'];
 				if($boton=="modificar")
 				{
-					$id=$_POST['id_producto'];			
-					$vSql="update productos set nombre_producto='$producto', stock='$stock', precio='$precio', foto='$imagen', id_categoria='$categoria' where id_producto='$id'"; 
-					mysqli_query($link,$vSql) or die(mysqli_error($link));
+					$consultaU="update usuarios set clave='$clave', tipo_usuario='$tipo' where usuario='$usuario'"; 
+					$consultaP="update personas set nombre='$nombre',apellido='$apellido', mail='$email',direccion='$direccion', telefono='$tel', fechaNac='$fecha' where dni='$dni'";
+					mysqli_query($link,$consultaU) or die(mysqli_error($link));
+					mysqli_query($link,$consultaP) or die(mysqli_error($link));
 				?>
 				<script> 
-					alert('Se ha modificado el producto.');
-					window.location= 'abmProductos.php'
+					alert('Se ha modificado el usuario.');
+					window.location= 'abmUsuarios.php'
 				</script>
 				<?php
 				}
 				elseif($boton=="agregar")
 				{ 
-					$consulta="insert into productos(nombre_producto,precio, stock,id_categoria,foto) values('$producto','$precio','$stock','$categoria','$imagen')"; 
+					$consultaa="insert into personas(nombre,apellido,mail,direccion,telefono,fechaNac,dni) values('$nombre','$apellido','$email','$direccion','$tel','$fecha','$dni')";
+					$consulta="insert into usuarios(usuario,clave, tipo_usuario,dni) values('$usuario','$clave','$tipo','$dni')"; 
+					mysqli_query($link,$consultaa) or die(mysqli_error($link));
 					mysqli_query($link,$consulta) or die(mysqli_error($link));
 				?>
 				<script> 
-					alert('Se ha agregado un nuevo producto.');
-					window.location= 'abmProductos.php'
+					alert('Se ha agregado un nuevo usuario.');
+					window.location= 'abmUsuarios.php'
 				</script>
 				<?php
 				}
