@@ -16,7 +16,7 @@
 			echo "iniciar sesion";
 		}
 		else{
-					$boton=$_POST['botonBebida'];
+					$boton=$_POST['btnBusqueda'];
 		echo $boton;
 		}
 		/*

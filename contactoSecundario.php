@@ -17,7 +17,7 @@
 				<p>".$_POST['msjmail']."</p>
 				</br>
 				</br>
-				<p>Enviado el dia ".$fecha." por ".$_POST['nomApe'].", ".$_POST['emailC']."</p>
+				<p>Enviado el dia ".$fecha." por ".$_POST['nombre'].", ".$_POST['emailC']."</p>
 			</body>
 			</html>";
 			$cabeceras  = 'MIME-Version: 1.0' . "\r\n";

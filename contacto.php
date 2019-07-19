@@ -11,9 +11,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="contacto.js"></script>
 	</head>
 	<body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		  <a class="navbar-brand" href="index.html">
 		    <img src="titulo.jpg" alt="Logo" style="width:15vw;" />
 		  </a>
@@ -51,22 +52,24 @@
 		</nav>
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Formulario de contacto </h2>
-			<form action="contactoSecundario.php" method="post" class="needs-validation formulario"  name="formContacto"> <!-- la validacion la haria con javscript -->
-				<div class="form-group" >
-					<label for="nomape">Nombre y apellido:</label>
-					<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nomApe" >
-					<div class="invalid-feedback">Completar este campo.</div>
+			<form action="contactoSecundario.php"  class="needs-validation formulario"  name="formContacto" id="formContacto" method="post"> <!-- la validacion la haria con javscript -->
+				<div class="form-group top">
+					<label>Nombre y apellido:</label>
+					<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nombre" id="nombre">
+					<div class="text-hide error" id="userror" >Completar este campo.</div>
 				</div>
 				<div class="form-group">
 					<label for="em">Email:</label>
-					<input type="text" class="form-control" placeholder="Ingrese su email" name="emailC" >
-				<div class="invalid-feedback">Completar este campo.</div>
+					<input type="email" class="form-control" placeholder="Ingrese su email" name="emailC" id="emailC" >
+					<div class="text-hide error" id="emailerror">Completar este campo.</div>
+					<div class="text-hide error" id="emailerror2">Debe tener formato xx@xx.com.</div>
 				</div>				
 				<div class="form-group">
 					<label for="ar">Mensaje</label>
 					<textarea class="form-control" name="msjmail" id="msjmail" placeholder="Ingrese su mensaje" ></textarea>
+					<div class="text-hide error" id="textoerror" >Completar este campo.</div>
 				</div>
-			       <button type="submit" class="btn btn-success" name="Submit">Enviar mensaje</button>
+			       <button id="btnContacto"  class="btn btn-success" name="btnContacto">Enviar mensaje</button>
 			</form>
 		</div>
 		<footer>

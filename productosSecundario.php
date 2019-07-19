@@ -70,7 +70,7 @@
 								<h6>Stock: <?php echo $cat['stock'];?></h6>
 							</div>
 							<div class="segundoCard">
-								<button type="submit" name="botonBebida" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
+								<button  id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
 							</div>
 						</div>
 					</div>

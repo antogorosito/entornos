@@ -11,6 +11,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="busqueda.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -50,7 +51,6 @@
 		  </form>
 		</nav>
 		<div class="cuerpo">
-		
 		<form action="invento.php" id="formProductos" name="formProductos" method="post" >
 		<?php
 		include("conexion.inc");
@@ -79,7 +79,7 @@
 								<h6>Stock: <?php echo $cat['stock'];?></h6>
 							</div>
 							<div class="segundoCard">
-								<button type="submit" name="botonBebida" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
+								<button id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
 							</div>
 						</div>
 					</div>

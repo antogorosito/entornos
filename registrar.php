@@ -11,6 +11,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="registrar.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -56,89 +57,89 @@
 					<div class="row">
 						<div class="form-group col40">
 							<label for="n">Nombre:</label>
-							<input type="text" class="form-control" placeholder="Ingrese su nombre" name="nombre" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="text" class="form-control" placeholder="Ingrese su nombre" name="nombre" id="nombre">
+							<div class="text-hide error" id="nombreerror">Completar este campo.</div>
 						</div>
 						<div class="esp"></div>
 						<div class="form-group col40">
 							<label for="a">Apellido:</label>
-							<input type="text" class="form-control" placeholder="Ingrese su apellido" name="apellido" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="text" class="form-control" placeholder="Ingrese su apellido" name="apellido" id="apellido" >
+							<div class="text-hide error" id="apellidoerror">Completar este campo.</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col40">
 							<label for="u">Usuario:</label>
-							<input type="text" class="form-control" placeholder="Ingrese su usuario" name="usuario" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="text" class="form-control" placeholder="Ingrese su usuario" name="usuario" id="usuario" >
+							<div class="text-hide error" id="usuarioerror">Completar este campo.</div>
 						</div>
 						<div class="esp"></div>
 						<div class="form-group col40">
 							<label for="c">Clave:</label>
-							<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" id="clave">
+							<div class="text-hide error" id="claveerror">Completar este campo.</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col40">
 							<label for="e">Email:</label>
-							<input type="email" class="form-control" placeholder="Ingrese su email" name="email" required>
-						<div class="invalid-feedback">Completar este campo.</div>
-					</div>
-					<div class="esp"></div>
-					<div class="form-group col40">
-						<label for="d">Dni:</label>
-						<input type="text" class="form-control" placeholder="Ingrese su dni" name="dni" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="text" class="form-control" placeholder="Ingrese su email" name="email" id="email" >
+							<div class="text-hide error" id="emailerror">Completar este campo.</div>
+							<div class="text-hide error" id="emailerror2">Debe tener formato xx@xx.com.</div>
+						</div>
+						<div class="esp"></div>
+						<div class="form-group col40">
+							<label for="d">Dni:</label>
+							<input type="number" class="form-control" placeholder="Ingrese su dni" name="dni" id="dni">
+							<div class="text-hide error" id="dnierror">Completar este campo.</div>
+							<div class="text-hide error" id="dnierror2">El dni debe tener 8 caracteres.</div>
 						</div>	
 					</div>
 					<div class="row">
 						<div class="form-group col40">
 							<label for="di">Direccion:</label>
-							<input type="text" class="form-control" placeholder="Ingrese calle" name="calle" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="text" class="form-control" placeholder="Ingrese calle" name="calle" id="calle">
+							<div class="text-hide error" id="calleerror">Completar este campo.</div>
 						</div>
 						<div class="espacio2"></div>
 						<div class="form-group col15">
 							<label class="textoblanco">l</label>
-							<input type="number" class="form-control" placeholder="Numero" name="num" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="number" class="form-control" placeholder="Numero" name="num"  id="num">
+							<div class="text-hide error" id="numerror">Completar este campo.</div>
 						</div>
 						<div class="espacio2"></div>
 						<div class="form-group col15"> 
 							<label class="textoblanco">l</label>
-							<input type="text" class="form-control" placeholder="Piso" name="piso"> 
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="text" class="form-control" placeholder="Piso" name="piso" id="piso"> 
 						</div>
 						<div class="espacio2"></div>
 						<div class="form-group col15"> 
 							<label class="textoblanco">l</label> 
-							<input type="text" class="form-control" placeholder="Dpto" name="dpto" >
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="text" class="form-control" placeholder="Dpto" name="dpto" id="dpto">
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col15"> 
 							<label for="t">Telefono:</label>
-							<input type="number" class="form-control" placeholder="Codigo" name="codigo" id="tel1" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="number" class="form-control" placeholder="Codigo" name="codigo" id="tel1" >
+							<div class="text-hide error" id="tel1error">Completar este campo.</div>
 						</div>
 						<div class="espacio2"></div>
 						<div class="form-group col40"> 
 						<label class="textoblanco">l </label>
-							<input type="number" class="form-control" placeholder="Ingrese su telefono" name="telefono" id="tel2" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="number" class="form-control" placeholder="Ingrese su telefono" name="telefono" id="tel2" >
+							<div class="text-hide error" id="tel2error">Completar este campo.</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col40">
 							<label for="fn">Fecha de nacimiento:</label>
-							<input type="date" class="form-control" placeholder="Ingrese su cumpleaÃ±os" name="cumpleanios" required>
-							<div class="invalid-feedback">Completar este campo.</div>
+							<input type="date" class="form-control" placeholder="Ingrese su cumpleaÃ±os" name="cumpleanios" id="cumpleanios">
+							<div class="text-hide error" id="cumpleanioserror">Completar este campo.</div>
 						</div>
 					</div>
 					<div class="row">
-						<button type="submit" class="btn btn-success" id="botonReg" name="botonReg">Registrar</button>
+						<button  class="btn btn-success" id="botonReg" name="botonReg">Registrar</button>
 					</div>
 				</div>
 			</form>
