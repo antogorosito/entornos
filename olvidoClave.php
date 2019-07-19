@@ -11,6 +11,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="login.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -55,10 +56,10 @@
 				<form action="olvidoClaveSecundario.php" class="needs-validation" id="formOlvidoClave" name="formOlvidoClave" method="post">
 					<div class="form-group">
 						<label >Email:</label>
-						<input type="mail" class="form-control" placeholder="Ingrese su email" name="emailo" >
-						<div class="invalid-feedback">Completar este campo.</div>
+						<input type="mail" class="form-control" placeholder="Ingrese su email" name="emailo" id="emailo" >
+						<div class="text-hide error" id="errorolvido">Completar este campo.</div>
 					</div>	
-					<button type="submit" class="btn btn-success" name="Submit">Enviar</button>					
+					<button id="btnOlvidar" type="submit" class="btn btn-success" name="Submit">Enviar</button>					
 				</form>
 			</div>
 		</div>

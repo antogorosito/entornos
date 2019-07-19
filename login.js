@@ -1,4 +1,4 @@
-function validar()
+function usuarioYclave()
 {
 	if($("#usuario").val()== "")
 	{ 
@@ -25,10 +25,20 @@ function validar()
 		}
 	}
 }
-
+function email()
+{
+	if($("#emailo").val()=="")
+	{
+		$("#errorolvido").removeClass("text-hide");
+	}
+	else
+	{
+		$("#errorolvido").addClass("text-hide");
+	}
+}
 $(function() {
 	$("#btnI").on("click",function(){
-		validar();
+		usuarioYclave();
 		if ($("#usuarioerror").hasClass("text-hide") && $("#claveerror").hasClass("text-hide")){
 			return true;
 		}
@@ -39,5 +49,17 @@ $(function() {
 	});
 	$("#btnR").on("click",function(){
 		return true;
-		});
+	});
+	$("#btnOlvidar").on("click",function()
+	{
+		email();
+		if($("#errorolvido").hasClass("text-hide"))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	});
 });
