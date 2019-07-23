@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-			  <a class="navbar-brand" href="index.html">
+			  <a class="navbar-brand" href="index.php">
 				<img src="titulo.jpg" alt="Logo" style="width:15vw;" />
 			  </a>
 			  <ul class="navbar-nav">
@@ -51,7 +51,30 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			  </form>
 		 </nav>	
+		 <div id="contador">
+					<?php 
+					// Archivo para acumular el numero de visitas
+					$archivo = "contador.dat";
+					// Abrir el archivo para lectura
+					$abrir = fopen($archivo, "r");
+					// Leer el contenido del archivo
+					$cont = fread($abrir, filesize($archivo));
+					// Cerrar el archivo
+					fclose($abrir);
+					// Abrir nuevamente el archivo para escritura
+					$abrir = fopen($archivo, "w");
+					// Agregar 1 visita
+					$cont = $cont + 1;
+					// Guardar la modificaciÃ³n
+					$guardar = fwrite($abrir, $cont);
+					// Cerrar el archivo
+					fclose($abrir);
+					// Mostrar el total de visitas
+					echo "<font face='arial' size='3'>Eres nuestro visitante Nro: ".$cont."</font>";
+					?>
+				</div>
 		<div class="cuerpo">
+		
 				<div id="cartas" class="row">
 					<div class="card col50in" >
 						<img class="img-circle imgI" src="promodesc.png" alt="Promociones" />
@@ -82,28 +105,7 @@
 				<div id="gps">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.8272418577344!2d-60.682677002010855!3d-32.92916232837447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b653540f2c8441%3A0x7e3321f885266ca7!2sDon+Bosco%2C+Rosario%2C+Santa+Fe!5e0!3m2!1ses-419!2sar!4v1561072918075!5m2!1ses-419!2sar" width="400" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
-				<div id="contador">
-					<?php 
-					// Archivo para acumular el numero de visitas
-					$archivo = "contador.dat";
-					// Abrir el archivo para lectura
-					$abrir = fopen($archivo, "r");
-					// Leer el contenido del archivo
-					$cont = fread($abrir, filesize($archivo));
-					// Cerrar el archivo
-					fclose($abrir);
-					// Abrir nuevamente el archivo para escritura
-					$abrir = fopen($archivo, "w");
-					// Agregar 1 visita
-					$cont = $cont + 1;
-					// Guardar la modificación
-					$guardar = fwrite($abrir, $cont);
-					// Cerrar el archivo
-					fclose($abrir);
-					// Mostrar el total de visitas
-					echo "<font face='arial' size='3'>Cantidad de visitas:".$cont."</font>";
-					?>
-				</div>
+				
 			</div>
 		<footer>
 		<div class="footer-container">
