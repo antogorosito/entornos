@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		  <a class="navbar-brand" href="index.html">
+		  <a class="navbar-brand" href="index.php">
 		    <img src="titulo.jpg" alt="Logo" style="width:15vw;" />
 		  </a>
 		  <ul class="navbar-nav">
@@ -61,15 +61,17 @@
 				<?php
 				while($cat = mysqli_fetch_array($resp)) 
 				{?>
-					<div class=" card cardProducto col33" >
+					<div class="card cardProducto col33" >
 						<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
-						<div class="card-body ">
+						<div class="card-body">
 							<div class="primeroCard">
 								<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
-								<h5 class="verde">$ <?php echo $cat['precio'];?></h5>
-								<h6>Stock: <?php echo $cat['stock'];?></h6>
 							</div>
 							<div class="segundoCard">
+							<h5 class="verde">$ <?php echo $cat['precio'];?></h5>
+							<h6>Stock: <?php echo $cat['stock'];?></h6>
+							</div>
+							<div class="terceroCard">
 								<button  id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
 							</div>
 						</div>
