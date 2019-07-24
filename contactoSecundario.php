@@ -26,8 +26,13 @@
 			mail($destino,$asunto,$comentario,$cabeceras);
 		?>
 		<script> 
-			alert('Su consulta ha sido enviada, en breve recibira nuestra respuesta.');
+			alertify.alert('Confirmacion','Su consulta ha sido enviada, en breve recibira nuestra respuesta.',
+			function(){
+			alertify.success('Ok');
 			window.location= 'contacto.php'
+			});
+			/*alert('Su consulta ha sido enviada, en breve recibira nuestra respuesta.');
+			window.location= 'contacto.php'*/
 		</script>
 
 	</body>
