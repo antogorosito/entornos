@@ -3,7 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Registracion</title>
+<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
 </head>
+	
 	<body>
 	<?php
 	include("conexion.inc"); 
@@ -23,8 +26,12 @@
 	{
 		?>	
 		<script> 
-			alert('El usuario que desea usar ya existe en nuestra base de datos!!');
-			window.location= 'registrar.php'
+			alertify.alert('Error','El usuario que desea usar ya existe en nuestra base de datos!!',
+  			function() {
+			alertify.success('Ok');
+			window.location= 'registrar.php';
+  			});
+			
 		</script>
 		<?php
 	}
@@ -36,8 +43,11 @@
 		mysqli_query($link,$vSql) or die(mysqli_error($link));						
 		?>
 		<script> 
-			alert('Se ha registrado el usuario con exito');
+			alertify.alert('Confirmacion','Se ha registrado el usuario con exito',
+			function(){
+			alertify.success('Ok');
 			window.location= 'login.php'
+			});
 		</script>
 		<?php
 	}
