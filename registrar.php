@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		  <a class="navbar-brand" href="index.html">
+		  <a class="navbar-brand" href="index.php">
 		    <img src="titulo.jpg" alt="Logo" style="width:15vw;" />
 		  </a>
 		  <ul class="navbar-nav">
