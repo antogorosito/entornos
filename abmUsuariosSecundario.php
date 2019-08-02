@@ -52,7 +52,7 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
 		</nav>
-		<div id="cuerdo">
+		<div id="cuerdo" class="cuerpo">
 			<?php
 				include("conexion.inc");
 				$boton=$_POST['botonAbmUsuario'];
@@ -68,16 +68,119 @@
 
 					if($botonInicio=="ver"){?>
 					<h2 class="titInicio verde ">Ver usuario </h2>
-					<?php
-					} 
-					elseif($botonInicio=="edi"){?>
-					<h2 class="titInicio verde ">Modificar usuario </h2>
-					<?php }?>
 					<form action="abmusu.php" class="formulario" name="abmusuario" method="post">
 						<div class="row top">
 							<div class="form-group col40 ">
 								<label>Usuario:</label>
-								<input type="text" class="form-control" name="usuario" value="<?php echo $usuario['usuario']; ?>" required>
+								<input type="text" class="form-control" name="usuario" value="<?php echo $usuario['usuario']; ?>" required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="esp"></div>
+							<div class="form-group ">
+								<label>Clave:</label>
+								<input type="text" class="form-control" name="clave" value="<?php echo $usuario['clave']; ?>"  required disabled >
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col40">
+								<label >Tipo de usuario:</label>
+								<select name="nombre_categoria" class="form-control" disabled>
+									<option value="0" >Administrador</option>
+									<option value="1" >Usuario</option>
+								</select>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="esp"></div>
+							<div class="form-group ">
+								<label>Dni:</label>
+								<input type="text" class="form-control" name="dni" value="<?php echo $usuario['dni']; ?>"  required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row ">
+							<div class="form-group col40 ">
+								<label>Nombre:</label>
+								<input type="text" class="form-control" name="nombre" value="<?php echo $usuario['nombre']; ?>" required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="esp"></div>
+							<div class="form-group ">
+								<label>Apellido:</label>
+								<input type="text" class="form-control" name="apellido" value="<?php echo $usuario['apellido']; ?>"  required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row ">
+							<div class="form-group col40 ">
+								<label>Email:</label>
+								<input type="mail" class="form-control" name="email" value="<?php echo $usuario['mail']; ?>" required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="esp"></div>
+							<div class="form-group ">
+								<label>Fecha de nacimiento:</label>
+								<input type="date" class="form-control" name="fechaNac" value="<?php echo $usuario['fechaNac']; ?>"  required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+								
+						</div>
+						<div class="row ">
+							<div class="form-group ">
+								<label>Direccion:</label>
+								<input type="text" class="form-control" name="calle" value="<?php echo $direccion[0]; ?>"  required disabled >
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="espacio2 es"></div>
+							<div class="form-group col15">
+								<label class="textoblanco">l</label>
+								<input type="text" class="form-control" name="numero" value="<?php echo $direccion[1]; ?>"  required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="espacio2"></div>
+							<div class="form-group col15">
+								<label class="textoblanco">l</label> 
+								<?php if(isset($direccion[2])){?>
+								<input type="text" class="form-control" name="piso" value="<?php echo $direccion[2]; ?>"  disabled >
+								<?php }else {?>
+								<input type="text" class="form-control" name="piso" disabled >
+								<?php }?>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="espacio2"></div>
+							<div class="form-group col15">
+								<label class="textoblanco">l</label>
+								<?php if(isset($direccion[3])){?>
+								<input type="text" class="form-control" name="dpto" value="<?php echo $direccion[3]; ?>"  disabled >
+								<?php }else {?>
+								<input type="text" class="form-control" name="dpto" disabled >
+								<?php }?>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col15 ">
+								<label>Telefono:</label>
+								<input type="text" class="form-control" name="codigo" value="<?php echo $telefono[0]; ?>" required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>	
+							<div class="espacio2"></div>
+							<div class="form-group col40 ">
+								<label class="textoblanco">l</label>
+								<input type="text" class="form-control" name="tel_usuario" value="<?php echo $telefono[1]; ?>" required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>	
+						</div>
+					</form>
+					<?php
+					} 
+					elseif($botonInicio=="edi"){?>
+					<h2 class="titInicio verde ">Modificar usuario </h2>
+					<form action="abmusu.php" class="formulario" name="abmusuario" method="post">
+						<div class="row top">
+							<div class="form-group col40 ">
+								<label>Usuario:</label>
+								<input type="text" class="form-control" name="usuario" value="<?php echo $usuario['usuario']; ?>" required disabled>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 							<div class="esp"></div>
@@ -99,7 +202,7 @@
 							<div class="esp"></div>
 							<div class="form-group ">
 								<label>Dni:</label>
-								<input type="text" class="form-control" name="dni" value="<?php echo $usuario['dni']; ?>"  required >
+								<input type="text" class="form-control" name="dni" value="<?php echo $usuario['dni']; ?>"  required disabled>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 						</div>
@@ -136,7 +239,7 @@
 								<input type="text" class="form-control" name="calle" value="<?php echo $direccion[0]; ?>"  required >
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
-							<div class="espacio2"></div>
+							<div class="espacio2 es"></div>
 							<div class="form-group col15">
 								<label class="textoblanco">l</label>
 								<input type="text" class="form-control" name="numero" value="<?php echo $direccion[1]; ?>"  required >
@@ -145,20 +248,20 @@
 							<div class="espacio2"></div>
 							<div class="form-group col15">
 								<label class="textoblanco">l</label> 
-								<?php if(isset($direccion[2])){?>
+								<?php if(isset($direccion[2]) && !empty($direccion[2])){?>
 								<input type="text" class="form-control" name="piso" value="<?php echo $direccion[2]; ?>"   >
 								<?php }else {?>
-								<input type="text" class="form-control" name="piso"  >
+								<input type="text" class="form-control" name="piso" disabled >
 								<?php }?>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 							<div class="espacio2"></div>
 							<div class="form-group col15">
 								<label class="textoblanco">l</label>
-								<?php if(isset($direccion[3])){?>
-								<input type="text" class="form-control" name="dpto" value="<?php echo $direccion[3]; ?>"   >
+								<?php if(isset($direccion[3]) && !empty($direccion[3])){?>
+								<input type="text" class="form-control" name="dpto" value="<?php echo $direccion[3]; ?>">
 								<?php }else {?>
-								<input type="text" class="form-control" name="dpto"  >
+								<input type="text" class="form-control" name="dpto" disabled>
 								<?php }?>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
@@ -176,6 +279,7 @@
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>	
 						</div>
+						<?php }?>
 						<?php 
 						if($botonInicio=="edi")
 						{ ?>
@@ -194,9 +298,12 @@
 
 					mysqli_query($link,$vSql2) or die(mysqli_error($link));
 			?>
-					<script> 
-						alert('Se ha eliminado con exito el usuario');
+					<script>
+						alertify.alert('Exito','Se ha eliminado con exito el usuario',
+  						function() {
+						alertify.success('Ok');
 						window.location= 'abmUsuarios.php';
+  						});
 					</script>
 			<?php
 				}
@@ -228,7 +335,7 @@
 								</div>
 								<div class="esp"></div>
 								<div class="form-group ">
-									<label>Dni:</label>
+									<label>DNI:</label>
 									<input type="text" class="form-control" name="dni"  required >
 									<div class="invalid-feedback">Completar este campo.</div>
 								</div>
@@ -266,7 +373,7 @@
 									<input type="text" class="form-control" name="calle" placeholder="calle"  required >
 									<div class="invalid-feedback">Completar este campo.</div>
 								</div>
-								<div class="espacio2"></div>
+								<div class="espacio2 es"></div>
 								<div class="form-group col15">
 									<label class="textoblanco">l</label>
 									<input type="text" class="form-control" name="numero" placeholder="numero"  required >
