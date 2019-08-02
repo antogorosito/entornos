@@ -52,7 +52,7 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
 		</nav>
-		<div id="cuerdo">
+		<div id="cuerdo" class="cuerpo">
 			<?php
 				include("conexion.inc");
 				$boton=$_POST['botonAbmProd'];
@@ -69,8 +69,11 @@
 					mysqli_query($link,$vSql) or die(mysqli_error($link));
 				?>
 				<script> 
-					alert('Se ha modificado el producto.');
-					window.location= 'abmProductos.php'
+					alertify.alert('Exito','Se ha modificado el producto.',
+  					function() {
+					alertify.success('Ok');
+					window.location= 'abmProductos.php';
+  					});
 				</script>
 				<?php
 				}
@@ -79,9 +82,12 @@
 					$consulta="insert into productos(nombre_producto,precio, stock,id_categoria,foto) values('$producto','$precio','$stock','$categoria','$imagen')"; 
 					mysqli_query($link,$consulta) or die(mysqli_error($link));
 				?>
-				<script> 
-					alert('Se ha agregado un nuevo producto.');
-					window.location= 'abmProductos.php'
+				<script>
+					alertify.alert('Exito','Se ha agregado un nuevo producto.',
+  					function() {
+					alertify.success('Ok');
+					window.location= 'abmProductos.php';
+  					});
 				</script>
 				<?php
 				}
