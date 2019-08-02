@@ -1,3 +1,23 @@
+input[name=clave],input[name=usuario],input[name=dni],input[name=nombre],input[name=apellido],input[name=email],input[name=fechaNac]
+{
+	width: 110%;
+}
+input[name=calle]
+{
+	width:123%;
+}
+input[name=id_producto]
+{
+	width: 30%;
+}
+input[name=nombre_producto],select[name=nombre_categoria]
+{
+	width:110%;
+}
+input[name=stock],input[name=precio]
+{
+	width:40%;
+}
 #msjmail
 {
 	height:20vh;
@@ -51,6 +71,10 @@
 .izq
 {
 	margin-left:3vw;
+}
+.es
+{
+	margin-left:48px;
 }
 .espacio2
 {
@@ -292,7 +316,6 @@ footer
 	position: fixed;
 	bottom: 0;
 	left:0;
-	
 }
 .footer-container
 {
