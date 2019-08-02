@@ -52,7 +52,7 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
 		</nav>
-		<div id="cuerdo">
+		<div id="cuerdo" class="cuerpo">
 			<?php
 				include("conexion.inc");
 				$boton=$_POST['botonAbmusuario'];
@@ -73,9 +73,12 @@
 					mysqli_query($link,$consultaU) or die(mysqli_error($link));
 					mysqli_query($link,$consultaP) or die(mysqli_error($link));
 				?>
-				<script> 
-					alert('Se ha modificado el usuario.');
-					window.location= 'abmUsuarios.php'
+				<script>
+					alertify.alert('Exito','Se ha modificado el usuario.',
+  					function() {
+					alertify.success('Ok');
+					window.location= 'abmUsuarios.php';
+  					});
 				</script>
 				<?php
 				}
@@ -87,8 +90,11 @@
 					mysqli_query($link,$consulta) or die(mysqli_error($link));
 				?>
 				<script> 
-					alert('Se ha agregado un nuevo usuario.');
-					window.location= 'abmUsuarios.php'
+					alertify.alert('Exito','Se ha agregado un nuevo usuario.',
+  					function() {
+					alertify.success('Ok');
+					window.location= 'abmUsuarios.php';
+  					});
 				</script>
 				<?php
 				}
