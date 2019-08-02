@@ -52,7 +52,7 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
 		</nav>
-		<div id="cuerdo">
+		<div id="cuerdo" class="cuerpo">
 			<?php
 				include("conexion.inc");
 				$boton=$_POST['botonAbmProducto'];
@@ -64,11 +64,70 @@
 					$prod = mysqli_fetch_assoc($resp);
 					if($botonInicio=="ver"){?>
 					<h2 class="titInicio verde ">Ver producto </h2>
+					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
+						<div class="row top">
+							<div class="form-group col40 ">
+								<label>Producto:</label>
+								<input type="text" class="form-control" name="nombre_producto" value="<?php echo $prod['nombre_producto']; ?>" required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+							<div class="esp"></div>
+							<div class="form-group ">
+								<label >Id:</label>
+								<input type="number" class="form-control" name="id_producto" value="<?php echo $prod['id_producto']; ?>"  required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group ">
+								<label >Stock:</label>
+								<input type="number" class="form-control" name="stock" value="<?php echo $prod['stock']; ?>" required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group ">
+								<label >Precio:</label>
+								<input type="text" class="form-control" name="precio" value="<?php echo $prod['precio']; ?>" required disabled>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group ">
+								<label >Foto:</label>
+						<!--		<img src="mostrarImagen.php?id=<?php echo $prod['id_producto'];?>" class="imgPr"/> -->
+								<input type='file' name='imagen' id="imagen" disabled>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group ">
+								<label >Categoria:</label>
+								<select name="nombre_categoria" class="form-control" disabled>
+								<?php 
+									$consulta="select * from categorias";
+									$respuesta = mysqli_query($link,$consulta) or die(mysqli_error($link));
+									while($cat = mysqli_fetch_array($respuesta)) 
+									{
+										if( $cat['nombre_categoria']==$prod['nombre_categoria'])
+										{?>
+											<option value="<?php echo $cat['id_categoria'];?>" selected><?php echo $cat['nombre_categoria'];?></option>
+										<?php
+										}
+										else{ ?>
+											<option value="<?php echo $cat['id_categoria'];?>" ><?php echo $cat['nombre_categoria'];?></option>
+										<?php
+										}					
+									}
+								?>
+								</select>
+						</div>
+						</div>
+						</form>
 					<?php
 					} 
 					elseif($botonInicio=="edi"){?>
 					<h2 class="titInicio verde ">Modificar producto </h2>
-					<?php }?>
+					
 					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
 						<div class="row top">
 							<div class="form-group col40 ">
@@ -79,7 +138,7 @@
 							<div class="esp"></div>
 							<div class="form-group ">
 								<label >Id:</label>
-								<input type="number" class="form-control" name="id_producto" value="<?php echo $prod['id_producto']; ?>"  required >
+								<input type="number" class="form-control" name="id_producto" value="<?php echo $prod['id_producto']; ?>"  required disabled>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 						</div>
@@ -129,6 +188,7 @@
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 						</div>
+						<?php }?>
 						<?php 
 						if($botonInicio=="edi")
 						{ ?>
@@ -144,14 +204,17 @@
 					mysqli_query($link,$vSql) or die(mysqli_error($link));
 			?>
 					<script> 
-						alert('Se ha eliminado con exito el producto');
+						alertify.alert('Exito','Se ha eliminado con exito el producto',
+  						function() {
+						alertify.success('Ok');
 						window.location= 'abmProductos.php';
+  						});
 					</script>
 			<?php
 				}
 				if($boton=="agregar"){
 					?>
-					<h2 class="titInicio verde ">Nuevo producto </h2>
+					<h2 class="titInicio verde">Nuevo producto </h2>
 					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
 						<div class="row top">
 							<div class="form-group col40 ">
