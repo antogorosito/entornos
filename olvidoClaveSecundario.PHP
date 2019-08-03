@@ -8,6 +8,8 @@
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+		<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
+		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -77,15 +79,23 @@
 				mail($destino,$asunto,$comentario,$cabeceras);
 			?>
 				<script> 
-					alert('Su consulta ha sido enviada, en breve recibira nuestra respuesta.');
+					alertify.alert('Confirmacion','Su consulta ha sido enviada, en breve recibira nuestra respuesta.',
+					function(){
+					alertify.success('Ok');
 					window.location= 'index.php';
+					});
 				</script>
 				<?php
 			}
 			else{?>
 			<script> 
-					alert('El email ingresado no esta vinculado con ninguna cuenta existente.');
+					alertify.alert('Error','El email ingresado no esta vinculado con ninguna cuenta existente.',
+					function(){
+					alertify.success('Ok');
+					
 					window.location= 'olvidoClave.php';
+					
+					});
 				</script><?php
 			}
 			mysqli_free_result($resp);
