@@ -1,6 +1,10 @@
-input[name=clave],input[name=usuario],input[name=dni],input[name=nombre],input[name=apellido],input[name=email],input[name=fechaNac]
+input[name=clave],input[name=usuario],input[name=dni],input[name=nombre],input[name=apellido],input[name=email]
 {
 	width: 110%;
+}
+input[name=fechaNac]
+{
+	width: 113%;
 }
 input[name=calle]
 {
