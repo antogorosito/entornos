@@ -56,8 +56,15 @@
 				<form action="olvidoClaveSecundario.php" class="needs-validation" id="formOlvidoClave" name="formOlvidoClave" method="post">
 					<div class="form-group">
 						<label >Email:</label>
-						<input type="mail" class="form-control" placeholder="Ingrese su email" name="emailo" id="emailo" >
-						<div class="text-hide error" id="errorolvido">Completar este campo.</div>
+						<?php 
+					if(!isset($_SESSION['emailolvido']))
+					{
+					echo '<input type="mail" class="form-control" placeholder="Ingrese su email" name="emailo" id="emailo" >'
+					}
+					else{
+						echo '<input type="mail" class="form-control" placeholder="Ingrese su email" name="emailo" id="emailo" value="<?php echo $_SESSION['emailolvido'];?>">'
+					}
+					?>	<div class="text-hide error" id="errorolvido">Completar este campo.</div>
 					</div>	
 					<button id="btnOlvidar" type="submit" class="btn btn-success" name="Submit">Enviar</button>					
 				</form>
