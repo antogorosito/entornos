@@ -54,12 +54,14 @@
 		<?php
 			include("conexion.inc");
 			$mail=$_POST['emailo'];
+			$_SESSION['emailolvido']=$mail;
 			$consulta="select * from usuarios inner join personas on personas.dni=usuarios.dni where mail='$mail'";
 			$resp = mysqli_query($link,$consulta);
 			$user = mysqli_fetch_assoc($resp);
 			//echo $user['usuario'];
 			if(isset($user))
 			{
+				unset($_SESSION['emailolvido']);
 				$asunto="Recuperacion de contraseña";
 				$destino=$mail;
 				$comentario= "
