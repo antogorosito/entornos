@@ -142,6 +142,7 @@
 					$_SESSION['direccion'] = $direccion;
 					$_SESSION['fecha'] = $fecha;
 					$_SESSION['dni'] = $dni;
+					$_SESSION['carro']="";
 					setcookie("usuariologin","$vUsuario",time()-1);
 					setcookie("clavelogin","$vClave",time()-1);
 					if($tipo==1)

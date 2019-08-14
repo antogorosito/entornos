@@ -57,7 +57,7 @@
 		<div class="cuerpo" >
 			<?php
 				include("conexion.inc");
-				$boton=$_POST['botonAbmProducto'];
+				$boton=$_POST['botonAbmProductos'];
 				$botonInicio=substr($boton,0,3);
 				$id=substr($boton,3);
 				if($botonInicio=="ver" || $botonInicio=="edi"){

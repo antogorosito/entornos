@@ -11,7 +11,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="busqueda.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -45,52 +44,62 @@
 			}?>		
 			</li>
 		  </ul>
-		  <form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
+		  <form class="form-inline" action="buscar.php"  method="post" name="FormBuscador">
 			<input class="form-control mr-sm-2" type="text" name="lupa"  />
 			<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 		  </form>
 		</nav>
 		<div class="cuerpo">
-		<form action="carrito.php" id="formProductos" name="formProductos" method="post" >
+		<form action="carrito.php"  id="formProductos" name="formProductos" method="post" >
 		<?php
 		include("conexion.inc");
-		$palabra=$_POST['lupa'];
-		$consulta="select * from productos where nombre_producto like '".$palabra."%' order by nombre_producto";
-		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
-		$c =mysqli_num_rows($resp);
-		if( $c == 0) 
+		if(isset($_POST["lupa"]) && $_POST["lupa"]=="")
 		{
-			?>
-			<h3>No se encontraron coincidencias con <?php echo $palabra?></h3>
-			<?php
-		}
-		else 
-		{?>
-			<h2 class="titPro verde" >Resultados de la busqueda</h2>
+		?>
+			<h3>Debe ingresar una producto para buscar</h3>
 		<?php
-			while($cat = mysqli_fetch_array($resp)) 
+		}
+		else
+		{
+			$palabra=$_POST['lupa'];
+			$consulta="select * from productos where nombre_producto like '".$palabra."%' order by nombre_producto";
+			$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
+			$c =mysqli_num_rows($resp);
+			if( $c == 0) 
+			{
+				?>
+				<h3>No se encontraron coincidencias con <?php echo $palabra?></h3>
+				<?php
+			}
+			else 
 			{?>
-				<div class=" card cardProducto col33" >
-						<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
-						<div class="card-body ">
-							<div class="primeroCard">
-								<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
-							</div>
-							<div class="primeroCard">
-								<h5 class="verde">$ <?php echo $cat['precio'];?></h5>
-								<h6>Stock: <?php echo $cat['stock'];?></h6>
-							</div>
-							<div class="primeroCard">
-								<button id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['id_producto'];?>">Agregar al carrito</button>
+				<h2 class="titPro verde" >Resultados de la busqueda</h2>
+			<?php
+				while($cat = mysqli_fetch_array($resp)) 
+				{?>
+					<div class=" card cardProducto col33" >
+							<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
+							<div class="card-body ">
+								<div class="primeroCard">
+									<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
+								</div>
+								<div class="primeroCard">
+									<h5 class="verde">$ <?php echo $cat['precio'];?></h5>
+									<h6>Stock: <?php echo $cat['stock'];?></h6>
+								</div>
+								<div class="primeroCard">
+									<button id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['id_producto'];?>">Agregar al carrito</button>
+								</div>
 							</div>
 						</div>
-					</div>
-				
-     		<?php
-			} 		
-		}
-		mysqli_free_result($resp);
+					
+				<?php
+				} 		
+			}
+					mysqli_free_result($resp);
 		mysqli_close($link);
+		}
+
 	?>
 		</form>
 		</div>
@@ -105,4 +114,3 @@
 		</footer>
 	</body>
 </html>
-

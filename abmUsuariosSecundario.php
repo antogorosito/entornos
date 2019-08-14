@@ -80,6 +80,7 @@
 							<div class="form-group col40 ">
 								<label>Usuario:</label>
 								<input type="text" class="form-control" name="usuario" value="<?php echo $usuario['usuario']; ?>" required disabled>
+								<input type="text"  name="usuario1" value="<?php echo $usuario['usuario']; ?>" required hidden>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 							<div class="esp"></div>
@@ -113,6 +114,7 @@
 							<div class="form-group ">
 								<label>Dni:</label>
 								<input type="text" class="form-control" name="dni" value="<?php echo $usuario['dni']; ?>"  required disabled>
+								<input type="text" name="dni1" value="<?php echo $usuario['dni']; ?>"  required hidden>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 						</div>

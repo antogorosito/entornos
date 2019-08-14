@@ -88,9 +88,9 @@
 						{?>
 						<tr>
 							<td><?php echo $per['usuario'];?></td>
-							<td><button class="btn btn-success" name="botonAbmUsuario" type="submit" value="ver<?php echo $per['usuario'];?>">Ver</button> </td>
-							<td><button class="btn btn-success" name="botonAbmUsuario" type="submit" value="edi<?php echo $per['usuario'];?>">Editar</button></td>
-							<td> <button class="btn btn-success" name="botonAbmUsuario" type="submit" value="eli<?php echo $per['usuario'];?>">Eliminar</button></td>
+							<td><button class="btn btn-success" name="botonAbmUsuarios" type="submit" value="ver<?php echo $per['usuario'];?>">Ver</button> </td>
+							<td><button class="btn btn-success" name="botonAbmUsuarios" type="submit" value="edi<?php echo $per['usuario'];?>">Editar</button></td>
+							<td> <button class="btn btn-success" name="botonAbmUsuarios" type="submit" value="eli<?php echo $per['usuario'];?>">Eliminar</button></td>
 						</tr>
 					<?php 
 						}	

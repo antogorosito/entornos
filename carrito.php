@@ -64,12 +64,35 @@
 			<?php }
 			else
 			{	//aca va la parte del carrito
-				//include("conexion.inc");
+				include("conexion.inc");
 				$producto=$_POST['btnBusqueda'];
-				echo $producto;
+				$consulta="select * from productos where id_producto ='$producto'";
+				$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
+				$prod = mysqli_fetch_assoc($resp);
+				//echo $prod['nombre_producto'];
 				//agregarcar
+				$cant=2;
+				if(!isset($_SESSION["carro"]))
+				{
+					
+					echo " vacio";
+				}
+				else
+				{
+				//	$carro=$_SESSION["carro"];
+			$carro[md5($producto)]=array('identificador'=>md5($producto),'producto'=>$prod["nombre_producto"],'cantidad'=>$cant);
+					$_SESSION['carro']=$carro;
+
+				/*	foreach($carro as $k => $v){
+					echo $v[producto];
+						echo $v[cantidad];
+					}*/
+				//	 echo "<script> window.location='login.php'; </script>";
+				}
 			}
 		?>
+		
+		
 		</div>
 		<footer>
 			<div class="footer-container">

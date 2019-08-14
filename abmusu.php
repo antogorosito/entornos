@@ -58,10 +58,10 @@
 			<?php
 				include("conexion.inc");
 				$boton=$_POST['botonAbmusuario'];
-				$usuario=$_POST['usuario'];
+				
 				$clave=$_POST['clave'];
 				$tipo=$_POST['nombre_categoria'];
-				$dni=$_POST['dni'];
+		
 				$nombre=$_POST['nombre'];
 				$apellido=$_POST['apellido'];
 				$email=$_POST['email'];
@@ -70,6 +70,8 @@
 				$tel=$_POST['codigo'].' '.$_POST['tel_usuario'];
 				if($boton=="modificar")
 				{
+										$usuario=$_POST['usuario1'];
+					$dni=$_POST['dni1'];
 					$consultaU="update usuarios set clave='$clave', tipo_usuario='$tipo' where usuario='$usuario'"; 
 					$consultaP="update personas set nombre='$nombre',apellido='$apellido', mail='$email',direccion='$direccion', telefono='$tel', fechaNac='$fecha' where dni='$dni'";
 					mysqli_query($link,$consultaU) or die(mysqli_error($link));
@@ -85,7 +87,9 @@
 				<?php
 				}
 				elseif($boton=="agregar")
-				{ 
+				{
+					$usuario=$_POST['usuario'];
+					$dni=$_POST['dni'];
 					$consultaa="insert into personas(nombre,apellido,mail,direccion,telefono,fechaNac,dni) values('$nombre','$apellido','$email','$direccion','$tel','$fecha','$dni')";
 					$consulta="insert into usuarios(usuario,clave, tipo_usuario,dni) values('$usuario','$clave','$tipo','$dni')"; 
 					mysqli_query($link,$consultaa) or die(mysqli_error($link));
