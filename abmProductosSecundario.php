@@ -14,7 +14,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
-	<body>
+	<body >
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<a class="navbar-brand" href="index.php">
 				<img src="titulo.jpg" alt="Logo" style="width:15vw;" />		  
@@ -54,7 +54,7 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
 		</nav>
-		<div id="cuerdo" class="cuerpo">
+		<div class="cuerpo" >
 			<?php
 				include("conexion.inc");
 				$boton=$_POST['botonAbmProducto'];
@@ -66,11 +66,20 @@
 					$prod = mysqli_fetch_assoc($resp);
 					if($botonInicio=="ver"){?>
 					<h2 class="titInicio verde ">Ver producto </h2>
+					<?php
+					} 
+					elseif($botonInicio=="edi"){?>
+					<h2 class="titInicio verde ">Modificar producto </h2>
+					<?php }?>
 					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
 						<div class="row top">
 							<div class="form-group col40 ">
 								<label>Producto:</label>
-								<input type="text" class="form-control" name="nombre_producto" value="<?php echo $prod['nombre_producto']; ?>" required disabled>
+								<?php if($botonInicio=="ver"){?>
+								<input type="text" class="form-control"name="nombre_producto" value="<?php echo $prod['nombre_producto']; ?>" required disabled>
+								<?php }else {?>
+								<input type="text" class="form-control" name="nombre_producto" value="<?php echo $prod['nombre_producto']; ?>" required >
+								<?php }?>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 							<div class="esp"></div>
@@ -83,27 +92,17 @@
 						<div class="row">
 							<div class="form-group ">
 								<label >Stock:</label>
+								<?php if($botonInicio=="ver"){?>
 								<input type="number" class="form-control" name="stock" value="<?php echo $prod['stock']; ?>" required disabled>
+								<?php }else {?>
+								<input type="number" class="form-control" name="stock" value="<?php echo $prod['stock']; ?>" required >
+								<?php }?>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
-						</div>
-						<div class="row">
+							<div class="esp"></div>
 							<div class="form-group ">
-								<label >Precio:</label>
-								<input type="text" class="form-control" name="precio" value="<?php echo $prod['precio']; ?>" required disabled>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group ">
-								<label >Foto:</label>
-						<!--		<img src="mostrarImagen.php?id=<?php echo $prod['id_producto'];?>" class="imgPr"/> -->
-								<input type='file' name='imagen' id="imagen" disabled>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group ">
-								<label >Categoria:</label>
+								<label >Categoria:</label> 
+								<?php if($botonInicio=="ver"){?>
 								<select name="nombre_categoria" class="form-control" disabled>
 								<?php 
 									$consulta="select * from categorias";
@@ -122,54 +121,8 @@
 									}
 								?>
 								</select>
-						</div>
-						</div>
-						</form>
-					<?php
-					} 
-					elseif($botonInicio=="edi"){?>
-					<h2 class="titInicio verde ">Modificar producto </h2>
-					
-					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
-						<div class="row top">
-							<div class="form-group col40 ">
-								<label>Producto:</label>
-								<input type="text" class="form-control" name="nombre_producto" value="<?php echo $prod['nombre_producto']; ?>" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-							<div class="esp"></div>
-							<div class="form-group ">
-								<label >Id:</label>
-								<input type="number" class="form-control" name="id_producto" value="<?php echo $prod['id_producto']; ?>"  required disabled>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group ">
-								<label >Stock:</label>
-								<input type="number" class="form-control" name="stock" value="<?php echo $prod['stock']; ?>" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group ">
-								<label >Precio:</label>
-								<input type="text" class="form-control" name="precio" value="<?php echo $prod['precio']; ?>" required>
-								<div class="invalid-feedback">Completar este campo.</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group ">
-								<label >Foto:</label>
-						<!--		<img src="mostrarImagen.php?id=<?php echo $prod['id_producto'];?>" class="imgPr"/> -->
-								<input type='file' name='imagen' id="imagen">
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group ">
-								<label >Categoria:</label>
-								<select name="nombre_categoria" class="form-control">
-								
+								<?php }else {?>
+								<select name="nombre_categoria" class="form-control" >
 								<?php 
 									$consulta="select * from categorias";
 									$respuesta = mysqli_query($link,$consulta) or die(mysqli_error($link));
@@ -187,10 +140,30 @@
 									}
 								?>
 								</select>
+								<?php } ?>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 						</div>
-						<?php }?>
+						<div class="row">
+							<div class="form-group ">
+								<label >Precio:</label>
+								<?php if($botonInicio=="ver"){?>
+								<input type="text" class="form-control" name="precio" value="<?php echo $prod['precio']; ?>" required disabled>
+								<?php }else {?>
+								<input type="text" class="form-control" name="precio" value="<?php echo $prod['precio']; ?>" required >
+								<?php }?>
+								<div class="invalid-feedback">Completar este campo.</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group ">
+								<label >Foto:</label>
+								<img src="mostrarImagen.php?id=<?php echo $prod['id_producto'];?>" class="imgPr"/> 
+								<?php if($botonInicio=="edi"){?>
+								<input type='file' name='imagen' id="imagen">
+								<?php } ?>
+							</div>
+						</div>
 						<?php 
 						if($botonInicio=="edi")
 						{ ?>
@@ -199,7 +172,7 @@
 						} ?>
 					</form>
 				<?php
-				}
+				} 
 				elseif($botonInicio=="eli")
 				{
 					$vSql="delete from productos where id_producto=$id"; 

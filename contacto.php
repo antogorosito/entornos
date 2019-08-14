@@ -11,6 +11,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
+		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>	
 		<script type="text/javascript" src="contacto.js"></script>
 	</head>
 	<body>
@@ -52,7 +54,7 @@
 		</nav>
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Formulario de contacto </h2>
-			<form action="contactoSecundario.php"  class="needs-validation formulario"  name="formContacto" id="formContacto" method="post"> <!-- la validacion la haria con javscript -->
+			<form action="<?php echo $_SERVER['PHP_SELF']; ?>"  class="needs-validation formulario"  name="formContacto" id="formContacto" method="post"> <!-- la validacion la haria con javscript -->
 				<div class="form-group top">
 					<label>Nombre y apellido:</label>
 					<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nombre" id="nombre">
@@ -83,3 +85,37 @@
 		</footer>
 	</body>
 </html>
+<?php 
+	if(isset($_POST["btnContacto"]))
+	{
+		$fecha=date("d-m-Y");
+		$destino="entornosGraficos1@gmail.com";
+		$asunto="Comentario";
+		$comentario= " <html>
+		<head>
+		<title>Mail de contacto</title>
+		</head>
+		<body>
+			".$_POST['msjmail']."
+			</br>
+			</br>
+			<p>Enviado el dia ".$fecha." por ".$_POST['nombre'].", ".$_POST['emailC']."</p>
+		</body>
+		</html>";
+		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+		$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		//mail($destino,$asunto,$comentario,$cabeceras);
+?>
+		<script> 
+			alertify.alert('Confirmacion','Su consulta ha sido enviada, en breve recibira nuestra respuesta.',
+			function(){
+			alertify.success('Ok');
+			window.location= 'contacto.php'
+			});
+			/*alert('Su consulta ha sido enviada, en breve recibira nuestra respuesta.');
+			window.location= 'contacto.php'*/
+		</script>
+
+<?php	
+	}
+?>

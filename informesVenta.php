@@ -58,7 +58,7 @@
 		 </nav>	
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Ventas </h2>
-			<form action="abmProductosSecundario.php"  method="post" id="formAbmProductos">
+			<form action="abmProductosSecundario.php"  method="post" class="formAbmProductos">
 				<table class="table table-hover">
 					<thead>
 					<?php include('conexion.inc');

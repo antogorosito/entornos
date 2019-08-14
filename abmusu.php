@@ -54,7 +54,7 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
 		</nav>
-		<div id="cuerdo" class="cuerpo">
+		<div class="cuerpo">
 			<?php
 				include("conexion.inc");
 				$boton=$_POST['botonAbmusuario'];

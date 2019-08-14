@@ -58,7 +58,7 @@
 		 </nav>	
 		<div class="cuerpo">
 		<h2 class="titInicio verde">Panel de usuarios </h2>
-			<form action="abmUsuariosSecundario.php"  method="post" id="formAbmUsuarios">
+			<form action="abmUsuariosSecundario.php"  method="post" class="formAbmProductos">
 				<button class="btn btn-success" id="agregarUsu" name="botonAbmUsuario" type="submit" value="agregar">Agregar nuevo usuario</button>
 				<table class="table table-hover">
 					<thead>

@@ -11,6 +11,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
+		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
 		<script type="text/javascript" src="login.js"></script>
 	</head>
 	<body>
@@ -53,23 +55,25 @@
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Olvido de contraseña</h2>
 			<div class="formulario">
-				<form action="olvidoClaveSecundario.php" class="needs-validation" id="formOlvidoClave" name="formOlvidoClave" method="post">
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="needs-validation" id="formOlvidoClave" name="formOlvidoClave" method="post">
 					<div class="form-group">
 						<label >Email:</label>
 						<?php 
-					if(!isset($_SESSION['emailolvido']))
+					if(!isset($_COOKIE['emailolvido']))
 					{
-					echo '<input type="mail" class="form-control" placeholder="Ingrese su email" name="emailo" id="emailo" >'
+						echo '<input type="mail" class="form-control" placeholder="Ingrese su email" name="emailo" id="emailo" >';
 					}
 					else{
-						echo '<input type="mail" class="form-control" placeholder="Ingrese su email" name="emailo" id="emailo" value="<?php echo $_SESSION['emailolvido'];?>">'
+						echo "<input type='mail' class='form-control' placeholder='Ingrese su email' name='emailo' id='emailo' value=".$_COOKIE['emailolvido'].">";
 					}
-					?>	<div class="text-hide error" id="errorolvido">Completar este campo.</div>
+					?>	
+						<div class="text-hide error" id="errorolvido">Completar este campo.</div>
 					</div>	
-					<button id="btnOlvidar" type="submit" class="btn btn-success" name="Submit">Enviar</button>					
+					<button id="btnOlvidar" type="submit" class="btn btn-success" name="btnOlvidar">Enviar</button>					
 				</form>
 			</div>
 		</div>
+		
 		<footer>
 		<div class="footer-container">
 		  <div class="footer-main">
@@ -81,3 +85,55 @@
 		</footer>
 	</body>
 </html>
+<?php 
+	if(isset($_POST["btnOlvidar"]))
+	{
+		include("conexion.inc");
+		$mail=$_POST['emailo'];
+		$consulta="select * from usuarios inner join personas on personas.dni=usuarios.dni where mail='$mail'";
+		$resp = mysqli_query($link,$consulta);
+		$user = mysqli_fetch_assoc($resp);
+		if(isset($user))
+		{
+			$asunto="Recuperacion de contraseña";
+			$destino=$mail;
+			$comentario= "
+			<html>
+			<head>
+			<title>Mail de recuperacion de clave</title>
+			</head>
+			<body>
+				<p>Este es un mail automatico de recuperacion de la contraseña.</p>
+				<p>Usuario:".$user['usuario']."</p>
+				<p>Contraseña:".$user['clave']."</p>
+				<p>Saludos, atentamente Supermercado SAV.</p>
+			</body>
+			</html>";
+			$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			mail($destino,$asunto,$comentario,$cabeceras);
+		?>
+		<script> 
+			alertify.alert('Confirmacion','Su consulta ha sido enviada, en breve recibira nuestra respuesta.',function(){
+				alertify.success('Ok');
+				window.location= 'index.php';
+			});
+		</script>
+		<?php
+		}
+		else
+		{
+			setcookie("emailolvido","$mail",time()+15);
+		?>
+		<script> 
+			alertify.alert('Error','El email ingresado no esta vinculado con ninguna cuenta existente.',function(){
+				alertify.success('Ok');					
+				window.location= 'olvidoClave.php';
+			});
+		</script>
+		<?php
+		}
+		mysqli_free_result($resp);
+		mysqli_close($link);
+	} 
+?>

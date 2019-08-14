@@ -58,7 +58,7 @@
 		 </nav>	
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Panel de pedidos </h2>
-			<form action="abmProductosSecundario.php"  method="post" id="formAbmProductos">
+			<form action="abmProductosSecundario.php"  method="post" class="formAbmProductos">
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -73,7 +73,7 @@
 					<tbody>			
 					<?php include('conexion.inc');
 						$hoy=date('Y-m-d'); 
-						$conscat="select * from pedidos inner join entregas on entregas.id_entrega=pedidos.id_entrega where fecha_pedido>='$hoy'";
+						$conscat="select * from pedidos inner join entregas on entregas.id_entrega=pedidos.id_entrega where dia_entrega>='$hoy'";
 						$rta=mysqli_query($link,$conscat) or die(mysqli_error($link));
 						while($ped = mysqli_fetch_array($rta)) 
 							{?>

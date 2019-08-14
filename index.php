@@ -80,16 +80,13 @@
 						<img class="img-circle imgI" src="promodesc.png" alt="Promociones" />
 						<div class="card-body titInicio">
 							<h4 class="verde">Promociones</h4>
-							<!--<p class="titP">Aqui se encontraran las promociones y descuentos vigentes con las distintas tarjetas.</p> -->
 						</div>
-						<!--<button class="leerMas btn btn-success btn-sm" href="promociones.php" >Leer mas</button>-->
 						<a class="leerMas btn btn-success btn-sm" href="promociones.php" >Leer mas</a>					
 					</div>
 					<div class="card col50in" id="col50d">
 						<img class="img-circle imgI" src="destacado.jpg" alt="Productos destacados" />
 						<div class="card-body titInicio">
 							<h4 class="verde">Productos Destacados</h4>
-					<!--		<p class="titP">Aqui se encontrara el listado de los productos nuevos y los que tengan descuentos.</p> -->
 						</div>
 						<a class="leerMas btn btn-success btn-sm" href="productosDestacados.php" >Leer mas</a>				
 					</div>		

@@ -51,7 +51,7 @@
 		  </form>
 		</nav>
 		<div class="cuerpo">
-		<form action="invento.php" id="formProductos" name="formProductos" method="post" >
+		<form action="carrito.php" id="formProductos" name="formProductos" method="post" >
 		<?php
 		include("conexion.inc");
 		$palabra=$_POST['lupa'];
@@ -75,11 +75,13 @@
 						<div class="card-body ">
 							<div class="primeroCard">
 								<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
+							</div>
+							<div class="primeroCard">
 								<h5 class="verde">$ <?php echo $cat['precio'];?></h5>
 								<h6>Stock: <?php echo $cat['stock'];?></h6>
 							</div>
-							<div class="segundoCard">
-								<button id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
+							<div class="primeroCard">
+								<button id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['id_producto'];?>">Agregar al carrito</button>
 							</div>
 						</div>
 					</div>

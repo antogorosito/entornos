@@ -7,9 +7,11 @@
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
+		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -50,7 +52,24 @@
 		  </form>
 		</nav>		
 		<div class="cuerpo">
-Carrito
+		<?php
+			if(!isset($_SESSION["usuario"]))
+			{?>
+			<script> 
+				alertify.alert('Error','Debe iniciar sesion para realizar una compra',function(){
+					alertify.success('Ok');
+					window.location= 'login.php'
+				});
+			</script>
+			<?php }
+			else
+			{	//aca va la parte del carrito
+				//include("conexion.inc");
+				$producto=$_POST['btnBusqueda'];
+				echo $producto;
+				//agregarcar
+			}
+		?>
 		</div>
 		<footer>
 			<div class="footer-container">

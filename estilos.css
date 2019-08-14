@@ -13,6 +13,7 @@ input[name=calle]
 input[name=id_producto]
 {
 	width: 30%;
+
 }
 input[name=nombre_producto],select[name=nombre_categoria]
 {
@@ -22,34 +23,30 @@ input[name=stock],input[name=precio]
 {
 	width:40%;
 }
-#msjmail
+#msjmail /* se usa para el envio de mailde contacto*/
 {
 	height:20vh;
 }
-.error
+.error /*msj de error que falta completar*/
 {
 	color:red;	
 }
-.espacioArriba
-{
-	margin-top:20vh;
-}
-.centrar
+.centrar /* se usa para centrar abm usuario. propductos e informesventa*/
 {
 	margin-left:5vw;
 }
-.leerMas
+.leerMas /*en el index*/
 {
 	width:50%;
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:1vw;
 }
-#btnO
+#btnO /*boton olvide clave */ 
 {
 	color:green;
 }
-.col33
+.col33 /*card prodcutosec y buscar*/
 {
 	width:30%;
 	float:left;
@@ -61,7 +58,7 @@ input[name=stock],input[name=precio]
 	padding-top:5px;
 	padding-bottom:10px;	
 }
-.col20Prod
+.col20Prod /*productos*/
 {
 	width:20%;
 	float:left;
@@ -72,7 +69,7 @@ input[name=stock],input[name=precio]
 	padding-top:5px;
 	padding-bottom:10px;	
 }
-.izq
+.izq /*productos */
 {
 	margin-left:3vw;
 }
@@ -80,54 +77,49 @@ input[name=stock],input[name=precio]
 {
 	margin-left:48px;
 }
-.espacio2
+.espacio2 /*abmussec, registrar*/
 {
 	margin-right:12px;
 }
-.esp
+.esp /*abmprodsec, abmussec, registrar*/
 {
 	margin-right:5vw;
 }
-
-.textoblanco
+.textoblanco /*abmussec,registrar*/
 {
 	color:white;
 }
-#reg
+#reg /*formulario de registrar*/
 {
 	margin-left:auto;
 	margin-right:auto;
 }
-.top 
+.top /*se usa */
 {
 	margin-top:5vh;
 }
-#botonReg
+#botonReg/*registrar*/
 {
 	margin-left:auto;
 	margin-right:5vw;
 }
-.cardProducto
+.cardProducto /*buscar, productos,prodsec*/
 {
 	margin-bottom:3vh;
 	width: 23vw;
 	height: 68vh;
 }
-.primeroCard
+.primeroCard /*buscar, prodsec*/
 {
-	height:10vh;
-	margin-bottom: 2vh;
-}
-.segundoCard
-{
+
 	height:10vh;
 	margin-bottom:2vh;
 }
-.terceroCard
+.terceroCard /*prodsec*/
 {
  	height:10vh;
 }
-.imgPr
+.imgPr /*abmprodsec,buscar, prodsec*/
 {
 	height:30vh;
 	padding-top:3vh;
@@ -135,108 +127,73 @@ input[name=stock],input[name=precio]
 	padding-right:3vw;	
 }
 
-.col40
+.col40 /*abmprodsec, abmususec, registrar*/
 {
 	width:40%;
 	float:left;
 }
-.col50
+.col50 /*registrar*/
 {
 	width:50%
 }
-.cardProm
+.cardProm /*promociones*/
 {
 	width:30vw;
 	margin-bottom:1vw;
 }
-.cardIzq
+.cardIzq/*promociones*/
 {
 	margin-left:15vw;
 }
-.cardDer
+.cardDer /*promociones*/
 {
 	margin-left:10vw;
 }
-
-.col50in
+.col50in /*index*/
 {
 	width:30%;
 	margin-left: 17vw;
 	margin-right:0vw;
 	margin-top:5vh;
 }
-#col50d
+#col50d /*index*/
 {
 	margin-left: 3vw;
 	margin-right:15vw;
 	
 }
-.col15
+.col15 /*abmussec,registrar*/
 {
 	width:15%;
 	float:left;
 }
-.col20
-{
-	width:20%;
-	float:left;
-	padding-left:50px;
-}
-#agregarProd, #agregarUsu
+#agregarProd, #agregarUsu /*abmprod,abmusu*/
 {
 	float:right;
 	margin-bottom:2vh;
 }
-.collog
-{
-	float:right;
-	margin-right:5%;
-	margin-top:2%;
-}
-#tabla
-{
-	margin-left:25%;
-}
-.seg
-{
-	margin-left:50%;
-}
-#sesion
-{
-	font-size:20px;
-	margin-left:50%;
-}
-.titP
-{
-	font-size: 14px;
-}
-#titulo
-{
-	width:35%;
-	height:100px;
-}
-.titPro
+.titPro /*buscar,prodsec*/
 {
 	text-align:center;
 	margin-top:3vh;
 }
-#titulo2
+#titulo2 /*indx*/
 {
 	text-align:center;
 	margin-bottom:2vh;
 }
-.titInicio
+.titInicio /*se usa*/
 {
 	text-align:center;
 	font-size:20px;
 }
-.imgP
+.imgP/*prodc*/
 {
 	width:20%;
 	height:40vh;
 	margin-bottom:10vh;
 }
-.imgI
+.imgI /*index,promociones*/
 {
 	width:20vw;
 	height:20vh;
@@ -244,75 +201,44 @@ input[name=stock],input[name=precio]
 	margin-left:5vw;
 	margin-right:5vw;
 }
-#somos
+#somos/*index*/
 {
 	padding-left:200px;
 	padding-right:200px;
 	margin-bottom:5vh;
 }
-#textoIndex
+#textoIndex /*index*/
 {
 	text-align:justify;
 	padding-left:10vw;
 	padding-right:10vw;
 }
-.marketing
-{
-	margin-left:25vw;
-}
-.marketing.col-lg-4
-{
-	margin-bottom:20px;
-	text-align:center;
-}
-.col-lg-4
-{
-	position:relative;
-	min-height:1px;
-	padding-left:15px;
-	padding-right:15px;
-}
-#lupa
-{
-	width:25%;
-	margin-left:75%;
-}
-.header
-{
-	border-bottom:solid 1px black;
-}
-
-.cuerpo
+.cuerpo /*se usa*/
 {
 	padding-bottom: 10vh;
 	padding-top: 5vh;
 	overflow:hidden;
 }
-#cartas
+#cartas/*index*/
 {
 	margin-bottom:10vh;
 }
-#gps
+#gps /*index*/
 {
 	text-align:center;
 
 }
-ul,li
+ul,li /*nav*/
 { 
 	display:inline; 
 }
-li 
+li /*nav*/
 {
 	margin-left:25px;
 	margin-right:50px;
 }
-.links
-{
-	text-decoration:none;
-	color:black;
-	font-size:20px;
-}
-footer
+
+footer/*se usa*/
 {
 	border-top:solid 1px black;
   	width: 100%;
@@ -321,12 +247,12 @@ footer
 	bottom: 0;
 	left:0;
 }
-.footer-container
+.footer-container /*se usa*/
 {
 	width: 100%;
 	background-color:#343A40;	
 }
-.footer-main
+.footer-main/*se usa*/
 {
 	width:100%;
 	max-width:100%;
@@ -335,63 +261,48 @@ footer
 	justify-content:space-between;
 	padding:10px 0;
 }
-.footer-main .footer-columna
+.footer-main .footer-columna/*se usa*/
 {
 	background-color:#343A40;
 	color:rgba(255,255,255,.5);
 	width:calc(100% / 3);
 	text-align:center;
 }
-.footer-main .footer-columna:nth-child(1)
+.footer-main .footer-columna:nth-child(1) /*se usa*/
 {
 	padding: 0 50px;
 }
-.footer-main .footer-columna:nth-child(2)
+.footer-main .footer-columna:nth-child(2)/*se usa*/
 {
 	padding: 0 20px;
 }
-/*
-html {
-  min-height: 100%;
-}
-body
-{
-	margin: 0;
-	margin-bottom: 20px;
-}*/
-#btnR
+#btnR /*login*/
 {
 	margin-left:8vw;
 	margin-top:2vh;
 }
-#btnI
+#btnI/*login*/
 {
 	margin-left:8vw;
 	margin-top:2vh;
 }
-.formulario
+.formulario /*se usa*/
 {
 	margin-top:5vh; 
 	margin-left:30vw;
 	margin-right:30vw;
 }
-#formAbmProductos
+.formAbmProductos/*abmprod,informes,pedido*/
 {
 	margin-top:5vh; 
 	margin-left:20vw;
 	margin-right:20vw;
 }
-#formAbmUsuarios
-{
-	margin-top:5vh; 
-	margin-left:20vw;
-	margin-right:20vw;
-}
-.verde
+.verde /*se usa*/
 {
 	color:green;
 }
-#contador
+#contador /*index*/
 {
 	background-color:green;
 	color:white;

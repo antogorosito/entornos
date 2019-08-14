@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="estilos.css" type="text/css" media="screen"/>
 		<title>Supermercado SAV</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
@@ -58,7 +58,7 @@
 		 </nav>	
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Panel de productos </h2>
-			<form action="abmProductosSecundario.php"  method="post" id="formAbmProductos">
+			<form action="abmProductosSecundario.php"  method="post" class="formAbmProductos">
 				<button class="btn btn-success" id="agregarProd" name="botonAbmProducto" type="submit" value="agregar">Agregar nuevo producto</button>
 				<table class="table table-hover">
 					<thead>
@@ -92,8 +92,8 @@
 							{?>
 							<tr>
 								<td><?php echo $cat['nombre_producto'];?></td>
-								<td><button class="btn btn-success" name="botonAbmProducto" type="submit" value="ver<?php echo $cat['id_producto'];?>">Ver</button> </td>
-								<td><button class="btn btn-success" name="botonAbmProducto" type="submit" value="edi<?php echo $cat['id_producto'];?>">Editar</button></td>
+								<td><button class="btn btn-success" name="botonAbmProducto"  type="submit" value="ver<?php echo $cat['id_producto'];?>">Ver</button> </td>
+								<td><button class="btn btn-success" name="botonAbmProducto"  type="submit" value="edi<?php echo $cat['id_producto'];?>">Editar</button></td>
 								<td> <button class="btn btn-success" name="botonAbmProducto" type="submit" value="eli<?php echo $cat['id_producto'];?>">Eliminar</button></td>
 							</tr>
 						<?php 
