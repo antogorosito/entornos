@@ -50,7 +50,7 @@
 		  </form>
 		</nav>
 		<div class="cuerpo">
-		<form action="carrito.php"  id="formProductos" name="formProductos" method="post" >
+		<form action="busqueda.php"  id="formProductos" name="formProductos" method="post" >
 		<?php
 		include("conexion.inc");
 		if(isset($_POST["lupa"]) && $_POST["lupa"]=="")
@@ -62,13 +62,13 @@
 		else
 		{
 			$palabra=$_POST['lupa'];
-			$consulta="select * from productos where nombre_producto like '".$palabra."%' order by nombre_producto";
+			$consulta="select * from productos where nombre_producto like '".$palabra."%' or  nombre_producto like '%".$palabra."%' order by nombre_producto";
 			$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
 			$c =mysqli_num_rows($resp);
 			if( $c == 0) 
 			{
 				?>
-				<h3>No se encontraron coincidencias con <?php echo $palabra?></h3>
+				<h3 class="verde titInicio">No se encontraron coincidencias con <?php echo $palabra?></h3>
 				<?php
 			}
 			else 

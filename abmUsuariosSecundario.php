@@ -57,7 +57,7 @@
 		<div class="cuerpo">
 			<?php
 				include("conexion.inc");
-				$boton=$_POST['botonAbmUsuario'];
+				$boton=$_POST['botonAbmUsuarios'];
 				$botonInicio=substr($boton,0,3);
 				$usuarioInicio=substr($boton,3);
 				$consulta="select * from usuarios inner join personas on personas.dni=usuarios.dni where usuario = '$usuarioInicio'";
@@ -99,16 +99,21 @@
 								<label >Tipo de usuario:</label>
 								<?php if($botonInicio=="ver"){?>
 								<select name="nombre_categoria" class="form-control" disabled>
-									<option value="0" >Administrador</option>
-									<option value="1" >Usuario</option>
-								</select>
 								<?php }else {?>
 								<select name="nombre_categoria" class="form-control" >
+								<?php } 
+								if($usuario['tipo_usuario']==1)
+								{ ?>
 									<option value="0" >Administrador</option>
+									<option value="1" selected>Usuario</option>
+								<?php }else { ?>
+									<option value="0" selected >Administrador</option>
 									<option value="1" >Usuario</option>
-								</select>
 								<?php }?>
+								</select>
 								<div class="invalid-feedback">Completar este campo.</div>
+
+										
 							</div>
 							<div class="esp"></div>
 							<div class="form-group ">

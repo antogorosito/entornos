@@ -60,7 +60,7 @@
 					<?php 
 					if(!isset($_COOKIE['usuariologin']))
 					{
-						echo '<input type="text" class="form-control" placeholder="Ingrese su usuario" name="usuario" id="usuario" >';
+						echo '<input type="text" class="form-control" placeholder="Ingrese su usuario" name="usuario" id="usuario" value="anto">';
 					}
 					else
 					{
@@ -74,7 +74,7 @@
 					<?php 
 					if(!isset($_COOKIE['clavelogin']))
 					{
-						echo '<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" id="clave" >';
+						echo '<input type="password" class="form-control" placeholder="Ingrese su clave" name="clave" id="clave" value="anto123">';
 					}
 					else{
 						echo "<input type='password' class='form-control' placeholder='Ingrese su clave' name='clave' id='clave' value=".$_COOKIE['clavelogin'].">";
@@ -142,7 +142,8 @@
 					$_SESSION['direccion'] = $direccion;
 					$_SESSION['fecha'] = $fecha;
 					$_SESSION['dni'] = $dni;
-					$_SESSION['carro']="";
+					$_SESSION['tipo']=$tipo;
+					$_SESSION['carro']=array();
 					setcookie("usuariologin","$vUsuario",time()-1);
 					setcookie("clavelogin","$vClave",time()-1);
 					if($tipo==1)

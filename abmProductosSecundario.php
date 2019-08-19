@@ -57,7 +57,7 @@
 		<div class="cuerpo" >
 			<?php
 				include("conexion.inc");
-				$boton=$_POST['botonAbmProductos'];
+				$boton=$_POST['botonAbmProducto'];
 				$botonInicio=substr($boton,0,3);
 				$id=substr($boton,3);
 				if($botonInicio=="ver" || $botonInicio=="edi"){
@@ -71,7 +71,7 @@
 					elseif($botonInicio=="edi"){?>
 					<h2 class="titInicio verde ">Modificar producto </h2>
 					<?php }?>
-					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
+					<form action="abmprod.php"   class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
 						<div class="row top">
 							<div class="form-group col40 ">
 								<label>Producto:</label>
@@ -86,6 +86,7 @@
 							<div class="form-group ">
 								<label >Id:</label>
 								<input type="number" class="form-control" name="id_producto" value="<?php echo $prod['id_producto']; ?>"  required disabled>
+								<input type="number" class="form-control" name="id_producto1" value="<?php echo $prod['id_producto']; ?>"  required hidden>
 								<div class="invalid-feedback">Completar este campo.</div>
 							</div>
 						</div>
@@ -190,7 +191,7 @@
 				if($boton=="agregar"){
 					?>
 					<h2 class="titInicio verde">Nuevo producto </h2>
-					<form action="abmprod.php" class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
+					<form action="abmprod.php"  class="formulario" name="abmprod" method="post" enctype='multipart/form-data'>
 						<div class="row top">
 							<div class="form-group col40 ">
 								<label>Producto:</label>
@@ -255,3 +256,43 @@
 		</footer>
 	</body>
 </html>
+<?php 
+	if(isset($_POST["botonAbmProd"]) )
+	{
+		//include("conexion.inc");
+		$boton=$_POST['botonAbmProd'];
+		$stock=$_POST['stock'];
+		$producto=$_POST['nombre_producto'];
+		$precio=$_POST['precio'];
+		$categoria=$_POST['nombre_categoria'];
+		$imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+		if($boton=="modificar")
+		{
+			$id=$_POST['id_producto'];			
+			$vSql="update productos set nombre_producto='$producto', stock='$stock', precio='$precio', foto='$imagen', id_categoria='$categoria' where id_producto='$id'"; 
+			mysqli_query($link,$vSql) or die(mysqli_error($link));
+		?>
+			<script> 
+				alertify.alert('Exito','Se ha modificado el producto.',	function() {
+					alertify.success('Ok');
+					window.location= 'abmProductos.php';
+  				});
+			</script>
+		<?php
+		}
+		elseif($boton=="agregar")
+		{ 
+			$consulta="insert into productos(nombre_producto,precio, stock,id_categoria,foto) values('$producto','$precio','$stock','$categoria','$imagen')"; 
+			mysqli_query($link,$consulta) or die(mysqli_error($link));
+		?>
+			<script>
+			alertify.alert('Exito','Se ha agregado un nuevo producto.',	function() {
+				alertify.success('Ok');
+				window.location= 'abmProductos.php';
+  			});
+			</script>
+		<?php
+		}
+		mysqli_close($link);
+	}
+?>

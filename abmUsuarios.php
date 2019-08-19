@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,6 +12,8 @@
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
+		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -56,10 +59,11 @@
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			  </form>
 		 </nav>	
+	
 		<div class="cuerpo">
 		<h2 class="titInicio verde">Panel de usuarios </h2>
 			<form action="abmUsuariosSecundario.php"  method="post" class="formAbmProductos">
-				<button class="btn btn-success" id="agregarUsu" name="botonAbmUsuario" type="submit" value="agregar">Agregar nuevo usuario</button>
+				<button class="btn btn-success" id="agregarUsu" name="botonAbmUsuarios" type="submit" value="agregar">Agregar nuevo usuario</button>
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -103,6 +107,7 @@
 			</form>
 		
 		</div>
+		
 		<footer>
 		<div class="footer-container">
 		  <div class="footer-main">

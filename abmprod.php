@@ -66,7 +66,7 @@
 				
 				if($boton=="modificar")
 				{
-					$id=$_POST['id_producto'];			
+					$id=$_POST['id_producto1'];			
 					$vSql="update productos set nombre_producto='$producto', stock='$stock', precio='$precio', foto='$imagen', id_categoria='$categoria' where id_producto='$id'"; 
 					mysqli_query($link,$vSql) or die(mysqli_error($link));
 				?>

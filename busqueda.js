@@ -1,13 +1,19 @@
-$(function() {
-	$("#btnBusqueda").on("click",function(){
-		alert("A");
-		if(!isset($_SESSION["usuario"]))
-		{ 
-			alert("sin sesion");
-		}
-		else
-		{
-			alert("sesion");
-		}
-	});
-});
+function menos()
+{
+	var a=parseInt($('#cantidad').html());
+	if(a>1)
+	{
+		a=a-1;
+		$('#cantidad').html(a);
+	}
+	
+
+	
+}
+function mas()
+{
+	var a=parseInt($('#cantidad').html());
+	a=a+1;
+	$('#cantidad').html(a);
+
+}

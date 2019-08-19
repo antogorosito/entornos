@@ -12,6 +12,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
 		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+			<script type="text/javascript" src="busqueda.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -52,47 +53,40 @@
 		  </form>
 		</nav>		
 		<div class="cuerpo">
-		<?php
-			if(!isset($_SESSION["usuario"]))
-			{?>
-			<script> 
-				alertify.alert('Error','Debe iniciar sesion para realizar una compra',function(){
-					alertify.success('Ok');
-					window.location= 'login.php'
-				});
-			</script>
-			<?php }
-			else
-			{	//aca va la parte del carrito
-				include("conexion.inc");
-				$producto=$_POST['btnBusqueda'];
-				$consulta="select * from productos where id_producto ='$producto'";
-				$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
-				$prod = mysqli_fetch_assoc($resp);
-				//echo $prod['nombre_producto'];
-				//agregarcar
-				$cant=2;
-				if(!isset($_SESSION["carro"]))
-				{
-					
-					echo " vacio";
-				}
-				else
-				{
-				//	$carro=$_SESSION["carro"];
-			$carro[md5($producto)]=array('identificador'=>md5($producto),'producto'=>$prod["nombre_producto"],'cantidad'=>$cant);
-					$_SESSION['carro']=$carro;
-
-				/*	foreach($carro as $k => $v){
-					echo $v[producto];
-						echo $v[cantidad];
-					}*/
-				//	 echo "<script> window.location='login.php'; </script>";
-				}
-			}
-		?>
 		
-		
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Producto</th>
+							<th></th>
+							<th>Cantidad</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>	
+					<?php
+					if(!isset($_SESSION["carro"]))
+					{			
+						echo " vacio";
+					}
+					else
+					{					
+						foreach($_SESSION["carro"] as $value =>$d)
+						{
+				//echo "asd" .$value. "asd " .$d;		?>
+						<tr>
+							<td><?php echo $value;?></td>
+							<td><button class="btn btn-success" name="btnAg" onClick="menos()" value="men">-</button></td>
+							<td><b id="cantidad"><?php echo $d;?></b></td>
+							<td><button class="btn btn-success" name="btnAg" onClick="mas()"value="mas">+</button></td>
+							<td><button class="btn btn-success" name="btnAg" value="eli<?php echo $value;?>">Eliminar</button></td>
+						</tr>		
+				  <?php }	
+					}?>						
+					</tbody>
+				</table>		
+			
 		</div>
 		<footer>
 			<div class="footer-container">
@@ -105,3 +99,15 @@
 		</footer>
 	</body>
 </html>
+<?php /*
+if(isset($_POST["btnAg"]) )
+{
+	$boton=$_POST["btnAg"];
+	$botonInicio=substr($boton,0,3);
+	$id=substr($boton,3);
+	if($botonInicio=="eli")
+	{
+		session_unset($_SESSION["carro"][]);
+	}
+}*/
+?>
