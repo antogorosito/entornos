@@ -12,7 +12,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
 		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
-			
+		<script type="text/javascript" src="carrito.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -67,13 +67,52 @@
 		{ ?>
 		<h2 class="titInicio verde">Carrito de compras </h2>
 		<form action="botonesCarrito.php" class="needs-validation formAbmProductos" method="post">
-			<div class="form-group  ">
-				<label for="uname">Fecha de entrega:</label>
-				<input type="date" class="form-control" name="fechae" id="fechae"/>
+			<div class="row">
+				<div class="form-group  col33">
+					<label for="uname">Fecha de entrega:</label>
+					<input type="date" class="form-control" name="fechae" id="fechae"/>
+					<div class="text-hide error" id="fechaerror" >Completar este campo.</div>
+				</div>
+				<div class="form-group  col33">
 				<label for="uname">Hora de entrega:</label>
-				<input type="time" class="form-control" name="horae" id="horae"/>
+					<input type="time" class="form-control" name="horae" id="horae"/>
+					<div class="text-hide error" id="horaerror" >Completar este campo.</div>
+				</div>
+				<div class="form-group  col33">
+					<label for="uname">Forma de pago:</label>
+					<select name="formapago" class="form-control" id="formapago" >
+						<option value="0" >Efectivo</option>
+						<option value="1" >Credito</option>
+						<option value="2" >Debito</option>
+					</select>
+					<div class="text-hide error" id="pagoerror" >Completar este campo.</div>
+				</div>
 			</div>
-				<table class="table table-hover">
+			<div class="row ">
+				<div class="form-group ">
+					<label>Direccion:</label>
+					<input type="text" class="form-control" name="calle" id="calle" placeholder="Calle"/>
+					<div class="text-hide error" id="calleerror">Completar este campo.</div>
+				</div>
+				<div class="espacio2 es"></div>
+				<div class="form-group col15">
+					<input type="text" class="form-control" name="numero" id="numero" placeholder="Numero"/>
+					<div class="text-hide error" id="nrocalleerror">Completar este campo.</div>
+				</div>
+				<div class="espacio2"></div>
+				<div class="form-group col15">
+					<label class="textoblanco">l</label> 
+					<input type="text" class="form-control" name="piso" placeholder="Piso"/>								
+					<div class="text-hide error">Completar este campo.</div>
+				</div>
+				<div class="espacio2"></div>
+				<div class="form-group col15">
+					<label class="textoblanco">l</label>
+					<input type="text" class="form-control" name="dpto" placeholder="Dpto"/>								
+					<div class="text-hide error">Completar este campo.</div>
+				</div>
+			</div>
+			<table class="table table-hover">
 					<thead>
 						<tr>
 							<th>Producto</th>

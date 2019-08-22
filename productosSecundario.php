@@ -50,7 +50,7 @@
 		  </form>
 	</nav>
 		<div class="cuerpo">
-			<form action="carrito.php" id="formProductos" name="formProductos" method="post" >
+			<form action="busqueda.php" id="formProductos" name="formProductos" method="post" >
 			<?php
 				include("conexion.inc");
 				$boton=$_POST['botonProducto'];
@@ -72,7 +72,7 @@
 							<h6>Stock: <?php echo $cat['stock'];?></h6>
 							</div>
 							<div class="terceroCard">
-								<button  id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['nombre_producto'];?>">Agregar al carrito</button>
+								<button  id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['id_producto'];?>">Agregar al carrito</button>
 							</div>
 						</div>
 					</div>

@@ -34,8 +34,21 @@
 	}
 	elseif($botonInicio=="com")
 	{//guardar linea, compra, entrega
+		include("conexion.inc"); 
+		$direccion=$_POST['calle'] .' '. $_POST['numero'] .' '. $_POST['piso'] .' '. $_POST['dpto']; 
+		$fecha_pedido=$_POST['fechae'];
+		$hora=$_POST['horae'];
+		$pago=$_POST['formapago'];
+		$costo=200;
+		$estado="pendiente";
 		foreach($_SESSION["carro"] as $k =>$v)
 		{
+			$consulta1="insert into entregas(direccion_entrega,dia_entrega,hora_entrega,costo_envio,estado_entrega) values('$direccion','$fecha','$hora','$costo',$estado)";
+			mysqli_query($link,$consulta1) or die(mysqli_error($link));
+			$consulta2="insert into pedidos(fecha_pedido,hora_pedido,importe_total,forma_pago,usuario,id_entrega) values()";
+			mysqli_query($link,$consulta2) or die(mysqli_error($link));
+			$consulta3="insert into ";
+			mysqli_query($link,$consulta3) or die(mysqli_error($link));
 			echo "producto ".$k;
 			echo "cantidad ".$v['cantidad'];
 			echo "precio ".$v['precio'];

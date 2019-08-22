@@ -176,17 +176,33 @@
 				} 
 				elseif($botonInicio=="eli")
 				{
-					$vSql="delete from productos where id_producto=$id"; 
-					mysqli_query($link,$vSql) or die(mysqli_error($link));
-			?>
+					$sql="select count(*) from lineadepedido inner join productos on productos.id_producto=lineadepedido.id_producto where productos.id_producto=$id";
+					$resp1 = mysqli_query($link,$sql) or die(mysqli_error($link));
+					$cantidad = mysqli_fetch_assoc($resp1);
+					if($cantidad['count(*)'] > 0)
+					{	?>
 					<script> 
-						alertify.alert('Exito','Se ha eliminado con exito el producto',
-  						function() {
-						alertify.success('Ok');
-						window.location= 'abmProductos.php';
+						alertify.alert('Error','No se puede eliminar el producto porque se usa en un pedido',function() {
+							alertify.success('Ok');
+							window.location= 'abmProductos.php';
   						});
 					</script>
-			<?php
+					<?php
+					}
+					else
+					{
+						$vSql="delete from productos where id_producto=$id"; 
+						mysqli_query($link,$vSql) or die(mysqli_error($link));
+					?>
+					<script> 
+						alertify.alert('Exito','Se ha eliminado con exito el producto', function() {
+							alertify.success('Ok');
+							window.location= 'abmProductos.php';
+  						});
+					</script>
+					<?php
+					}
+				
 				}
 				if($boton=="agregar"){
 					?>

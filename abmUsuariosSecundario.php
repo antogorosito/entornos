@@ -254,11 +254,25 @@
 				elseif($botonInicio=="eli")
 				{
 					$dni=$usuario['dni'];
-					$vSql="delete from usuarios where usuario='$usuarioInicio'"; 
-					$vSql2="delete from personas where dni='$dni'"; 
-					mysqli_query($link,$vSql) or die(mysqli_error($link));
-
-					mysqli_query($link,$vSql2) or die(mysqli_error($link));
+					$sql="select count(*) from pedidos inner join usuarios on usuarios.usuario=pedidos.usuario where usuarios.usuario='$usuarioInicio'";
+					$resp1 = mysqli_query($link,$sql) or die(mysqli_error($link));
+					$cantidad = mysqli_fetch_assoc($resp1);
+					if($cantidad['count(*)'] > 0)
+					{	?>
+					<script> 
+						alertify.alert('Error','No se puede eliminar el usuario porque realizo un pedido',function() {
+							alertify.success('Ok');
+							window.location= 'abmUsuarios.php';
+  						});
+					</script>
+					<?php
+					}
+					else
+					{
+						$vSql="delete from usuarios where usuario='$usuarioInicio'"; 
+						$vSql2="delete from personas where dni='$dni'"; 
+						mysqli_query($link,$vSql) or die(mysqli_error($link));
+						mysqli_query($link,$vSql2) or die(mysqli_error($link));
 			?>
 					<script>
 						alertify.alert('Exito','Se ha eliminado con exito el usuario',
@@ -268,6 +282,7 @@
   						});
 					</script>
 			<?php
+					}
 				}
 				if($boton=="agregar"){
 					?>
