@@ -56,7 +56,7 @@
 		if(isset($_POST["lupa"]) && $_POST["lupa"]=="")
 		{
 		?>
-			<h3>Debe ingresar una producto para buscar</h3>
+			<h2 class="verde titInicio">Debe ingresar una producto para buscar</h2>
 		<?php
 		}
 		else

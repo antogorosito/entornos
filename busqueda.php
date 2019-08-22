@@ -33,7 +33,8 @@
 		}
 		else
 		{
-			$_SESSION['carro'][$prod["nombre_producto"]]=$cant;
+			$_SESSION['carro'][$prod["nombre_producto"]]=array("id"=>$prod["id_producto"],"cantidad"=>$cant,"precio"=>$prod["precio"]);
+			//$_SESSION['carro'][$prod["nombre_producto"]]=$cant;
 			
 			echo "<script> window.location='carrito.php'; </script>";
 		}

@@ -12,7 +12,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
 		<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
-			<script type="text/javascript" src="busqueda.js"></script>
+			
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -53,7 +53,26 @@
 		  </form>
 		</nav>		
 		<div class="cuerpo">
-		
+		<?php 
+		if(!isset($_SESSION['usuario']))
+		{ ?>
+			<script> 
+			alertify.alert('Error','Debe iniciar sesion para ver el carrito',function(){
+				alertify.success('Ok');
+				window.location= 'login.php'
+			});
+		</script>
+		<?php }
+		else
+		{ ?>
+		<h2 class="titInicio verde">Carrito de compras </h2>
+		<form action="botonesCarrito.php" class="needs-validation formAbmProductos" method="post">
+			<div class="form-group  ">
+				<label for="uname">Fecha de entrega:</label>
+				<input type="date" class="form-control" name="fechae" id="fechae"/>
+				<label for="uname">Hora de entrega:</label>
+				<input type="time" class="form-control" name="horae" id="horae"/>
+			</div>
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -61,32 +80,49 @@
 							<th></th>
 							<th>Cantidad</th>
 							<th></th>
+							<th>Precio</th>
+							<th>Subtotal</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>	
 					<?php
-					if(!isset($_SESSION["carro"]))
-					{			
-						echo " vacio";
-					}
-					else
-					{					
-						foreach($_SESSION["carro"] as $value =>$d)
-						{
-				//echo "asd" .$value. "asd " .$d;		?>
+					if(isset($_SESSION["carro"]))
+					{	
+						$total=0;
+						foreach($_SESSION["carro"] as $k =>$v)
+						{ 
+							$total=$total+$v['precio']*$v['cantidad'];
+				// $k es el id	, $v es las variables	
+					 ?>	
 						<tr>
-							<td><?php echo $value;?></td>
-							<td><button class="btn btn-success" name="btnAg" onClick="menos()" value="men">-</button></td>
-							<td><b id="cantidad"><?php echo $d;?></b></td>
-							<td><button class="btn btn-success" name="btnAg" onClick="mas()"value="mas">+</button></td>
-							<td><button class="btn btn-success" name="btnAg" value="eli<?php echo $value;?>">Eliminar</button></td>
-						</tr>		
-				  <?php }	
-					}?>						
-					</tbody>
-				</table>		
-			
+
+							<td><?php echo $k;?></td>
+							<td><button class="btn btn-success" name="btnAg"  value="men<?php echo $k;?>">-</button></td>
+							<td><span name="cantidad<?php echo $v['id'];?>" id="cantidad<?php echo $v['id'];?>"><?php echo $v['cantidad'];?></span></td>
+							<td><button class="btn btn-success" name="btnAg" id="mas" value="mas<?php echo $k;?>" >+</button></td>
+							<td><?php echo $v['precio'];?></td>
+							<td><?php echo $v['precio']*$v['cantidad'];?></td>
+							<td><button class="btn btn-success" name="btnAg" value="eli<?php echo $k;?>">Eliminar</button></td>
+							
+						</tr>
+						
+				<?php }	?>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><b>Total</b></td>
+							<td><?php echo $total;?></td>
+						</tr>
+			<?php		}?>						
+						</tbody>
+				</table>
+				<button class="btn btn-success aa" name="btnAg" value="com" id="comprar">Comprar</button>		
+			</form>
+		<?php } ?>
 		</div>
 		<footer>
 			<div class="footer-container">
@@ -107,7 +143,8 @@ if(isset($_POST["btnAg"]) )
 	$id=substr($boton,3);
 	if($botonInicio=="eli")
 	{
-		session_unset($_SESSION["carro"][]);
+		//echo $_SESSION["carro"][$id];
+		unset($_SESSION["carro"][$id]);
 	}
 }*/
 ?>
