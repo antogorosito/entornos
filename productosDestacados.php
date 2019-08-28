@@ -51,6 +51,20 @@
 		</nav>		
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Productos destacados </h2>
+			<div class="row top">
+				<div class="card cardProm cardIzq" >
+					<img class="img-circle imgI" src="2x1.png"  />				
+				</div>
+				<div class="card cardProm cardDer" >
+					<img class="img-circle imgI" src="coca.jpg"  />				
+				</div>
+			</div>
+			<div class="row">
+				<div class="card  cardProm cardIzq" >
+					<img class="img-circle imgI" src="70.png" />				
+				</div>
+			</div>
+			
 		</div>
 		<footer>
 		<div class="footer-container">
