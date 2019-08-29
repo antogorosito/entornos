@@ -64,7 +64,6 @@
 					<img class="img-circle imgI" src="70.png" />				
 				</div>
 			</div>
-			
 		</div>
 		<footer>
 		<div class="footer-container">

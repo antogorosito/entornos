@@ -72,6 +72,7 @@
 					<label for="uname">Fecha de entrega:</label>
 					<input type="date" class="form-control" name="fechae" id="fechae"/>
 					<div class="text-hide error" id="fechaerror" >Completar este campo.</div>
+					<div class="text-hide error" id="fechaerror2" >La fecha NO puede ser menor a la actual.</div>
 				</div>
 				<div class="form-group  col33">
 				<label for="uname">Hora de entrega:</label>
@@ -81,7 +82,7 @@
 				<div class="form-group  col33">
 					<label for="uname">Forma de pago:</label>
 					<select name="formapago" class="form-control" id="formapago" >
-						<option value="0" >Efectivo</option>
+						<option value="0" selected>Efectivo</option>
 						<option value="1" >Credito</option>
 						<option value="2" >Debito</option>
 					</select>
@@ -159,7 +160,7 @@
 			<?php		}?>						
 						</tbody>
 				</table>
-				<button class="btn btn-success aa" name="btnAg" value="com" id="comprar">Comprar</button>		
+				<button class="btn btn-success aa" name="btnAg" value="com<?php echo $total;?>" id="comprar">Comprar</button>		
 			</form>
 		<?php } ?>
 		</div>

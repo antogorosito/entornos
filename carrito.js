@@ -7,6 +7,33 @@ function validarFecha()
 	else
 	{
 		$("#fechaerror").addClass("text-hide");
+		var d=new Date();
+		var mes=d.getMonth()+1;
+		var dia=d.getDate();
+		var dia=d.getDate();
+		var anio=d.getFullYear();
+		if(dia<10)
+		{	
+			dia='0'+dia;
+		}
+		if(mes<10)
+		{
+			mes='0'+mes;
+		}
+		var fechaPedido=$('#fechae').val();
+		var fechaActual=anio+'-'+mes+'-'+dia;
+		if(fechaPedido>fechaActual)
+		{
+			$("#fechaerror2").addClass("text-hide");
+		}
+		else if(fechaPedido<fechaActual)
+		{
+			$("#fechaerror2").removeClass("text-hide");
+		}
+		else
+		{			
+			$("#fechaerror2").addClass("text-hide");
+		}		
 	}
 }
 function validarHora()
@@ -60,7 +87,7 @@ $(function() {
 		validarPago();
 		validarCalle();
 		validarNro();
-		if($("#fechaerror").hasClass("text-hide") && $("#horaerror").hasClass("text-hide") && $("#pagoerror").hasClass("text-hide") && $("#calleerror").hasClass("text-hide") && $("#nrocalleerror").hasClass("text-hide"))
+		if($("#fechaerror").hasClass("text-hide") && $("#fechaerror2").hasClass("text-hide")&& $("#horaerror").hasClass("text-hide") && $("#pagoerror").hasClass("text-hide") && $("#calleerror").hasClass("text-hide") && $("#nrocalleerror").hasClass("text-hide"))
 		{
 			return true;
 		}

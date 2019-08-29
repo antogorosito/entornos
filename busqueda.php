@@ -27,38 +27,9 @@
 		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
 		$prod = mysqli_fetch_assoc($resp);
 		$cant=1;
-		if(!isset($_SESSION["carro"]))
-		{
-			echo " vacio";
-		}
-		else
-		{
-			$_SESSION['carro'][$prod["nombre_producto"]]=array("id"=>$prod["id_producto"],"cantidad"=>$cant,"precio"=>$prod["precio"]);
-			//$_SESSION['carro'][$prod["nombre_producto"]]=$cant;
-			
-			echo "<script> window.location='carrito.php'; </script>";
-		}
+		$_SESSION['carro'][$prod["nombre_producto"]]=array("id"=>$prod["id_producto"],"cantidad"=>$cant,"precio"=>$prod["precio"]);
+		echo "<script> window.location='carrito.php'; </script>";
 	}
-		/*
-		$consulta="select * from categorias inner join productos on categorias.id_categoria=productos.id_categoria where nombre_categoria like '%".$boton."%'";
-		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
-		$c =mysqli_num_rows($resp);
-		if( $c == 0) 
-		{
-			echo "No hay resultados respecto a la palabra que busca.";	
-			echo "<a href='productos.html'>Volver al inicio</a>";
-		}
-		else 
-		{
-			echo "<center><strong>RESULTADOS DE BUSQUEDA</strong></center><br>";
-			while($cat = mysqli_fetch_array($resp)) 
-			{
-     			echo ($cat['nombre_producto']); 
-				echo "<br>";
-			} 		
-			echo "<a href='productos.html'>Vover al buscador</a>";
-			header ("Location: index.html"); 
-		}*/
 	?>
 	</body>
 </html>
