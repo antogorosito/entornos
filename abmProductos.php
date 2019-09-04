@@ -51,10 +51,6 @@
 				}?>		
 				</li>
 			  </ul>
-			  <form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
-				<input class="form-control mr-sm-2" type="text" name="lupa"  />
-				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
-			  </form>
 		 </nav>	
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Panel de productos </h2>
