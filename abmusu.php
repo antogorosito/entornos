@@ -45,14 +45,13 @@
 				}
 				else
 				{
-					echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
+					echo "<div class='btn-group'>
+					<button type='button' class='btn btn-outline-success dropdown-toggle' data-toggle='dropdown'>
+					".$_SESSION['nombre']."
+					</button><div class='dropdown-menu'><a class='dropdown-item' href='cerrarSesion.php'>Cerrar sesion</a></div></div> ";
 				}?>
 				</li>
 			</ul>
-			<form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
-				<input class="form-control mr-sm-2" type="text" name="lupa"  />
-				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
-			</form>
 		</nav>
 		<div class="cuerpo">
 			<?php
