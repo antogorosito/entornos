@@ -52,53 +52,42 @@
 		<form action="busqueda.php"  id="formProductos" name="formProductos" method="post" >
 		<?php
 		include("conexion.inc");
-		if(isset($_POST["lupa"]) && $_POST["lupa"]=="")
+		$palabra=$_POST['lupa'];
+		$consulta="select * from productos where nombre_producto like '".$palabra."%' or  nombre_producto like '%".$palabra."%' order by nombre_producto";
+		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
+		$c =mysqli_num_rows($resp);
+		if( $c == 0) 
 		{
-		?>
-			<h2 class="verde titInicio">Debe ingresar una producto para buscar</h2>
-		<?php
-		}
-		else
-		{
-			$palabra=$_POST['lupa'];
-			$consulta="select * from productos where nombre_producto like '".$palabra."%' or  nombre_producto like '%".$palabra."%' order by nombre_producto";
-			$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
-			$c =mysqli_num_rows($resp);
-			if( $c == 0) 
-			{
-				?>
-				<h3 class="verde titInicio">No se encontraron coincidencias con <?php echo $palabra?></h3>
-				<?php
-			}
-			else 
-			{?>
-				<h2 class="titPro verde" >Resultados de la busqueda</h2>
+			?>
+			<h3 class="verde titInicio">No se encontraron coincidencias con <?php echo $palabra?></h3>
 			<?php
-				while($cat = mysqli_fetch_array($resp)) 
-				{?>
-					<div class=" card cardProducto col33" >
-							<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
-							<div class="card-body ">
-								<div class="primeroCard">
-									<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
-								</div>
-								<div class="primeroCard">
-									<h5 class="verde">$ <?php echo $cat['precio'];?></h5>
-									<h6>Stock: <?php echo $cat['stock'];?></h6>
-								</div>
-								<div class="primeroCard">
-									<button id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['id_producto'];?>">Agregar al carrito</button>
-								</div>
+		}
+		else 
+		{?>
+			<h2 class="titPro verde" >Resultados de la busqueda</h2>
+		<?php
+			while($cat = mysqli_fetch_array($resp)) 
+			{?>
+				<div class=" card cardProducto col33" >
+					<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
+					<div class="card-body ">
+						<div class="primeroCard">
+							<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
+							</div>
+							<div class="primeroCard">
+								<h5 class="verde">$ <?php echo $cat['precio'];?></h5>
+								<h6>Stock: <?php echo $cat['stock'];?></h6>
+							</div>
+							<div class="primeroCard">
+								<button id="btnBusqueda" name="btnBusqueda" class="btn btn-success" value="<?php echo $cat['id_producto'];?>">Agregar al carrito</button>
 							</div>
 						</div>
-					
-				<?php
-				} 		
-			}
-					mysqli_free_result($resp);
-		mysqli_close($link);
+					</div>
+			 <?php
+			 } 		
 		}
-
+		mysqli_free_result($resp);
+		mysqli_close($link);
 	?>
 		</form>
 		</div>
