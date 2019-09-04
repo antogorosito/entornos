@@ -35,7 +35,17 @@
 		$prod = mysqli_fetch_assoc($resp);
 		$cant=1;
 		$_SESSION['carro'][$prod["nombre_producto"]]=array("id"=>$prod["id_producto"],"cantidad"=>$cant,"precio"=>$prod["precio"]);
-		echo "<script> window.location='carrito.php'; </script>";
+		echo "<script> 
+		alertify.confirm('Confirmacion','Desea seguir agregando productos o ir al carrito ',
+				function() {
+				alertify.success('Ok');
+				window.location= 'busqueda.php';},
+				function(){ 
+				alertify.error('Cancel');
+				window.location= 'carrito.php';
+				});
+		//window.location='carrito.php'; 
+		</script>";
 	}
 	?>
 	</body>
