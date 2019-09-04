@@ -45,7 +45,10 @@
 				}
 				else
 				{
-					echo " <a class='btn btn-outline-success' href='cerrarSesion.php'>Cerrar sesion</a>";
+					echo "<div class='btn-group'>
+					<button type='button' class='btn btn-outline-success dropdown-toggle' data-toggle='dropdown'>
+					".$_SESSION['nombre']."
+					</button><div class='dropdown-menu'><a class='dropdown-item' href='cerrarSesion.php'>Cerrar sesion</a></div></div> ";
 				}?>
 				</li>
 			</ul>
