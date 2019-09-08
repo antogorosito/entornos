@@ -67,20 +67,20 @@
 		{ ?>
 		<h2 class="titInicio verde">Carrito de compras </h2>
 		<form action="botonesCarrito.php" class="needs-validation formAbmProductos" method="post">
-			<div class="row">
-				<div class="form-group  col33">
-					<label for="uname">Fecha de entrega:</label>
+			<div class="row" name="pri">
+				<div class="form-group  col33ca">
+					<label>Fecha de entrega:</label>
 					<input type="date" class="form-control" name="fechae" id="fechae"/>
 					<div class="text-hide error" id="fechaerror" >Completar este campo.</div>
 					<div class="text-hide error" id="fechaerror2" >La fecha NO puede ser menor a la actual.</div>
 				</div>
-				<div class="form-group  col33">
-				<label for="uname">Hora de entrega:</label>
+				<div class="form-group  col33ca">
+				<label name="horaec">Hora de entrega:</label>
 					<input type="time" class="form-control" name="horae" id="horae"/>
 					<div class="text-hide error" id="horaerror" >Completar este campo.</div>
 				</div>
-				<div class="form-group  col33">
-					<label for="uname">Forma de pago:</label>
+				<div class="form-group  col33ca">
+					<label name="forma">Forma de pago:</label>
 					<select name="formapago" class="form-control" id="formapago" >
 						<option value="0" selected>Efectivo</option>
 						<option value="1" >Credito</option>
@@ -89,30 +89,31 @@
 					<div class="text-hide error" id="pagoerror" >Completar este campo.</div>
 				</div>
 			</div>
-			<div class="row ">
-				<div class="form-group ">
+			<div class="row" name="pri">
+				<div class="form-group coll5">
 					<label>Direccion:</label>
-					<input type="text" class="form-control" name="calle" id="calle" placeholder="Calle"/>
+					<input type="text" class="form-control" name="callec" id="callec" placeholder="Calle"/>
 					<div class="text-hide error" id="calleerror">Completar este campo.</div>
 				</div>
-				<div class="espacio2 es"></div>
+				<div class="espacio2"></div>
 				<div class="form-group col15">
-					<input type="text" class="form-control" name="numero" id="numero" placeholder="Numero"/>
+					<input type="text" class="form-control" name="numc" id="numc" placeholder="Numero"/>
 					<div class="text-hide error" id="nrocalleerror">Completar este campo.</div>
 				</div>
 				<div class="espacio2"></div>
 				<div class="form-group col15">
 					<label class="textoblanco">l</label> 
-					<input type="text" class="form-control" name="piso" placeholder="Piso"/>								
+					<input type="text" class="form-control" name="pisoc" placeholder="Piso"/>								
 					<div class="text-hide error">Completar este campo.</div>
 				</div>
 				<div class="espacio2"></div>
 				<div class="form-group col15">
 					<label class="textoblanco">l</label>
-					<input type="text" class="form-control" name="dpto" placeholder="Dpto"/>								
+					<input type="text" class="form-control" name="dptoc" placeholder="Dpto"/>								
 					<div class="text-hide error">Completar este campo.</div>
 				</div>
 			</div>
+			</br>
 			<table class="table table-hover">
 					<thead>
 						<tr>
