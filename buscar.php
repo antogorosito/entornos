@@ -43,6 +43,7 @@
 			}?>		
 			</li>
 		  </ul>
+		  
 		  <form class="form-inline" action="buscar.php"  method="post" name="FormBuscador">
 			<input class="form-control mr-sm-2" type="text" name="lupa"  />
 			<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
@@ -52,7 +53,10 @@
 		<form action="busqueda.php"  id="formProductos" name="formProductos" method="post" >
 		<?php
 		include("conexion.inc");
-		$palabra=$_POST['lupa'];
+		if(!isset($_POST['lupa']) ){
+		$palabra="";}
+		else {
+		$palabra=$_POST['lupa'];}
 		$consulta="select * from productos where nombre_producto like '".$palabra."%' or  nombre_producto like '%".$palabra."%' order by nombre_producto";
 		$resp = mysqli_query($link,$consulta) or die(mysqli_error($link));;
 		$c =mysqli_num_rows($resp);
@@ -69,7 +73,7 @@
 			while($cat = mysqli_fetch_array($resp)) 
 			{?>
 				<div class=" card cardProducto col33" >
-					<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
+					<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" alt="<?php echo $cat['nombre_producto'];?>" class="card-img-top imgPr"/> 
 					<div class="card-body ">
 						<div class="primeroCard">
 							<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
