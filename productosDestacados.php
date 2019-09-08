@@ -53,15 +53,15 @@
 			<h2 class="titInicio verde">Productos destacados </h2>
 			<div class="row top">
 				<div class="card cardProm cardIzq" >
-					<img class="img-circle imgI" src="2x1.png"  />				
+					<img class="img-circle imgI" src="promodesc1.png" alt="Promocion2x1" />				
 				</div>
 				<div class="card cardProm cardDer" >
-					<img class="img-circle imgI" src="coca.jpg"  />				
+					<img class="img-circle imgI" src="promodesc3.jpg" alt="PromocionCoca" />				
 				</div>
 			</div>
 			<div class="row">
 				<div class="card  cardProm cardIzq" >
-					<img class="img-circle imgI" src="70.png" />				
+					<img class="img-circle imgI" src="promodesc2.png" alt="Promocion70" />				
 				</div>
 			</div>
 		</div>
@@ -76,3 +76,4 @@
 		</footer>
 	</body>
 </html>
+
