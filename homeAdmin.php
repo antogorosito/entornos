@@ -53,7 +53,34 @@
 			  </ul>
 		</nav>	
 		<div class="cuerpo">
-		ASD		
+		<div class="row">
+			<form action="abmUsuarios.php" id="formProductos" name="formProductos" method="post" >
+					
+						<div class="cardProducto col33 mar" >
+							<img src="usuario2.jpg" class="card-img-top imgP"/>
+							<div class="card-body titInicio">
+								<button type="submit" name="botonProducto" class="btn btn-success" value="usuarios">Usuarios</button>
+							</div>
+						</div>
+						</form>
+						<form action="abmProductos.php" id="formProductos" name="formProductos" method="post" >
+						<div class="cardProducto col33">
+							<img src="producto.jpg" class="card-img-top imgP"/>
+							<div class="card-body titInicio">
+								<button type="submit" name="botonProducto" class="btn btn-success" value="pedidos">Productos</button>
+							</div>
+						</div>
+						</form>
+						<form action="pedidos.php" id="formProductos" name="formProductos" method="post" >
+						<div class="cardProducto col33" >
+							<img src="pedido2.jpg" class="card-img-top imgP"/>
+							<div class="card-body titInicio">
+								<button type="submit"  name="botonProducto" class="btn btn-success" value="pedidos">Pedidos</button>
+							</div>
+						</div>		
+					
+			</form>
+			</div>	
 		</div>
 		<footer>
 		<div class="footer-container">
