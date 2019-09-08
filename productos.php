@@ -55,26 +55,26 @@
 			<form action="productosSecundario.php" id="formProductos" name="formProductos" method="post" >
 					<div class="row">
 						<div class="cardProducto col20Prod izq" >
-							<img src="bebidas.jpg" class="card-img-top imgP"/>
+							<img src="bebidas.jpg" class="card-img-top imgP" alt="Bebidas" />
 							<div class="card-body titInicio">
 								<button type="submit" name="botonProducto" class="btn btn-success" value="bebidas">Bebida</button>
 							</div>
 						</div>
 						<div class="cardProducto col20Prod">
-							<img src="comida.jpg" class="card-img-top imgP"/>
+							<img src="comida.jpg" class="card-img-top imgP" alt="Comida"/>
 							<div class="card-body titInicio">
 								<button type="submit" name="botonProducto" class="btn btn-success" value="alimentos">Comida</button>
 							</div>
 						</div>
 
 						<div class="cardProducto col20Prod" >
-							<img src="limpieza.jpg" class="card-img-top imgP"/>
+							<img src="limpieza.jpg" class="card-img-top imgP" alt="Limpieza" />
 							<div class="card-body titInicio">
 								<button type="submit"  name="botonProducto" class="btn btn-success" value="limpieza">Limpieza</button>
 							</div>
 						</div>	
 						<div class="cardProducto col20Prod" >
-							<img src="perfumeria.jpg" class="card-img-top imgP"/>
+							<img src="perfumeria.jpg" class="card-img-top imgP" alr="Perfumeria" />
 							<div class="card-body titInicio">
 								<button type="submit"  name="botonProducto" class="btn btn-success" value="perfumeria">Perfumeria</button>
 							</div>
@@ -93,3 +93,4 @@
 		</footer>
 	</body>
 </html>
+
