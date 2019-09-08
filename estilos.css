@@ -23,6 +23,44 @@ input[name=stock],input[name=precio]
 {
 	width:40%;
 }
+input[name=fechae]
+{
+	width:80%;
+}
+input[name=horae]
+{
+	width:50%;
+	margin-left:1vw;
+}
+label[name=horaec]
+{
+	margin-left:1vw;
+}
+select[name=formapago],label[name=forma]
+{
+	width:50%;
+	margin-left:-3vw;
+}
+input[name=numc]
+{
+	margin-top: 5.2vh;
+	margin-left: 1vw;
+	width:80%;
+}
+input[name=dptoc]
+{
+	width:80%;
+}
+input[name=pisoc]
+{
+	
+	margin-left: 0.5vw;
+	width:80%;
+}
+div[name=pri]
+{
+	margin-left: 4vw;
+}
 #msjmail /* se usa para el envio de mailde contacto*/
 {
 	height:20vh;
@@ -58,6 +96,12 @@ input[name=stock],input[name=precio]
 	padding-top:5px;
 	padding-bottom:10px;	
 }
+.col33ca /* carrito*/
+{
+	width:30%;
+	float:left;
+	text-align:left;
+}
 .col20Prod /*productos*/
 {
 	width:20%;
@@ -73,9 +117,13 @@ input[name=stock],input[name=precio]
 {
 	margin-left:3vw;
 }
+.mar /* homeadmin*/
+{
+	margin-left:10vw;
+}
 .es  /*abmussec, carrito*/
 {
-	margin-left:48px;
+	margin-left:60px;
 }
 .espacio2 /*abmussec, registrar*/
 {
@@ -130,11 +178,18 @@ input[name=stock],input[name=precio]
 	padding-left:3vw;
 	padding-right:3vw;	
 }
-
+.imgPro /*abmprodsec */
+{
+	height:20vh;
+}
 .col40 /*abmprodsec, abmususec, registrar*/
 {
 	width:40%;
 	float:left;
+}
+.col36 /* registrar*/
+{
+	width:36%;
 }
 .col50 /*registrar*/
 {
@@ -166,7 +221,7 @@ input[name=stock],input[name=precio]
 	margin-right:15vw;
 	
 }
-.col15 /*abmussec,registrar*/
+.col15 /*abmussec,registrar,carrito*/
 {
 	width:15%;
 	float:left;
@@ -317,3 +372,4 @@ footer/*se usa*/
 	padding: 1vh 1vw;
 	margin-left: 3vw;
 }
+
