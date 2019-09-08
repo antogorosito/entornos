@@ -62,7 +62,7 @@
 				while($cat = mysqli_fetch_array($resp)) 
 				{?>
 					<div class="card cardProducto col33" >
-						<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" class="card-img-top imgPr"/> 
+						<img src="mostrarImagen.php?id=<?php echo $cat['id_producto'];?>" alt="<?php echo $cat['nombre_producto'];?>" class="card-img-top imgPr"/> 
 						<div class="card-body">
 							<div class="primeroCard">
 								<h4 class="titInicio"><?php echo $cat['nombre_producto'];?></h4>
