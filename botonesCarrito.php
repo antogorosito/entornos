@@ -17,10 +17,10 @@
 	}
 	elseif($botonInicio=="mas")
 	{
-		$_SESSION['calleC']=$_POST['calle'];
-		$_SESSION['numeroC']=$_POST['numero'];
-		$_SESSION['pisoC']=$_POST['piso'];
-		$_SESSION['dptoC']= $_POST['dpto'];	
+		$_SESSION['calleC']=$_POST['callec'];
+		$_SESSION['numeroC']=$_POST['numc'];
+		$_SESSION['pisoC']=$_POST['pisoc'];
+		$_SESSION['dptoC']= $_POST['dptoc'];	
 		$_SESSION['fechaC']=$_POST['fechae'];
 		$_SESSION['horaC']=$_POST['horae'];
 		if($_POST['formapago']==0)
@@ -41,10 +41,10 @@
 	}
 	elseif($botonInicio=="men")
 	{
-		$_SESSION['calle']=$_POST['calle'];
-		$_SESSION['numero']=$_POST['numero'];
-		$_SESSION['piso']=$_POST['piso'];
-		$_SESSION['dpto']= $_POST['dpto'];
+		$_SESSION['calle']=$_POST['callec'];
+		$_SESSION['numero']=$_POST['numc'];
+		$_SESSION['piso']=$_POST['pisoc'];
+		$_SESSION['dpto']= $_POST['dptoc'];
 		$_SESSION['fechaC']=$_POST['fechae'];
 		$_SESSION['horaC']=$_POST['horae'];
 		if($_POST['formapago']==0)
@@ -73,7 +73,7 @@
 	elseif($botonInicio=="com")
 	{//guardar linea, compra, entrega
 		include("conexion.inc"); 
-		$direccion=$_POST['calle'] .' '. $_POST['numero'] .' '. $_POST['piso'] .' '. $_POST['dpto']; 
+		$direccion=$_POST['callec'] .' '. $_POST['numc'] .' '. $_POST['pisoc'] .' '. $_POST['dptoc']; 
 		$fecha_entrega=$_POST['fechae'];
 		$hora_entrega=$_POST['horae'];
 		if($_POST['formapago']==0)
