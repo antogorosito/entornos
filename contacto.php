@@ -57,7 +57,7 @@
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>"  class="needs-validation formulario"  name="formContacto" id="formContacto" method="post"> <!-- la validacion la haria con javscript -->
 				<div class="form-group top">
 					<label>Nombre y apellido:</label>
-					<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nombre" id="nombre">
+					<input type="text" class="form-control" placeholder="Ingrese su nombre y apellido" name="nombrec" id="nombrec">
 					<div class="text-hide error" id="userror" >Completar este campo.</div>
 				</div>
 				<div class="form-group">
@@ -99,7 +99,7 @@
 			".$_POST['msjmail']."
 			</br>
 			</br>
-			<p>Enviado el dia ".$fecha." por ".$_POST['nombre'].", ".$_POST['emailC']."</p>
+			<p>Enviado el dia ".$fecha." por ".$_POST['nombrec'].", ".$_POST['emailC']."</p>
 		</body>
 		</html>";
 		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
