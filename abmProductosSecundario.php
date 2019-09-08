@@ -13,6 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="cambioImg.js"></script>
 	</head>
 	<body >
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -156,12 +157,18 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="form-group ">
+							<div class="form-group">
+								<div class="col33ca">
 								<label >Foto:</label>
-								<img src="mostrarImagen.php?id=<?php echo $prod['id_producto'];?>" class="imgPr"/> 
+								</div>
+								<div class="col33ca">
+								<img src="mostrarImagen.php?id=<?php echo $prod['id_producto'];?>" alt="<?php echo $cat['nombre_producto'];?>" id="imgC" class="imgPro" name="imag"/> 
+								</div>
+								<div class="col33ca">
 								<?php if($botonInicio=="edi"){?>
-								<input type='file' name='imagen' id="imagen">
+								<input type='file' name="imagen" id="imagen" onchange="change()">
 								<?php } ?>
+								</div>
 							</div>
 						</div>
 						<?php 
