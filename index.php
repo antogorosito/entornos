@@ -65,7 +65,7 @@
 					$abrir = fopen($archivo, "w");
 					// Agregar 1 visita
 					$cont = $cont + 1;
-					// Guardar la modificaciÃ³n
+					// Guardar la modificaciÃƒÂ³n
 					$guardar = fwrite($abrir, $cont);
 					// Cerrar el archivo
 					fclose($abrir);
@@ -100,7 +100,7 @@
 					de un compromiso con los intereses de nuestros empleados y con la comunidad en general.</p>
 				</div>
 				<div id="gps">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.8272418577344!2d-60.682677002010855!3d-32.92916232837447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b653540f2c8441%3A0x7e3321f885266ca7!2sDon+Bosco%2C+Rosario%2C+Santa+Fe!5e0!3m2!1ses-419!2sar!4v1561072918075!5m2!1ses-419!2sar" width="400" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.8272418577344!2d-60.682677002010855!3d-32.92916232837447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b653540f2c8441%3A0x7e3321f885266ca7!2sDon+Bosco%2C+Rosario%2C+Santa+Fe!5e0!3m2!1ses-419!2sar!4v1561072918075!5m2!1ses-419!2sar" alt="Mapa" width="400" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
 				
 			</div>
@@ -115,3 +115,4 @@
 		</footer>
 	</body>
 </html>
+
