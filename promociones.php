@@ -53,23 +53,23 @@
 			<h2 class="titInicio verde">Descuentos </h2>
 			<div class="row top">
 				<div class="card cardProm cardIzq" >
-					<img class="img-circle imgI" src="promo1.jpg"  />				
+					<img class="img-circle imgI" src="promo1.jpg" alt="PromoICBC" />				
 				</div>
 				<div class="card cardProm cardDer" >
-					<img class="img-circle imgI" src="promo2.jpg"  />				
+					<img class="img-circle imgI" src="promo2.jpg" alt="PromoColumbia"  />				
 				</div>
 			</div>
 			<div class="row">
 				<div class="card  cardProm cardIzq" >
-					<img class="img-circle imgI" src="promo3.jpg" />				
+					<img class="img-circle imgI" src="promo3.jpg" alt="PromoCiudad" />				
 				</div>
 				<div class="card cardProm cardDer" >
-					<img class="img-circle imgI" src="promo4.jpg"  />				
+					<img class="img-circle imgI" src="promo4.jpg" alt="PromoHSBC" />				
 				</div>
 			</div>
 			<div class="row">
 				<div class="card  cardProm cardIzq" >
-					<img class="img-circle imgI" src="promo5.jpg" />				
+					<img class="img-circle imgI" src="promo5.jpg" alt="PromoCredicop" />				
 				</div>
 			</div>
 		</div>
