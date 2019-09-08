@@ -146,7 +146,7 @@
 						</div>	
 					</div>
 					<div class="row">
-						<div class="form-group col40">
+						<div class="form-group col36">
 							<label for="di">Direccion:</label>
 							<?php 
 							if(!isset($_COOKIE['callereg']))
@@ -159,7 +159,7 @@
 							?>
 							<div class="text-hide error" id="calleerror">Completar este campo.</div>
 						</div>
-						<div class="espacio2"></div>
+						<div class="espacio2 es"></div>
 						<div class="form-group col15">
 							<label class="textoblanco">l</label>
 							<?php 
@@ -235,10 +235,10 @@
 							<?php 
 							if(!isset($_COOKIE['cumpleaniosreg']))
 							{
-								echo '<input type="date" class="form-control" placeholder="Ingrese su cumpleaños" name="cumpleanios" id="cumpleanios" >';
+								echo '<input type="date" class="form-control" placeholder="Ingrese su cumpleaÃ±os" name="cumpleanios" id="cumpleanios" >';
 							}
 							else{
-								echo "<input type='date' class='form-control' placeholder='Ingrese su cumpleaños' name='cumpleanios' id='cumpleanios' value=".$_COOKIE['cumpleaniosreg'].">";
+								echo "<input type='date' class='form-control' placeholder='Ingrese su cumpleaÃ±os' name='cumpleanios' id='cumpleanios' value=".$_COOKIE['cumpleaniosreg'].">";
 							}
 							?>
 							<div class="text-hide error" id="cumpleanioserror">Completar este campo.</div>
