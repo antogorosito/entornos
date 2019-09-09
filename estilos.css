@@ -372,4 +372,9 @@ footer/*se usa*/
 	padding: 1vh 1vw;
 	margin-left: 3vw;
 }
+.color /* para fondos cuando esta seleccionado*/
+{
+	color:green !important;
+	
+}
 
