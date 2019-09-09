@@ -26,10 +26,10 @@
 				</li>
 				<li class="nav-item">
 					<div class='btn-group'>
-						<a  class='nav-link dropdown-toggle' data-toggle='dropdown'>Pedidos</a>
+						<a  class='nav-link dropdown-toggle color' data-toggle='dropdown'>Pedidos</a>
 						<div class='dropdown-menu'>
 							<a class='dropdown-item' href='pedidos.php'>Panel de pedidos</a>
-							<a class='dropdown-item' href='informesVenta.php'>Informes de venta</a>
+							<a class='dropdown-item color' href='informesVenta.php'>Informes de venta</a>
 						</div>
 					</div>
 				</li>
