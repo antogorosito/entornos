@@ -19,7 +19,7 @@
 			  </a>
 			  <ul class="navbar-nav">
 				<li class="nav-item">
-				  <a class="nav-link" href="homeAdmin.php">Home</a>
+				  <a class="nav-link color" href="homeAdmin.php">Home</a>
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="abmUsuarios.php">Usuarios</a>
