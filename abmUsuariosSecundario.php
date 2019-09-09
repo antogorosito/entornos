@@ -24,7 +24,7 @@
 				  <a class="nav-link" href="homeAdmin.php">Home</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="abmUsuarios.php">Usuarios</a>
+				  <a class="nav-link color" href="abmUsuarios.php">Usuarios</a>
 				</li>
 				<li class="nav-item">
 					<div class='btn-group'>
