@@ -28,7 +28,7 @@
 			  <a class="nav-link" href="productos.php">Productos</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="contacto.php">Contacto</a>
+			  <a class="nav-link color" href="contacto.php">Contacto</a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="carrito.php">Carrito</a>
