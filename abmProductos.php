@@ -34,7 +34,7 @@
 					</div>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="abmProductos.php">Productos</a>
+				  <a class="nav-link color" href="abmProductos.php">Productos</a>
 				</li>
 				<li class="nav-item">		
 				<?php	
