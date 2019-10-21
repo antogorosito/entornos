@@ -79,8 +79,15 @@
 					<div class="footer-columna">Supermercado SAV </div>
 					<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
 					<div class="footer-columna">Tel: (0341)-4322245</div>
+					<div class="footer-columna">
+						<p>
+							<a href="http://jigsaw.w3.org/css-validator/check/referer">
+								<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" />
+							</a>
+						</p>	
+					</div>
 				</div>
-			</div>
+			  </div>
 		</footer>
 	</body>
 </html>

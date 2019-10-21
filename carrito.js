@@ -47,20 +47,9 @@ function validarHora()
 		$("#horaerror").addClass("text-hide");
 	}
 }
-function validarPago()
-{
-	if($('#formapago').val()=="")
-	{
-		$("#pagoerror").removeClass("text-hide");
-	}
-	else
-	{
-		$("#pagoerror").addClass("text-hide");
-	}
-}
 function validarCalle()
 {
-	if($('#calle').val()=="")
+	if($('#calleC').val()=="")
 	{
 		$("#calleerror").removeClass("text-hide");
 	}
@@ -71,23 +60,22 @@ function validarCalle()
 }
 function validarNro()
 {
-	if($('#numero').val()=="")
+	if($('#numC').val()=="")
 	{
-		$("#nrocalleerror").removeClass("text-hide");
+		$("#calleerror").removeClass("text-hide");
 	}
 	else
 	{
-		$("#nrocalleerror").addClass("text-hide");
+		$("#calleerror").addClass("text-hide");
 	}
 }
 $(function() {
-	$("#comprar").on("click",function(){
-		validarFecha();
-		validarHora();
-		validarPago();
+	$("#confirmar").on("click",function(){
 		validarCalle();
 		validarNro();
-		if($("#fechaerror").hasClass("text-hide") && $("#fechaerror2").hasClass("text-hide")&& $("#horaerror").hasClass("text-hide") && $("#pagoerror").hasClass("text-hide") && $("#calleerror").hasClass("text-hide") && $("#nrocalleerror").hasClass("text-hide"))
+		validarFecha();
+		validarHora();
+		if($("#fechaerror").hasClass("text-hide") && $("#fechaerror2").hasClass("text-hide")&& $("#horaerror").hasClass("text-hide") && $("#calleerror").hasClass("text-hide"))
 		{
 			return true;
 		}
@@ -96,5 +84,4 @@ $(function() {
 			return false;
 		}
 	});
-
 });

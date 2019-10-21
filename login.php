@@ -18,22 +18,25 @@
 	<body>
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<a class="navbar-brand" href="index.php">
-				<img src="titulo.jpg" alt="Logo" style="width:15vw;" />		  
+				<img src="titulo.jpg" alt="Logo" style="width:15vw;" />
 			</a>
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="index.php">Home</a>			
+					<a class="nav-link" href="index.php">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="productos.php">Productos</a>			
+					<a class="nav-link" href="productos.php">Productos</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="contacto.php">Contacto</a>			
+					<a class="nav-link" href="contacto.php">Contacto</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="carrito.php">Carrito</a>			
+					<a class="nav-link " href="faq.php">FAQ</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link" href="carrito.php">Carrito</a>
+				</li>
+				<li class="nav-item">		
 				<?php	if(!isset($_SESSION["usuario"]))
 				{ 
 					echo "<a class='btn btn-outline-success' href='login.php'>Iniciar sesion</a> ";
@@ -48,10 +51,10 @@
 				</li>
 			</ul>
 			<form class="form-inline" action="buscar.php" method="post" name="FormBuscador">
-				<input class="form-control mr-sm-2" type="text" name="lupa"  />
+				<input class="form-control mr-sm-2" type="text" name="lupa" />
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
-		</nav>
+		</nav>	
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Iniciar sesion </h2>
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>"  class="needs-validation formulario"  name="formIniciarSesion" id="formIniciarSesion" method="post" >
@@ -90,13 +93,20 @@
 			</form>
 		</div>
 		<footer>
-		<div class="footer-container">
-		  <div class="footer-main">
-			<div class="footer-columna">Supermercado SAV </div>
-			<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
-			<div class="footer-columna">Tel: (0341)-4322245</div>
-			</div>
-		  </div>
+			<div class="footer-container">
+				<div class="footer-main">
+					<div class="footer-columna">Supermercado SAV </div>
+					<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
+					<div class="footer-columna">Tel: (0341)-4322245</div>
+					<div class="footer-columna">
+						<p>
+							<a href="http://jigsaw.w3.org/css-validator/check/referer">
+								<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" />
+							</a>
+						</p>	
+					</div>
+				</div>
+			  </div>
 		</footer>
 	</body>
 </html>

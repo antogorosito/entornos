@@ -1,5 +1,20 @@
 <?php 
 	session_start();
+	if(isset($_SESSION["usuario"]))
+	{ 
+		if(isset($_SESSION["tipo"]))
+		{
+			$tipo=$_SESSION["tipo"];
+			if($tipo==1)
+			{
+				 echo "<script> window.location='error.php'; </script>";
+			}
+		}
+	}
+	else
+	{
+		echo "<script> window.location='error.php'; </script>";
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -83,13 +98,20 @@
 			</div>	
 		</div>
 		<footer>
-		<div class="footer-container">
-		  <div class="footer-main">
-			<div class="footer-columna">Supermercado SAV </div>
-			<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
-			<div class="footer-columna">Tel: (0341)-4322245</div>
-			</div>
-		  </div>
+			<div class="footer-container">
+				<div class="footer-main">
+					<div class="footer-columna">Supermercado SAV </div>
+					<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
+					<div class="footer-columna">Tel: (0341)-4322245</div>
+					<div class="footer-columna">
+						<p>
+							<a href="http://jigsaw.w3.org/css-validator/check/referer">
+								<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" />
+							</a>
+						</p>	
+					</div>
+				</div>
+			  </div>
 		</footer>
 	</body>
 </html>

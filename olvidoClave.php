@@ -31,6 +31,9 @@
 					<a class="nav-link" href="contacto.php">Contacto</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link " href="faq.php">FAQ</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="carrito.php">Carrito</a>
 				</li>
 				<li class="nav-item">		
@@ -51,7 +54,7 @@
 				<input class="form-control mr-sm-2" type="text" name="lupa" />
 				<button class="btn btn-success" type="submit" name="buscar">Buscar</button>
 			</form>
-		</nav>
+		</nav>	
 		<div class="cuerpo">
 			<h2 class="titInicio verde">Olvido de contraseña</h2>
 			<div class="formulario">
@@ -73,15 +76,21 @@
 				</form>
 			</div>
 		</div>
-		
 		<footer>
-		<div class="footer-container">
-		  <div class="footer-main">
-			<div class="footer-columna">Supermercado SAV </div>
-			<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
-			<div class="footer-columna">Tel: (0341)-4322245</div>
-			</div>
-		  </div>
+			<div class="footer-container">
+				<div class="footer-main">
+					<div class="footer-columna">Supermercado SAV </div>
+					<div class="footer-columna">San Martin 1234. Rosario,Santa Fe.</div> 
+					<div class="footer-columna">Tel: (0341)-4322245</div>
+					<div class="footer-columna">
+						<p>
+							<a href="http://jigsaw.w3.org/css-validator/check/referer">
+								<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!" />
+							</a>
+						</p>	
+					</div>
+				</div>
+			  </div>
 		</footer>
 	</body>
 </html>

@@ -73,6 +73,10 @@ div[name=pri]
 {
 	margin-left:5vw;
 }
+.conf
+{
+	margin-left: 1vw!important;
+}
 .leerMas /*en el index*/
 {
 	width:50%;
@@ -149,6 +153,15 @@ div[name=pri]
 .aa /*carritoboton*/
 {
 	margin-left:52vw;
+}
+.botonConfirmacion/*boton confirmacion compra*/
+{
+	margin-left:48vw;
+}
+#btnError
+{
+	margin-left:80vh;
+	margin-right:50vh;
 }
 #botonReg /*registrar*/
 {
@@ -324,7 +337,7 @@ footer/*se usa*/
 {
 	background-color:#343A40;
 	color:rgba(255,255,255,.5);
-	width:calc(100% / 3);
+	width:calc(100% / 4);
 	text-align:center;
 }
 .footer-main .footer-columna:nth-child(1) /*se usa*/
