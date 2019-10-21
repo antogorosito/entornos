@@ -28,6 +28,9 @@
 			  <a class="nav-link" href="contacto.php">Contacto</a>
 			</li>
 			<li class="nav-item">
+			  <a class="nav-link " href="faq.php">FAQ</a>
+			</li>
+			<li class="nav-item">
 			  <a class="nav-link" href="carrito.php">Carrito</a>
 			</li>
 			<li class="nav-item">		
